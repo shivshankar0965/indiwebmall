@@ -1,5 +1,11 @@
+import Admin from "./pages/Admin";
+
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Admin />
+    </div>
+  );
 }
 
 export default App;
