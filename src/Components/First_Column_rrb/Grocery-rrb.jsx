@@ -3,8 +3,9 @@ import React from 'react';
 import Accessories from "./assests/Accessories.jpg";
 import Bags from "./assests/Bags.jpg";
 import Clothes from "./assests/Clothes.jpg";
-import Shoes from "./assests/Shoes1920x2800.jpg";
+import JewelryUpper from './assests/JewelryUpper.jpg';
 import Products from "./assests/Products.jpg";
+import sale from "./assests/Sale.jpg"
 import styles from "./Grocery.module.css";
 
 const GroceryRRB = () => {
@@ -15,16 +16,19 @@ const GroceryRRB = () => {
           <Image src={Accessories} alt="Accessories" w={[300, 400, 500]}/>
         </Box>
         <Box className={styles.box}>
-          <Image src={Bags} alt="Bags" w={[300, 400, 500]}/>
-        </Box>
-        <Box className={styles.box}>
-          <Image src={Shoes} alt="Shoes" w={[300, 400, 500]}/>
-        </Box>
-        <Box className={styles.box}>
           <Image src={Clothes} alt="Clothes" w={[300, 400, 500]}/>
         </Box>
         <Box className={styles.box}>
+          <Image src={JewelryUpper} alt="Shoes" w={[300, 400, 500]}/>
+        </Box>
+        <Box className={styles.box}>
+          <Image src={Bags} alt="Bags" w={[300, 400, 500]}/>
+        </Box>
+        <Box className={styles.box}>
           <Image src={Products} alt="Shoes" w={[300, 400, 500]}/>
+        </Box>
+        <Box className={styles.box}>
+          <Image src={sale} alt="shoes" w={[300, 400, 500]}/>
         </Box>
       </Box>
     </>
