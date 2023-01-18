@@ -1,0 +1,20 @@
+.container{
+    width: 99%;
+    padding: 10px;
+    background: #ddd;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    width: 260px;
+    height: 280px;
+    background: orange;
+    margin: 0px 10px;
+    transition: 1.5s;
+}
+.box:hover{
+    transform: scale(1.1);
+    background: #ff800a;
+}
