@@ -1,14 +1,12 @@
-import Admin from "./pages/Admin";
 import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./pages/AllRoutes";
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
+import Footer from './Components/Footer/Footer';
+
 function App() {
   return (<div>
-    <Admin />
       <Navbar />
       <AllRoutes/>
-      <div style={{height:'2000px',background:'teal'}}></div>
+      <Footer/>
     </div>
   );
 }

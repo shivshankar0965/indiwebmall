@@ -45,30 +45,27 @@
 
 .search {
   height: 40px;
-  /* border: 1px solid blue; */
   width: 60%;
   display: flex;
 }
 
 .orderBagLogin {
   height: 40px;
-  /* border: 1px solid black; */
   width: 25%;
   margin-left: 2%;
   display: flex;
 }
 
 .order {
-  /* border: 1px solid blue; */
   width: 100%;
   margin: auto;
   display: flex;
 }
 
 .bag {
-  /* border: 1px solid blue; */
   width: 100%;
   display: flex;
+  margin: auto;
 }
 
 .login {
@@ -102,27 +99,32 @@
   text-decoration: none;
 }
 
-.shopby ul{
+.shopby ul {
   position: absolute;
   left: 2%;
   width: 200px;
-  background: #fff;
+  /* background: #fff; */
+  background: rgb(244, 240, 237);
+  z-index: 1000;
   display: none;
   list-style: none;
   height: 500px;
+  /* border: 1px solid black; */
 }
 
 .shopby ul li {
   width: 100%;
   margin-top: 8px;
+  margin-left: 8px;
 }
 
 .shopby ul li ul {
   left: 200px;
-  top: 10px;
+  top: 0px;
   list-style: none;
   width: 400px;
-  border: 1px solid rgba(241, 239, 239, 0.395);
+  border: 1px solid rgb(239, 205, 180);
+  z-index: 1000;
 }
 
 .shopby:focus-within > ul,
@@ -130,31 +132,77 @@
   display: initial;
 }
 
-.shopby > ul>li:hover>ul {
+.shopby > ul > li:hover > ul {
   display: initial;
 }
 
-.products{
+.products {
   font-size: 15px;
   color: rgb(255, 81, 0);
 }
-.productssmall{
-  font-size: 12px;
+.productssmall {
+  font-size: 14px;
   font-weight: 400;
+  margin-left: 10px;
 }
-.productssmall:hover{
+.productssmall:hover {
   color: rgb(255, 81, 0);
 }
 
-.giftcard{
+.giftcard {
   font-size: 15px;
   color: rgb(255, 81, 0);
 }
-.giftcardsmall{
-  font-size: 12px;
+.giftcardsmall {
+  font-size: 14px;
   font-weight: 400;
+  margin-left: 10px;
 }
 
-.giftcardsmall:hover{
+.giftcardsmall:hover {
   color: rgb(255, 81, 0);
+}
+
+.dropMenu:hover {
+  background: rgb(239, 205, 180);
+}
+.login {
+  font-size: 13px;
+  margin-left: 5%;
+}
+
+@media screen and (max-width: 820px) {
+  .productssmall {
+    font-size: 10px;
+  }
+  .shopby a {
+    font-size: 7px;
+  }
+  .login {
+    font-size: 7px;
+  }
+  .input{
+    height: 80%;
+    font-size: 12px;
+  }
+  .category{
+    height: 34px;
+  }
+  .shopby ul {
+    left: 2%;
+    width: 150px;
+    height: 300px;
+    z-index: 1000;
+  }
+  .shopby ul li ul {
+    left: 150px;
+    top: 0px;
+    list-style: none;
+    width: 300px;
+    border: 1px solid rgb(239, 205, 180);
+    z-index: 1000;
+  }
+  .giftcardsmall {
+    font-size: 10px;
+  }
 }
