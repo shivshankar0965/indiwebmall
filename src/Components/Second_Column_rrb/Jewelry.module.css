@@ -10,10 +10,10 @@
 .box{
     width: 260px;
     height: 280px;
-    margin: 0px 20px;
-    transition: 1.5s;
+    margin: 0px 20px 40px 20px;
+    transition: 1.3s;
 }
 .box:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     background: #ff800a;
 }
