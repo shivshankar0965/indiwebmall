@@ -4,6 +4,8 @@ import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import Home from "./Home";
 import Admin from "./Admin";
+import MoreDetails from "../pages/MoreDetails";
+import VoucherDetails from "../pages/VoucherDetails";
 const AllRoutes = () => {
   return <>
 <Routes>
@@ -11,6 +13,8 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<Home />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/:voucher_id" element={<VoucherDetails />} />
+        <Route path="/:voucher_id/:id" element={<MoreDetails />} />
     </Routes>
   </>;
 };
