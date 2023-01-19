@@ -3,8 +3,13 @@ import img from "../../Assets/indiwebmall_logo.png";
 import styles from "./navbar.module.css";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
 import './navbar1.css'
+import { useContext } from "react";
+import { AuthContext } from './../../Context/AuthContext';
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
+  const { name,isAuth } = useContext(AuthContext);
 
   const Show_Login_Page = ()=>{
       document.querySelector(".popup").classList.add("active")
@@ -30,7 +35,7 @@ const Navbar = () => {
           <img src={img} alt="Logo" className={styles.logoImg} />
         </div>
       </div>
-      <div style={{}}>
+      <div>
         <div className={styles.mainDiv}>
           <div className={styles.category}>
             <div>
@@ -174,11 +179,12 @@ const Navbar = () => {
           <div className={styles.orderBagLogin}>
             <div className={styles.order}>
               <img
-                src="https://cdn-icons-png.flaticon.com/128/839/839860.png"
+                src="https://cdn-icons-png.flaticon.com/128/2666/2666505.png"
                 width={20}
-              ></img>
+                alt='icon'
+              />
               <div
-                style={{ fontSize: "14px", marginLeft: "5%", fontSize: "13px" }}
+                style={{ fontSize: "14px", marginLeft: "5%"}}
               >
                 {" "}
                 My Orders
@@ -186,12 +192,13 @@ const Navbar = () => {
             </div>
             <div className={styles.bag}>
               <img
-                src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png"
+                src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
                 width={20}
                 height={10}
-              ></img>
+                alt='logo'
+              />
               <div
-                style={{ fontSize: "14px", marginLeft: "5%", fontSize: "13px" }}
+                style={{ fontSize: "14px", marginLeft: "5%"}}
               >
                 {" "}
                 No Items in the Bag
@@ -199,16 +206,18 @@ const Navbar = () => {
             </div>
             <div className={styles.login}>
               <img
-                src="https://cdn-icons-png.flaticon.com/128/158/158417.png"
+                src="https://cdn-icons-png.flaticon.com/128/2584/2584602.png"
                 width={20}
                 alt='icon'
-              ></img>
-              <div onClick={Show_Login_Page}
-                style={{ fontSize: "14px", marginLeft: "5%", fontSize: "13px",border:'1px solid' }}
-              >
-                {" "}
-                Log In/Sign Up
-              </div>
+              />
+              {
+                isAuth? (<div>{name}</div>): (<div onClick={Show_Login_Page}
+                  style={{ fontSize: "14px", marginLeft: "5%",border:'1px solid' }}
+                >
+                  {" "}
+                  Log In/Sign Up
+                </div>)
+              }  
             </div>
           </div>
         </div>
@@ -236,7 +245,7 @@ const Navbar = () => {
             <button>Log in</button>
           </div>
           <div>
-            <p>if you don't have account <a href="#" style={{color:'rgb(255, 81, 0)'}}>Sign up</a></p>
+            <p>if you don't have account <Link to="/signup" style={{color:'rgb(255, 81, 0)'}} onClick={Hide_Login_Page}>Sign up</Link></p>
           </div>
           <div className="form-element">
             <a href="#">Forget Password</a>
