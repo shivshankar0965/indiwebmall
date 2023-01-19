@@ -1,0 +1,26 @@
+.container{
+    margin: auto;
+    width: 96%;
+    height:320px;
+    padding: 5px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    width: 260px;
+    height: 300px;
+    margin: 0px 10px 20px 10px;
+    transition: 1.5s;
+    overflow: hidden;
+}
+.box>img{
+    width:260px;
+    height:295px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.box:hover{
+    transform: scale(1.1);
+}
