@@ -8,12 +8,16 @@ const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
 };
+
 const theme = extendTheme({ config });
+import AuthContextProvider from "./Context/AuthContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider theme={theme}>
     <BrowserRouter>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </BrowserRouter>
   </ChakraProvider>
 );
