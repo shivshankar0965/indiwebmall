@@ -13,7 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Box, Image } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import styles from "./Slider.module.css";
 
@@ -39,7 +39,7 @@ const Slider = () => {
         {
             id:4,
             img:JewelryUpper,
-            title: "JewelryUpper",
+            title: "Jewellery",
         },
         {
             id:5,
@@ -81,7 +81,7 @@ const Slider = () => {
         >
             {
                 data.map((el)=> (
-                    <SwiperSlide key={el.id} className={styles.box}><Image src={el.img} alt={el.title} w={[300, 400, 500]}/></SwiperSlide>
+                    <SwiperSlide key={el.id}><Box className={styles.box} style={{marginLeft:"30px"}}><Image src={el.img} alt={el.title} w={[300, 400, 500]}/><Text style={{textAlign: "center",fontFamily:"Times New Roman, Times, serif",fontSize:"20px"}}>{el.title}</Text></Box></SwiperSlide>
                 ))
             }
         </Swiper>

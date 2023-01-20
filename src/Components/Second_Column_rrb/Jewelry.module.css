@@ -9,18 +9,28 @@
 
 .box{
     width: 270px;
-    height: 310px;
+    height: 320px;
     margin: 0px 20px 40px 20px;
     transition: 1.3s;
     overflow: hidden;
 }
 .box img{
     width:265px;
-    height:300px;
+    height:295px;
     object-fit: cover;
     border-radius: 10px;
+    position: absolute;
 }
 .box:hover{
     transform: scale(1.1);
 }
 
+.text {
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    top: 90%;
+    color: white;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}

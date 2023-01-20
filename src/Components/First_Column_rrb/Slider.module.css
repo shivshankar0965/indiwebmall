@@ -1,7 +1,8 @@
 .container{
     margin: auto;
+    margin-top: 40px;
     width: 100%;
-    height:320px;
+    height:340px;
     padding: 5px 15px;
     margin:auto;
     display: flex;
@@ -11,7 +12,7 @@
 
 .box{
     width: 260px;
-    height: 300px;
+    height: 340px;
     margin: 0px 10px 20px 10px;
     transition: 1.5s;
     overflow: hidden;
@@ -28,13 +29,13 @@
 .next{
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 45%;
 }
 
 .prev{
     position: absolute;
     size: 50;
-    top: 50%;
+    top: 45%;
     left: 0;
 }
 .prev, .next{
