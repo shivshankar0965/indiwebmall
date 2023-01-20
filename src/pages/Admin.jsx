@@ -6,19 +6,25 @@ import Search from "../Components/AdminComponents/Search";
 import Dashboard from "../Components/Dashboard/Dashboard";
 
 const Admin = () => {
-  return <>
-   <Flex>
-      <Box width={"30%"}><SimpleSidebar /></Box>
-        
-        <Box width={"70%"} bgColor={"white"}>
-        <Flex>
+  return (
+    <>
+      <Flex>
+        <Box width="">
+          <SimpleSidebar />
+        </Box>
+
+        <Box width={"100%"} bgColor={"white"}>
+          <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Dashboard />
+          <Flex flexDirection={"column"}>
+            <Dashboard />
+          </Flex>
         </Box>
-    </Flex>
-  </>;
+      </Flex>
+    </>
+  );
 };
 
 export default Admin;
