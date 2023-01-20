@@ -97,7 +97,7 @@ function Signup() {
           {load ? (
             <Button
               isLoading
-              w="100px"
+              w="10%"
               marginLeft="42%"
               marginTop="30px"
               color="white"
@@ -111,7 +111,7 @@ function Signup() {
             <Button
               onClick={postdata}
               loadingText="Submitting"
-              w="100px"
+              w="20%"
               marginLeft="42%"
               marginTop="30px"
               color="white"
@@ -119,8 +119,9 @@ function Signup() {
               _hover={{
                 bg: "blue.500",
               }}
+              
             >
-              Sign up
+             <span className={styles.signupButton}>Sign up</span> 
             </Button>
           )}
         </FormControl>
