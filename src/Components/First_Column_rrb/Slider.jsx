@@ -2,10 +2,11 @@ import React from 'react';
 import Accessories from "./assests/Accessories.jpg";
 import Bags from "./assests/Bags.jpg";
 import Clothes from "./assests/Clothes.jpg";
-import JewelryUpper from './assests/JewelryUpper.jpg';
+// import JewelryUpper from './assests/JewelryUpper.jpg';
 import Products from "./assests/Products.jpg";
 import sale from "./assests/Sale.jpg";
 import Shoes from "./assests/Shoes1920x2800.jpg";
+import cosmetics from "./assests/cosmetics.jpg";
 
 import { Navigation, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,6 +17,34 @@ import 'swiper/css/scrollbar';
 import { Box, Image, Text } from '@chakra-ui/react';
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import styles from "./Slider.module.css";
+
+const sliderSettings = {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      
+    },
+    490: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    820: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    900: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    1100: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+      },
+    1400: {
+    slidesPerView: 4,
+    spaceBetween: 15,
+    },
+  };
 
 const Slider = () => {
     const navigationPrevRef = React.useRef(null);
@@ -38,8 +67,8 @@ const Slider = () => {
         },
         {
             id:4,
-            img:JewelryUpper,
-            title: "Jewellery",
+            img:cosmetics,
+            title: "Cosmetics",
         },
         {
             id:5,
@@ -60,6 +89,7 @@ const Slider = () => {
   return (
     <Box className={styles.container} height={{base: '100%',md: '50%', xl: '50g %',}}>
         <Swiper 
+            breakpoints={sliderSettings}
             className={styles.container}
             modules={[Navigation, A11y]}
             spaceBetween={20}

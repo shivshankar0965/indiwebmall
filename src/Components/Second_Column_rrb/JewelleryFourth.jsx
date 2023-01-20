@@ -42,7 +42,7 @@ const JewelleryFourth = () => {
         <Button onClick={()=>handleName("name")} marginLeft="30px">Sort by Name</Button>
         <Spacer/>
       </Flex>
-    <Grid templateColumns='repeat(3, 1fr)' gap={6} style={{marginLeft:"150px", marginRight:"150px"}}>
+    <Grid templateColumns={{base:'repeat(1, 1fr)',sm:'repeat(2, 1fr)',md:'repeat(3, 1fr)',xl:'repeat(3, 1fr)'}} gap={6} style={{marginLeft:"150px", marginRight:"150px"}}>
     {
       data?.map((el)=>(
         <Box key={Math.random()} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>

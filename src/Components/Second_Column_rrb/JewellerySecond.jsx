@@ -20,7 +20,7 @@ const JewellerySecond = () => {
       setData(res.data);
     })
   },[page,sort,name])
-  // console.log(data);
+  console.log(data);
 
   const handleChange = (value) => {
     setPage(value+page);
@@ -49,7 +49,6 @@ const JewellerySecond = () => {
           <Image src={el.image} alt={el.title}/>
           <Text>{el.title}</Text>
           <Text>{el.price}</Text>
-          {/* <Button colorScheme='teal' size='xs'marginBottom="8px">Add To Cart</Button> */}
         </Box>
       ))
     }

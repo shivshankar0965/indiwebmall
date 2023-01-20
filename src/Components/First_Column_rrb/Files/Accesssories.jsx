@@ -52,14 +52,13 @@ const Accessories = () => {
             <Text as='s' color="red">{el.originalprice}</Text>
             <Text>{el.offerprice}</Text>
             <Text color="red">{el.off}</Text>
-            {/* <Button colorScheme='teal' size='xs'marginBottom="8px">Add To Cart</Button> */}
           </Box>
         ))
       }
       </Grid>
       <Box marginTop="20px" marginBottom="20px">
-        <Button disabled={page===1} onClick={()=>handleChange(-1)}>PREV</Button>
-        <Button disabled>{page}</Button>
+        <Button disabled={page===1} onClick={()=>handleChange(-1)} style={{marginRight:"5px"}}>PREV</Button>
+        <Button disabled style={{marginRight:"5px"}}>{page}</Button>
         <Button disabled={page===5} onClick={()=>handleChange(1)}>NEXT</Button>
       </Box>
       <Box marginTop="20px" marginBottom="20px" width="80%" marginLeft="150px">
