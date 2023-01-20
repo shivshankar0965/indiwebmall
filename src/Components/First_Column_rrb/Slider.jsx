@@ -14,10 +14,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Box, Image } from '@chakra-ui/react';
-
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import styles from "./Slider.module.css";
 
 const Slider = () => {
+    const navigationPrevRef = React.useRef(null);
+    const navigationNextRef = React.useRef(null);
     const data = [
         {
             id:1,
@@ -56,23 +58,41 @@ const Slider = () => {
         },
     ]
   return (
-    <Box height={{base: '100%',md: '50%', xl: '50g %',}}>
+    <Box className={styles.container} height={{base: '100%',md: '50%', xl: '50g %',}}>
         <Swiper 
             className={styles.container}
             modules={[Navigation, A11y]}
             spaceBetween={20}
             slidesPerView={4}
-            navigation
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+            navigation={{
+                prevEl: navigationPrevRef.current,
+                nextEl: navigationNextRef.current,
+            }}
+            onSwiper={(swiper) => {
+                setTimeout(() => {
+                swiper.params.navigation.prevEl = navigationPrevRef.current;
+                swiper.params.navigation.nextEl = navigationNextRef.current;
+                swiper.navigation.destroy();
+                swiper.navigation.init();
+                swiper.navigation.update();
+                });
+            }}
+    
+        >
             {
                 data.map((el)=> (
                     <SwiperSlide key={el.id} className={styles.box}><Image src={el.img} alt={el.title} w={[300, 400, 500]}/></SwiperSlide>
                 ))
             }
         </Swiper>
+        <Box className={styles.next} ref={navigationNextRef} variant='ghost'>
+            <HiChevronRight />
+        </Box>
+        <Box className={styles.prev} ref={navigationPrevRef} variant='ghost'>
+            <HiChevronLeft />
+        </Box>
     </Box>
+
   )
 }
 

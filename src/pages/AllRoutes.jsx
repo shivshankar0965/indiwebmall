@@ -6,6 +6,9 @@ import Admin from "./Admin";
 import MoreDetails from "../pages/MoreDetails";
 import VoucherDetails from "../pages/VoucherDetails";
 import Home from "./Home";
+import Products from "./Products";
+import Sale from "../Components/First_Column_rrb/Files/Sale";
+import Men from "../Components/First_Column_rrb/Files/Men";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -17,6 +20,9 @@ const AllRoutes = () => {
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
         <Route path="/:voucher_id/:id" element={<MoreDetails />} />
+        <Route path="products" element={<Products/>}></Route>
+        <Route path="/products/sale" element={<Sale/>}/>
+        <Route path="/products/men" element={<Men/>}/>
     </Routes>
   );
 };

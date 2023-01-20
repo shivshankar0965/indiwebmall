@@ -1,8 +1,7 @@
-.container{
+.containers{
     width: 99%;
     padding: 10px;
     height: 320px;
-    border: 1px solid black;
     margin: 100px auto;
     display: flex;
     justify-content: center;
@@ -24,3 +23,4 @@
 .box:hover{
     transform: scale(1.1);
 }
+
