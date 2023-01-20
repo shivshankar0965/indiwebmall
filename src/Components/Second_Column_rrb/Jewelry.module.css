@@ -1,19 +1,26 @@
 .container{
     width: 99%;
     padding: 10px;
-    background: #ddd;
+    height: 320px;
+    border: 1px solid black;
     margin: 100px auto;
     display: flex;
     justify-content: center;
 }
 
 .box{
-    width: 260px;
-    height: 280px;
+    width: 270px;
+    height: 310px;
     margin: 0px 20px 40px 20px;
     transition: 1.3s;
+    overflow: hidden;
+}
+.box img{
+    width:265px;
+    height:300px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .box:hover{
     transform: scale(1.1);
-    background: #ff800a;
 }

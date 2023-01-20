@@ -7,13 +7,13 @@ import AuthContextProvider from "./Context/AuthContext";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-
 const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
 };
 
 const theme = extendTheme({ config });
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider theme={theme}>

@@ -57,12 +57,11 @@ function Login() {
       <div className={styles.mainDiv}>
         <Heading
           fontFamily="cursive"
-          color="rgb(252,39,121)"
+          color="rgb(255, 81, 0)"
           textAlign="center"
         >
-          Sign in
+          Log in
         </Heading>
-        {/* <Button onClick={logoutUser} marginLeft='80%'>Sign out</Button> */}
         <FormControl>
           <FormLabel>Email address</FormLabel>
           <Input
@@ -84,19 +83,19 @@ function Login() {
           </FormHelperText>
           <FormHelperText>
             If have no account click{" "}
-            <Link color="rgb(252,39,121)" href="/signup">
+            <Link color="rgb(255, 81, 0)" href="/signup">
               Signup
             </Link>
           </FormHelperText>
           <Button
-            w="100px"
+            w="20%"
             marginLeft="42%"
             marginTop="30px"
             color="white"
-            background="rgb(252,39,121)"
+            background="rgb(255, 81, 0)"
             onClick={submitLogin}
           >
-            Sign in
+            <span className={styles.loginButton}>Log in</span>
           </Button>
         </FormControl>
       </div>

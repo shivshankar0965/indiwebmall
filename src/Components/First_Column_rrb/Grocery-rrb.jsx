@@ -8,11 +8,12 @@ import Products from "./assests/Products.jpg";
 import sale from "./assests/Sale.jpg"
 import styles from "./Grocery.module.css";
 
+
 const GroceryRRB = () => {
   return (
     <>
       <Box className={styles.container}>
-        <Box className={styles.box} height={{base: '100%',md: '50%', xl: '50g %',}}>
+        <Box className={styles.box} >
           <Image src={Accessories} alt="Accessories" w={[300, 400, 500]}/>
         </Box>
         <Box className={styles.box}>
@@ -30,6 +31,7 @@ const GroceryRRB = () => {
         <Box className={styles.box}>
           <Image src={sale} alt="shoes" w={[300, 400, 500]}/>
         </Box>
+        
       </Box>
     </>
   )
