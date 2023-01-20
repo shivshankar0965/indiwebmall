@@ -7,8 +7,21 @@ import {
 } from "react-icons/ai";
 import { BiLogOutCircle } from "react-icons/bi";
 import { FiUserPlus } from "react-icons/fi";
-import { HStack, Box } from "@chakra-ui/react";
+import {
+  HStack,
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/react";
 import PieChart from "./PieChart_orders/PieChart";
+import LineSales from "./Line_Charts_Sales/Line_Sales";
+import TopProducts from "./TopProducts/TopProducts";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+
 const statistics = [
   {
     id: 1,
@@ -36,7 +49,7 @@ const ordersOverview = {
     "Order Failed",
     "Order Returned",
     "Order Unpaid",
-    "Canceled",
+    "Order Canceled",
   ],
   datasets: [
     {
@@ -69,23 +82,44 @@ const Dashboard = () => {
   return (
     <>
       <Box>
-        <HStack mt="6" display={"flex"} flexWrap={"wrap"} gap={"6"}>
+        <Heading my={"6"}>Dashboard</Heading>
+        <Breadcrumb separator={<ChevronRightIcon color="gray.500" />}>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
+          </BreadcrumbItem>
+
+          <BreadcrumbItem isCurrentPage>
+            <BreadcrumbLink href="/admin/dashboard">Dashboard</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <Grid mt="6" gridTemplateColumns={"repeat(3, 1fr)"} gap="4">
           {statistics.map((el, i) => {
             const Logo = el.icon;
             return (
-              <StatisticsCard
-                key={i}
-                title={el.title}
-                statistic={el.statistic}
-                logo={<Logo />}
-              />
+              <GridItem key={i}>
+                <StatisticsCard
+                  title={el.title}
+                  statistic={el.statistic}
+                  logo={<Logo />}
+                />
+              </GridItem>
             );
           })}
-        </HStack>
-        <HStack>
-          <Box>
-            <PieChart data={ordersOverview} title={"Orders Overview"} />
+        </Grid>
+        <HStack display={"flex"} gap={"4"} align={"normal"}>
+          <Box h={"100%"}>
+            <PieChart
+              style={{ width: "100%" }}
+              data={ordersOverview}
+              title={"Orders Overview"}
+            />
           </Box>
+          <Box h={"100%"} w={"100%"}>
+            <LineSales title="Sales Overview" />
+          </Box>
+        </HStack>
+        <HStack align={"normal"}>
+          <TopProducts />
         </HStack>
       </Box>
     </>
