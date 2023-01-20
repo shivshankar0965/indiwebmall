@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./Context/AuthContext";
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store";
 const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
@@ -17,7 +19,9 @@ root.render(
   <ChakraProvider theme={theme}>
     <BrowserRouter>
       <AuthContextProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </AuthContextProvider>
     </BrowserRouter>
   </ChakraProvider>
