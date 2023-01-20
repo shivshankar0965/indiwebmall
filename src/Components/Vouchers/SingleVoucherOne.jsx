@@ -9,8 +9,6 @@ import {
   Image,
   Text,
   GridItem,
-  Box,
-  HStack,
 } from "@chakra-ui/react";
 
 const SingleVoucherOne = () => {
@@ -32,43 +30,35 @@ const SingleVoucherOne = () => {
 
   return (
     <Container maxW="full">
-      {data[voucher_id]?.map((el) => {
-        return (
-          <Flex
-            key={el.id}
-            h="100vh"
-            gap={5}
-            py={20}
-            pr={4}
-            pl={4}
-            onClick={() => handleAdd(el)}
-          >
-            <VStack
-              w="40%"
-              h="50%"
-              p={10}
-              spacing={10}
-              alignItems="flex-start"
-              bg={"grey"}
-            ></VStack>
-            <Grid
-              w="full"
-              h="full"
-              p={10}
-              spacing={10}
-              alignItems="flex-start"
-              templateColumns="repeat(4, 1fr)"
-              gap={2}
-              bg={"red"}
-            >
-              <GridItem>
+      <Flex h="100vh" gap={5} py={20} pr={4} pl={4}>
+        <VStack
+          w="40%"
+          h="50%"
+          p={10}
+          spacing={10}
+          alignItems="flex-start"
+          bg={"grey"}
+        ></VStack>
+        <Grid
+          w="full"
+          h="full"
+          p={10}
+          spacing={10}
+          alignItems="flex-start"
+          templateColumns="repeat(4, 1fr)"
+          gap={2}
+          bg={"red"}
+        >
+          {data[voucher_id]?.map((el) => {
+            return (
+              <GridItem key={el.id} onClick={() => handleAdd(el)}>
                 <Image src={el.image} alt={el.name} />
                 <Text>{el.price}</Text>
               </GridItem>
-            </Grid>
-          </Flex>
-        );
-      })}
+            );
+          })}
+        </Grid>
+      </Flex>
     </Container>
   );
 };
