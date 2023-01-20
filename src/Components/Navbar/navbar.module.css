@@ -1,4 +1,6 @@
-/* orange default ----> rgb(255, 81, 0) */
+.mobileOnly{
+  display: none;
+}
 
 .logoImg {
   width: 6%;
@@ -57,20 +59,26 @@
 }
 
 .order {
-  width: 100%;
+  width: 90%;
   margin: auto;
   display: flex;
 }
 
 .bag {
-  width: 100%;
+  width: 90%;
   display: flex;
   margin: auto;
 }
 
 .login {
   /* border: 1px solid blue; */
-  width: 100%;
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+.login1 {
+  /* border: 1px solid blue; */
+  width: 120%;
   margin: auto;
   display: flex;
 }
@@ -172,6 +180,9 @@
 }
 
 @media screen and (max-width: 820px) {
+  .mobileOnly{
+    display: none;
+  }
   .productssmall {
     font-size: 10px;
   }
@@ -205,4 +216,43 @@
   .giftcardsmall {
     font-size: 10px;
   }
+}
+
+@media screen and (max-width: 414px) {
+  .cancel{
+    display: none;
+  }
+  .mobileOnly{
+    display: initial;
+    background: rgb(245, 243, 241);
+  }
+
+  .threeSection{
+    border: 1px solid transparent;
+    width: 95%;
+    margin: auto;
+    display: flex;
+  }
+.product{
+  border: 1px solid transparent;
+  width: 18%;
+  font-size: 10px;
+  margin: auto;
+  display: flex;
+  margin-top: 6px;
+}
+.input2{
+  width: 70%;
+  margin: auto;
+}
+.log{
+  margin-top: 3px;
+  cursor: pointer;
+}
+.input1{
+  border: 1px solid lightgray;
+  width: 100%;
+  font-size: 8px;
+  border-radius: 2px;
+}
 }

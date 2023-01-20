@@ -7,7 +7,7 @@ import { BsBagCheck } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{background:'rgb(245, 250, 250)'}}>
       <div className={styles.paraContainer}>
         <h3 className={styles.heading1}>
           Paytm Mall - India’s Leading Online Shopping Experience, Brought to
@@ -73,6 +73,7 @@ const Footer = () => {
         <p className={styles.para1}>
           <span className={styles.bold}>Check Out Closely:</span>View products of your choice in detail with clear images and thorough descriptions before buying.
         </p>
+        <div className={styles.cancel}>
         <p className={styles.para1}>
           <span className={styles.bold}>Multiple Payment Options:</span>Choose a payment option of your choice i.e. Credit/Debit Cards, Netbanking and UPI.
 Use Paytm Wallet for quick checkouts & hassle-free payments
@@ -94,27 +95,28 @@ Trouble-free returns, track request & replacement of your orders
         Paytm Mall presents benefits like faster delivery with easy returns and payment options. Moreover, you can also take delight in online shopping with cash on delivery (COD) option as & when needed.
         </p>
       </div>
+      </div>
       <div className={styles.boxContainer}>
         <div className={styles.eachBox}>
-          <div className={styles.logo}><BsArrowUpRightSquare style={{fontSize:'130%'}}/></div>
+          <div className={styles.logo2}><BsArrowUpRightSquare style={{fontSize:'130%'}}/></div>
           <div className={styles.caption}>24x7 Help</div>
           <div className={styles.desc}>Need Help? <span className={styles.orange}>Click Here</span> . You can also talk to us on 0120 4606060 to resolve your query.</div>
         </div>
 
         <div className={styles.eachBox}>
-          <div className={styles.logo}><BsHeart style={{fontSize:'130%'}}/></div>
+          <div className={styles.logo2}><BsHeart style={{fontSize:'130%'}}/></div>
           <div className={styles.caption}>Paytm Trust</div>
           <div className={styles.desc}>Your money is yours! All refunds come with no question asked guarantee.</div>
         </div>
 
         <div className={styles.eachBox}>
-          <div className={styles.logo}><BsStar style={{fontSize:'130%'}}/></div>
+          <div className={styles.logo2}><BsStar style={{fontSize:'130%'}}/></div>
           <div className={styles.caption}>100% Assurance</div>
           <div className={styles.desc}>At Paytm, we provide 100% assurance. If you have any issue, your money is immediately refunded. Sit back and enjoy your shopping.</div>
         </div>
 
         <div className={styles.eachBox}>
-          <div className={styles.logo}><BsBagCheck style={{fontSize:'130%'}}/></div>
+          <div className={styles.logo2}><BsBagCheck style={{fontSize:'130%'}}/></div>
           <div className={styles.caption}>Paytm Mall Promise</div>
           <div className={styles.desc}>Products with this tag are quality checked, and shipped the same day from certified warehouses. So you get the right product, faster.</div>
         </div>

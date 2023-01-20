@@ -6,9 +6,10 @@ import "./navbarPopup.css";
 import { useContext } from "react";
 import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { RxDragHandleDots2 } from "react-icons/rx";
 
 const Navbar = () => {
-  const { name, isAuth } = useContext(AuthContext);
+  const { name, isAuth,logoutUser } = useContext(AuthContext);
 
   const Show_Login_Page = () => {
     document.querySelector(".popup").classList.add("active");
@@ -64,13 +65,31 @@ const Navbar = () => {
   return (
     <div
       style={{
-        background: "white",
+        background: "rgb(250, 250, 245)",
         paddingBottom: "10px",
         position: "sticky",
         top: "0px",
         zIndex: "1000",
       }}
     >
+      {/* navbar for mobile 0-414px */}
+      <div className={styles.mobileOnly}>
+        {/* logo */}
+        <div className={styles.logoDiv}>
+          <Link to="/">
+            <img src={img} alt="Logo" className={styles.logoImg} />
+          </Link>
+        </div>
+        {/* 3 section */}
+        <div className={styles.threeSection}>
+          <div className={styles.product}><RxDragHandleDots2 className={styles.log}/>Products</div>
+          <div className={styles.input2}><input className={styles.input1} type="text" placeholder="Search for a Product, Brand or Category" /></div>
+          <div className={styles.product}><RxDragHandleDots2 className={styles.log}/>dashBoard</div>
+        </div>
+      </div>
+
+      {/* navbar for tab & comuter */}
+      <div className={styles.cancel}>
       <div className={styles.empty}></div>
       <div>
         <div className={styles.logoDiv}>
@@ -257,16 +276,17 @@ const Navbar = () => {
                 the Bag
               </div>
             </div>
-            <div className={styles.login}>
+            <div className={styles.login1}>
               <img
                 src="https://cdn-icons-png.flaticon.com/128/2584/2584602.png"
                 width={20}
                 alt="icon"
               />
               {isAuth ? (
-                <div className={styles.login}>{name}</div>
+                <>
+                <div style={{color:'rgb(251,81,0)',fontWeight:'600',fontSize:'16px'}} className={styles.login}>{name}</div><span onClick={logoutUser} style={{color:'red',padding:'5px',fontWeight:400,background:'rgb(245,229,206)',borderRadius:'5px',cursor:'pointer'}}>logout</span></>
               ) : (
-                <div
+                <div style={{cursor:'pointer'}}
                 className={styles.login}
                   onClick={Show_Login_Page}
                 >
@@ -277,6 +297,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* popup login component*/}
