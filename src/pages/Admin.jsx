@@ -1,21 +1,23 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import AdminProfile from "../Components/AdminComponents/Admin_Profile";
-import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
+import Sidebar from "../Components/AdminComponents/Admin_Sidebar";
+import Products from "../Components/AdminComponents/Products/Products";
 import Search from "../Components/AdminComponents/Search";
 import Dashboard from "../Components/Dashboard/Dashboard";
 
 const Admin = () => {
   return <>
    <Flex>
-      <Box width={"30%"}><SimpleSidebar /></Box>
+      <Box ><Sidebar /></Box>
         
-        <Box width={"70%"} bgColor={"white"}>
+        <Box>
         <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Dashboard />
+          <Products/>
+          {/* <Dashboard /> */}
         </Box>
     </Flex>
   </>;

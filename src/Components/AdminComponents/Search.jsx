@@ -1,10 +1,10 @@
-import { Box, Input } from '@chakra-ui/react';
-
+import { Input } from '@chakra-ui/react';
+ 
 const  Search=()=>{
     return <>
-        {/* <Box border={"5px solid green"} >  */}
-        <Input  width={"800px"} ml={"-172px"} color={"white"} bgColor={"#061144"}   placeholder='Search' />
-        {/* </Box> */}
+       
+        <Input  width={"120vh"}  color={"white"} border={" 2px solid #061144"} bg={"#5D68A1"}  placeholder='Search' />
+         
        
         </>
         
