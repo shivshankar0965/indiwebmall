@@ -4,18 +4,20 @@ import AdminProfile from "../Components/AdminComponents/Admin_Profile";
 import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
 import Search from "../Components/AdminComponents/Search";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import Order from "../Components/Orders/Order";
 
 const Admin = () => {
   return <>
    <Flex>
-      <Box width={"30%"}><SimpleSidebar /></Box>
+      <Box width={"20%"}><SimpleSidebar /></Box>
         
         <Box width={"70%"} bgColor={"white"}>
         <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Dashboard />
+          {/* <Dashboard /> */}
+          <Order/>
         </Box>
     </Flex>
   </>;

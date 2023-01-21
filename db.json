@@ -4625,7 +4625,6 @@
     }
   ],
   "cart": [],
-  
   "voucher1": [
     {
       "id": 1,
@@ -5434,6 +5433,50 @@
       "name": "W Gift Card",
       "price": "₹ 5,500",
       "desc": ""
+    }
+  ],
+  "orders": [
+    {
+      "status": "Done",
+      "id": 1,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "status": "Delivered",
+      "id": 2,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "status": "In Transit",
+      "id": 3,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "pname": "The name of brand is turtle this is unique",
+      "originalprice": "€ 699",
+      "offerprice": "€ 489",
+      "off": "30% off",
+      "status": "pending",
+      "cname": "The Customer",
+      "cid": "98",
+      "quantity": "8"
     }
   ]
 }
