@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import axios from "axios";
 import {
   Box,
   Breadcrumb,
@@ -14,8 +15,23 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Modal,
+  ModalBody,
+  ModalOverlay,
+  ModalHeader,
+  ModalContent,
+  ModalCloseButton,
+  ModalFooter,
+  useDisclosure,
+  FormControl,
+  FormLabel,
+  Input,
+  Grid,
+  GridItem,
+  Select,
+  Textarea,
 } from "@chakra-ui/react";
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import UserRow from "./UserRow";
 const getTopProducts = async () => {
@@ -24,13 +40,49 @@ const getTopProducts = async () => {
   return data;
 };
 const Users = () => {
-  const [topProducts, setTopProducts] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [users, setUsers] = useState([]);
+  const [addresses, setAddress] = useState("");
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    gender: "",
+    mobile: "",
+    profile: "",
+    orders: [],
+    address: [],
+  });
+  const changeHandler = (e) => {
+    let { name, value } = e.target;
+    setUserDetails({ ...userDetails, [name]: value });
+  };
+  const handleSubmit = () => {
+    try {
+      axios.post("http://localhost:8080/users", userDetails);
+      setUserDetails({
+        name: "",
+        email: "",
+        password: "",
+        gender: "",
+        mobile: "",
+        profile: "",
+        orders: [],
+        address: [],
+      });
+    } catch (err) {
+      console.log("posting failed");
+    }
+  };
+  console.log(addresses);
+  console.log(userDetails);
+  const { name, email, password, gender, mobile, profile, orders, address } =
+    userDetails;
   useEffect(() => {
     getTopProducts().then((d) => {
-      setTopProducts(d);
+      setUsers(d);
     });
   }, []);
-  console.log(topProducts);
   return (
     <>
       <Box>
@@ -49,11 +101,12 @@ const Users = () => {
           </Box>
 
           <Box>
-            <Button colorScheme="gray" variant="outline">
+            <Button onClick={onOpen} colorScheme="gray" variant="outline">
               Add User
             </Button>
           </Box>
         </Flex>
+        {/* Form modals */}
 
         <Box
           mt={"6"}
@@ -87,7 +140,7 @@ const Users = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {topProducts?.map((user, i) => (
+                {users?.map((user, i) => (
                   <UserRow key={i} {...user} />
                 ))}
               </Tbody>
@@ -95,6 +148,112 @@ const Users = () => {
           </Box>
         </Box>
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent maxW="800px">
+          <ModalHeader
+            color={useColorModeValue("gray.600", "gray.700")}
+            borderBottom={"1px solid #999"}
+            pb={"6"}
+          >
+            Add New User
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody p={6} pb={6}>
+            <Grid gap={"6"} gridTemplateColumns={"repeat(2, 1fr)"}>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Full Name</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={name}
+                    name="name"
+                    placeholder="First name"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Email</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={email}
+                    name="email"
+                    placeholder="Last name"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Gender</FormLabel>
+                  <Select
+                    onChange={changeHandler}
+                    value={gender}
+                    name="gender"
+                    placeholder="Select Gender"
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                  </Select>
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Password</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={password}
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Image URL</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={profile}
+                    name="profile"
+                    placeholder="Profile Picture"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Mobile</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={mobile}
+                    name="mobile"
+                    placeholder="Mobile Number"
+                  />
+                </FormControl>
+              </GridItem>
+              {/* <GridItem colSpan={"2"}>
+                <FormControl>
+                  <FormLabel>User Address</FormLabel>
+                  <Textarea
+                    onChange={(e) => setAddress(e.target.value)}
+                    value={addresses}
+                    name="address"
+                    placeholder="User Address"
+                  />
+                </FormControl>
+              </GridItem> */}
+            </Grid>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button onClick={handleSubmit} colorScheme="blue" mr={3}>
+              Add User
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
