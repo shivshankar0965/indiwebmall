@@ -3,7 +3,6 @@ import React from "react";
 import AdminProfile from "../Components/AdminComponents/Admin_Profile";
 import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
 import Search from "../Components/AdminComponents/Search";
-import Dashboard from "../Components/Dashboard/Dashboard";
 import { Outlet } from "react-router-dom";
 
 const Admin = () => {
@@ -20,7 +19,6 @@ const Admin = () => {
             <AdminProfile />
           </Flex>
           <Box>
-            {/* <Dashboard /> */}
             <Outlet />
           </Box>
         </Box>

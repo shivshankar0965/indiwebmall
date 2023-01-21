@@ -80,8 +80,9 @@
   width: 30%;
 }
 .logo {
-  height: 20px;
-  width: 0px;
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
 }
 .logo1 {
   height: 40px;
@@ -172,13 +173,13 @@
     cursor: pointer;
     /* border: 1px solid; */
   }
-  .logo{
+  .logo {
     height: 10px;
     width: 10px;
     margin-left: 2px;
     margin-top: 7px;
-}
-.cancel{
-  display: none;
-}
+  }
+  .cancel {
+    display: none;
+  }
 }

@@ -5,40 +5,88 @@ import {
   Container,
   Flex,
   Grid,
-  VStack,
   Image,
   Text,
   GridItem,
+  Select,
+  Box,
 } from "@chakra-ui/react";
+import { PSlider } from "../Slider/PSlider";
 
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
   console.log("voucher_id:", voucher_id);
   // const navigate = useNavigate;
 
-  const [data, setData] = useState({});
-  console.log("data:", data);
+  var sortedArr;
+
+  const [data, setData] = useState([]);
+  // console.log("data:", data);
   const getData = async (voucher_id) => {
     let data = axios.get(`http://localhost:8080/vouchers/${voucher_id}`);
     let res = await data;
-    setData(res.data);
+    // setData(res.data);
+    setData(res.data[voucher_id])
   };
   useEffect(() => {
     getData(voucher_id);
   }, [voucher_id]);
   const handleAdd = (el) => {};
 
+  
+const selectHandler=(e)=>{
+  if(e.target.value=== "asc")
+  {
+    
+     sortedArr = data.sort((ele,el) =>{
+      // console.log('ele:', ele)
+      let x = Number(ele.price.slice(2,ele.price.length).split(",").join(""));
+      // console.log('x:', x)
+      let y = Number(el.price.slice(2,el.price.length).split(",").join(""));
+      // console.log('y:', y)
+      
+      if(y>x) return -1
+      if(x>y) return 1
+      return 0
+      
+    })
+    setData(sortedArr)
+    // console.log('sortedArr:', sortedArr)
+    
+  }
+  
+  
+  
+  // console.log(e.target.value)
+}
+// console.log('sortedArr:', sortedArr)
+useEffect(()=>{
+  setData(sortedArr)
+},[sortedArr])
+
   return (
     <Container maxW="full">
-      <Flex h="100vh" gap={5} py={20} pr={4} pl={4}>
-        <VStack
+      <Box align="right" >
+        <Box width={"sm"} >
+          <Select placeholder="Select option" onChange={selectHandler}>
+            <option value="asc">Ascending</option>
+            <option value="desc">Decending</option>
+          </Select>
+        </Box>
+      </Box>
+
+      <Flex gap={5} py={5} pr={4} pl={4}>
+        <Box
           w="40%"
           h="50%"
           p={10}
           spacing={10}
           alignItems="flex-start"
-          bg={"grey"}
-        ></VStack>
+          // bg={"grey"}
+          boxShadow="base"
+        >
+          <PSlider />
+        </Box>
         <Grid
           w="full"
           h="full"
@@ -46,14 +94,22 @@ const SingleVoucherOne = () => {
           spacing={10}
           alignItems="flex-start"
           templateColumns="repeat(4, 1fr)"
-          gap={2}
-          bg={"red"}
+          gap={10}
+          // bg={"red"}
+          boxShadow="base"
         >
-          {data[voucher_id]?.map((el) => {
+          {data?.map((el) => {
             return (
-              <GridItem key={el.id} onClick={() => handleAdd(el)}>
+              <GridItem
+                alignItems={"center"}
+                textAlign="left"
+                key={el.id}
+                onClick={() => handleAdd(el)}
+              >
                 <Image src={el.image} alt={el.name} />
-                <Text>{el.price}</Text>
+                <Text>{el.name}</Text>
+                <Text fontWeight={"bold"}>{el.price}</Text>
+                <Text>{el.desc}</Text>
               </GridItem>
             );
           })}
