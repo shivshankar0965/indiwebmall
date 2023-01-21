@@ -19,19 +19,19 @@ const JewelryRRB = () => {
       <Box className={styles.containers} height={{base: '100%',md: '50%', xl: '50g %',}}>
         <Box className={styles.box}>
           <Text className={styles.text}>Earrings</Text>
-          <Image src={jewelry2} alt="Clothes" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery1")}/>
+          <Image src={jewelry2} alt="Clothes" w={[300, 400, 500]} onClick={() => navigateTo("products/earrings")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Ring</Text>
-          <Image src={ring} alt="Shoes" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery2")}/>
+          <Image src={ring} alt="Shoes" w={[300, 400, 500]} onClick={() => navigateTo("products/rings")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Necklace</Text>
-          <Image src={jewelry1} alt="Accessories" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery3")}/>
+          <Image src={jewelry1} alt="Accessories" w={[300, 400, 500]} onClick={() => navigateTo("products/necklace")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Jewellery</Text>
-          <Image src={jewelry3} alt="Bags" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery4")}/>
+          <Image src={jewelry3} alt="Bags" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery")}/>
         </Box>
       </Box>
     </>

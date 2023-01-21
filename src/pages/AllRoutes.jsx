@@ -44,10 +44,10 @@ const AllRoutes = () => {
           <Route path="products" element={<Men/>}/>
           <Route path="shoes" element={<NewArrival/>}/>
           <Route path="sale" element={<Sale/>}/>
-          <Route path="jewellery1" element={<JewelleryFirst/>}/>
-          <Route path="jewellery2" element={<JewellerySecond/>}/>
-          <Route path="jewellery3" element={<JewelleryThird/>}/>
-          <Route path="jewellery4" element={<JewelleryFourth/>}/>
+          <Route path="earrings" element={<JewelleryFirst/>}/>
+          <Route path="rings" element={<JewellerySecond/>}/>
+          <Route path="necklace" element={<JewelleryThird/>}/>
+          <Route path="jewellery" element={<JewelleryFourth/>}/>
         </Route>
     </Routes>
   );
