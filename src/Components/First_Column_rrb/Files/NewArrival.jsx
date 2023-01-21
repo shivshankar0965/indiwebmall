@@ -32,7 +32,7 @@ const NewArrival = () => {
     setName(value)
   }
   return (
-    <Box>
+    <Box ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
       <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
@@ -51,9 +51,9 @@ const NewArrival = () => {
       ))
     }
     </Grid>
-    <Box marginTop="20px" marginBottom="20px" margin={"auto"} justifyContent="center" alignItems="center" display={"flex"}>
-      <Button disabled={page===1} onClick={()=>handleChange(-1)} style={{marginRight:"5px"}}>PREV</Button>
-      <Button disabled style={{marginRight:"5px"}}>{page}</Button>
+    <Box marginTop="20px" marginBottom="20px" margin={"auto"} justifyContent="center" alignItems="center" display={"flex"} p="30px 30px">
+      <Button disabled={page===1} onClick={()=>handleChange(-1)} style={{marginRight:"15px"}}>PREV</Button>
+      <Button disabled style={{marginRight:"15px"}}>{page}</Button>
       <Button disabled={page===5} onClick={()=>handleChange(1)}>NEXT</Button>
     </Box>
   </Box>

@@ -35,7 +35,7 @@ const Sale = () => {
   }
   
   return (
-    <Box style={{textAlign:"center"}}>
+    <Box style={{textAlign:"center"}} ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
       <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
@@ -56,13 +56,10 @@ const Sale = () => {
         ))
       }
       </Grid>
-      <Box marginTop="20px" marginBottom="20px" margin={"auto"} justifyContent="center" alignItems="center" display={"flex"}>
-        <Button disabled={page<=1} onClick={()=>handleChange(-1)}>PREV</Button>
-        <Button disabled>{page}</Button>
+      <Box marginTop="20px" marginBottom="20px" margin={"auto"} justifyContent="center" alignItems="center" display={"flex"} p="30px 30px">
+        <Button disabled={page<=1} onClick={()=>handleChange(-1)} mr="15px">PREV</Button>
+        <Button disabled mr="15px">{page}</Button>
         <Button disabled={page===5} onClick={()=>handleChange(1)}>NEXT</Button>
-      </Box>
-      <Box marginTop="20px" marginBottom="20px" width="80%" marginLeft="150px">
-        <hr/>
       </Box>
     </Box>
   )
