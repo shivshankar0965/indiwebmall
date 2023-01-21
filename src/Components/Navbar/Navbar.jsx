@@ -22,7 +22,7 @@ const Navbar = () => {
   // navbar Login start
 
   const [email, setemail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
@@ -35,12 +35,12 @@ const Navbar = () => {
     setload(true);
     console.log(load);
     try {
-      let res = await fetch(`https://mockserver-fhbg.onrender.com/users`);
+      let res = await fetch(`http://localhost:8080/users`);
       let data = await res.json();
       console.log(data);
       let Auth = false;
       for (let i in data) {
-        if (data[i].email === email && data[i].Password === Password) {
+        if (data[i].email === email && data[i].password === password) {
           Auth = true;
           loginUser(data[i].name);
           console.log(data[i].name);
@@ -443,7 +443,7 @@ const Navbar = () => {
             <input
               type="password"
               placeholder="Enter Your Password"
-              value={Password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

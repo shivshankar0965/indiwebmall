@@ -16,6 +16,12 @@ import NewArrival from "../Components/First_Column_rrb/Files/NewArrival";
 
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
+import Cart from "./Cart";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import LoginAdmin from "./LoginAdmin/LoginAdmin";
+import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 const AllRoutes = () => {
   return (
@@ -24,7 +30,7 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/admin" element={<Admin />}>
+      <Route path="/admin" element={<PrivateRouteAdmin><Admin /></PrivateRouteAdmin>}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="orders" element={<Dashboard />} />
         <Route path="users" element={<Users />} />
@@ -41,6 +47,9 @@ const AllRoutes = () => {
           <Route path="newarrival" element={<NewArrival/>}/>
           <Route path="sale" element={<Sale/>}/>
         </Route>
+
+        <Route path='/cart' element = {<PrivateRoute><Cart/></PrivateRoute> } />
+        <Route path='/loginadmin' element = {<><Navbar/> <LoginAdmin/> <Footer/></>} />
     </Routes>
   );
 };
