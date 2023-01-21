@@ -1,25 +1,24 @@
-import React from 'react';
-import { Table,Td,Tr,Tbody } from '@chakra-ui/react';
+import React from "react";
+import { Table, Td, Tr, Tbody, Image, Box } from "@chakra-ui/react";
 
-function ProductRow (image,name,title,price ) {
+function ProductRow({ image, name, title, price }) {
+  console.log(image, name, title, price);
   return (
-    <div>
-         <Table>
-              <Tbody>
-                <Tr>
-                  <Td>image</Td>
-                  <Td>name</Td>
-                  <Td>Price</Td>
-                  <Td>title</Td>
-                  <Td></Td>
-                  <Td></Td>
-                </Tr>
-              </Tbody>
-              
+    <>
+      <Tr color={"gray.600"}>
+        <Td>
+          <Box w="14">
 
-</Table>
-    </div>
-  )
+          <Image src={image} alt={name}/>
+          </Box>
+        </Td>
+        <Td>{name}</Td>
+        <Td>{`₹ ${price.slice(2, price.length)}`}</Td>
+        <Td>{title}</Td>
+        <Td>Actions</Td>
+      </Tr>
+    </>
+  );
 }
 
-export default ProductRow
+export default ProductRow;

@@ -5,7 +5,7 @@ import Signup from "./Signup/Signup";
 import Admin from "./Admin";
 import VoucherDetails from "../pages/VoucherDetails";
 import Home from "./Home";
-import Products from "./Products";
+import AdminProducts from "../Components/AdminComponents/Products/AdminProducts";
 import Sale from "../Components/First_Column_rrb/Files/Sale";
 import Men from "../Components/First_Column_rrb/Files/Men";
 import Accessories from "../Components/First_Column_rrb/Files/Accesssories";
@@ -16,6 +16,8 @@ import NewArrival from "../Components/First_Column_rrb/Files/NewArrival";
 
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
+import Order from "../Components/Orders/Order";
+import Products from "./Products";
 
 const AllRoutes = () => {
   return (
@@ -26,9 +28,9 @@ const AllRoutes = () => {
 
       <Route path="/admin" element={<Admin />}>
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="orders" element={<Dashboard />} />
+        <Route path="orders" element={<Order />} />
         <Route path="users" element={<Users />} />
-        <Route path="products" element={<Dashboard />} />
+        <Route path="products" element={<AdminProducts/>} />
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />

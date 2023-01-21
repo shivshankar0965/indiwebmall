@@ -12,22 +12,22 @@ import {
   Breadcrumb,
   BreadcrumbLink,
   Button,
-  Divider
-  
+  Divider,
+  useColorModeValue 
 } from '@chakra-ui/react'
-import useColorModeValue from "react"
-import {ChevronRightIcon} from "@chakra-ui/icons";
-const Products=()=> {
 
-  const [data, setData] = useState([]);
+import {ChevronRightIcon} from "@chakra-ui/icons";
+const AdminProducts=()=> {
+
+  const [products, setData] = useState([]);
 
   const fetchData = () => {
     fetch("http://localhost:8080/products")
       .then((response) => response.json())
-      .then((actualData) => {
-        console.log(actualData);
-        setData(actualData);
-        console.log(data);
+      .then((products) => {
+        console.log(products);
+        setData(products);
+        // console.log(data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -111,13 +111,12 @@ const Products=()=> {
                   <Th>Name</Th>
                   <Th>Price</Th>
                   <Th>Title</Th>
-                  <Th></Th>
-                  <Th></Th>
+                  <Th>Actions</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                {Products?.map((products, i) => (
-                  <ProductRow key={i} {...products} />
+                {products?.map((product, i) => (
+                  <ProductRow key={i} {...product} />
                 ))}
               </Tbody>
             </Table>
@@ -128,5 +127,5 @@ const Products=()=> {
   );
 }
 
-export default Products;
+export default AdminProducts;
 
