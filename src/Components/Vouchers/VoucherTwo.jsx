@@ -8,9 +8,11 @@ import { Center, Container, Flex } from "@chakra-ui/react";
 
 import { getVoucherTwo } from "../../Redux/Vouchers/Voucher2/voucherTwo.actions";
 import { Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const VoucherTwo = () => {
   const { loading, error, data } = useSelector((store) => store.voucher2);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,19 +48,25 @@ const VoucherTwo = () => {
 
   return (
     <Container maxW={"100%"}>
-      <h1>Vouchers</h1>
-      <Carousel responsive={responsive} removeArrowOnDeviceType="mobile" slidesToSlide={10}>
-        {data.map((ele) => (
+      <h1>Vouchers 2</h1>
+      <Carousel
+        responsive={responsive}
+        removeArrowOnDeviceType="mobile"
+        slidesToSlide={10}
+      >
+        {data.slice(23, 46).map((ele) => (
           <Center key={ele.id}>
             <Flex flexDir="column">
-              <Image
-                boxSize="90px"
-                // w={30}
-                borderRadius="full"
-                src={ele.image}
-                alt={ele.title}
-              />
-              <Text>{ele.title}</Text>
+              <Link to={`${ele.id}`}>
+                <Image
+                  boxSize="90px"
+                  // w={30}
+                  borderRadius="full"
+                  src={ele.image}
+                  alt={ele.title}
+                />
+                <Text>{ele.title}</Text>
+              </Link>
             </Flex>
           </Center>
         ))}
