@@ -6,26 +6,32 @@ import jewelry3 from "./assests/Jewelry2.1920x2800.jpg";
 // import jewelry4 from "./assests/Jewelry3.1920x2800.jpg";
 import ring from "./assests/ring.jpg";
 import styles from "./Jewelry.module.css";
+import { useNavigate } from "react-router-dom";
 
 const JewelryRRB = () => {
+  let navigate = useNavigate();
+
+  const navigateTo = (value) => {
+    navigate(value);
+  }
   return (
     <>
       <Box className={styles.containers} height={{base: '100%',md: '50%', xl: '50g %',}}>
         <Box className={styles.box}>
           <Text className={styles.text}>Earrings</Text>
-          <Image src={jewelry2} alt="Clothes" w={[300, 400, 500]}/>
+          <Image src={jewelry2} alt="Clothes" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery1")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Ring</Text>
-          <Image src={ring} alt="Shoes" w={[300, 400, 500]}/>
+          <Image src={ring} alt="Shoes" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery2")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Necklace</Text>
-          <Image src={jewelry1} alt="Accessories" w={[300, 400, 500]}/>
+          <Image src={jewelry1} alt="Accessories" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery3")}/>
         </Box>
         <Box className={styles.box}>
           <Text className={styles.text}>Jewellery</Text>
-          <Image src={jewelry3} alt="Bags" w={[300, 400, 500]}/>
+          <Image src={jewelry3} alt="Bags" w={[300, 400, 500]} onClick={() => navigateTo("products/jewellery4")}/>
         </Box>
       </Box>
     </>

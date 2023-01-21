@@ -17,6 +17,7 @@ import 'swiper/css/scrollbar';
 import { Box, Image, Text } from '@chakra-ui/react';
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import styles from "./Slider.module.css";
+import { useNavigate } from "react-router-dom";
 
 const sliderSettings = {
     0: {
@@ -47,43 +48,55 @@ const sliderSettings = {
   };
 
 const Slider = () => {
+    let navigate = useNavigate();
     const navigationPrevRef = React.useRef(null);
     const navigationNextRef = React.useRef(null);
+    const navigateTo = (value) => {
+        navigate(value.navigating);
+        // console.log(value.navigating);
+    }
     const data = [
         {
             id:1,
             img:Accessories,
             title: "Accessories",
+            navigating:"products/accessories",
         },
         {
             id:2,
             img:Bags,
             title: "Bags",
+            navigating:"products/bags",
         },
         {
             id:3,
             img:Clothes,
             title: "Clothes",
+            navigating:"products/clothing",
         },
         {
             id:4,
             img:cosmetics,
             title: "Cosmetics",
+            navigating:"products/cosmetics",
         },
         {
             id:5,
             img:Products,
             title: "Products",
+            navigating:"products/products",
         },
         {
             id:6,
             img:sale,
             title: "Sale",
+            navigating:"products/sale",
         },
         {
             id:7,
             img:Shoes,
             title: "Shoes",
+            navigating:"products/shoes",
         },
     ]
   return (
@@ -110,8 +123,13 @@ const Slider = () => {
     
         >
             {
-                data.map((el)=> (
-                    <SwiperSlide key={el.id}><Box className={styles.box} style={{marginLeft:"30px"}}><Image src={el.img} alt={el.title} w={[300, 400, 500]}/><Text style={{textAlign: "center",fontFamily:"Times New Roman, Times, serif",fontSize:"20px"}}>{el.title}</Text></Box></SwiperSlide>
+                data.map(({id,navigating,img,title})=> (
+                    <SwiperSlide key={id}>
+                        <Box className={styles.box} style={{marginLeft:"30px"}} onClick={() => navigateTo({navigating})}>
+                            <Image src={img} alt={title} w={[300, 400, 500]}/>
+                            <Text style={{textAlign: "center",fontFamily:"Times New Roman, Times, serif",fontSize:"20px"}}>{title}</Text>
+                        </Box>
+                    </SwiperSlide>
                 ))
             }
         </Swiper>

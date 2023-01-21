@@ -13,6 +13,10 @@ import Bags from "../Components/First_Column_rrb/Files/Bags";
 import Clothing from "../Components/First_Column_rrb/Files/Clothing";
 import Life from "../Components/First_Column_rrb/Files/Life";
 import NewArrival from "../Components/First_Column_rrb/Files/NewArrival";
+import JewelleryFirst from "../Components/Second_Column_rrb/JewelleryFirst";
+import JewellerySecond from "../Components/Second_Column_rrb/JewellerySecond";
+import JewelleryThird from "../Components/Second_Column_rrb/JewelleryThird";
+import JewelleryFourth from "../Components/Second_Column_rrb/JewelleryFourth";
 
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
@@ -36,10 +40,14 @@ const AllRoutes = () => {
           <Route path="accessories" element={<Accessories/>}/>
           <Route path="bags" element={<Bags/>}/>
           <Route path="clothing" element={<Clothing/>}/>
-          <Route path="life" element={<Life/>}/>
-          <Route path="men" element={<Men/>}/>
-          <Route path="newarrival" element={<NewArrival/>}/>
+          <Route path="cosmetics" element={<Life/>}/>
+          <Route path="products" element={<Men/>}/>
+          <Route path="shoes" element={<NewArrival/>}/>
           <Route path="sale" element={<Sale/>}/>
+          <Route path="jewellery1" element={<JewelleryFirst/>}/>
+          <Route path="jewellery2" element={<JewellerySecond/>}/>
+          <Route path="jewellery3" element={<JewelleryThird/>}/>
+          <Route path="jewellery4" element={<JewelleryFourth/>}/>
         </Route>
     </Routes>
   );
