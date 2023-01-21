@@ -1,11 +1,10 @@
-import Admin from "./pages/Admin";
-import Navbar from "./Components/Navbar/Navbar";
+import AllRoutes from "./pages/AllRoutes";
+
 function App() {
-  return <div>
-    <Admin />
-      <Navbar />
-      <div style={{ height: "2000px", background: "teal" }}></div>
-  </div>;
+  return (<div>
+      <AllRoutes/>
+    </div>
+  );
 }
 
 export default App;

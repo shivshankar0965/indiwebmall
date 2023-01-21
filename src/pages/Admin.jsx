@@ -1,26 +1,30 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import AdminProfile from "../Components/AdminComponents/Admin_Profile";
-import Sidebar from "../Components/AdminComponents/Admin_Sidebar";
-import Products from "../Components/AdminComponents/Products/Products";
+import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
 import Search from "../Components/AdminComponents/Search";
-import Dashboard from "../Components/Dashboard/Dashboard";
+import { Outlet } from "react-router-dom";
 
 const Admin = () => {
-  return <>
-   <Flex>
-      <Box ><Sidebar /></Box>
-        
-        <Box>
-        <Flex>
+  return (
+    <>
+      <Flex gap={"8"}>
+        <Box border={"1px solid black"} width={"20%"}>
+          <SimpleSidebar />
+        </Box>
+
+        <Box width={"75%"} bgColor={"white"}>
+          <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Products/>
-          {/* <Dashboard /> */}
+          <Box>
+            <Outlet />
+          </Box>
         </Box>
-    </Flex>
-  </>;
+      </Flex>
+    </>
+  );
 };
 
 export default Admin;
