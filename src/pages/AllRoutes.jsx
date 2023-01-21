@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Admin from "./Admin";
-import MoreDetails from "../pages/MoreDetails";
 import VoucherDetails from "../pages/VoucherDetails";
 import Home from "./Home";
 import Products from "./Products";
@@ -14,6 +13,10 @@ import Bags from "../Components/First_Column_rrb/Files/Bags";
 import Clothing from "../Components/First_Column_rrb/Files/Clothing";
 import Life from "../Components/First_Column_rrb/Files/Life";
 import NewArrival from "../Components/First_Column_rrb/Files/NewArrival";
+
+import Dashboard from "../Components/Dashboard/Dashboard";
+import Users from "../Components/AdminUsers/Users";
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -21,10 +24,14 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/admin" element={<Admin />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="orders" element={<Dashboard />} />
+        <Route path="users" element={<Users />} />
+        <Route path="products" element={<Dashboard />} />
+      </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-        <Route path="/:voucher_id/:id" element={<MoreDetails />} />
         <Route path="products" element={<Products/>}>
           <Route path="accessories" element={<Accessories/>}/>
           <Route path="bags" element={<Bags/>}/>
@@ -34,7 +41,6 @@ const AllRoutes = () => {
           <Route path="newarrival" element={<NewArrival/>}/>
           <Route path="sale" element={<Sale/>}/>
         </Route>
-        
     </Routes>
   );
 };
