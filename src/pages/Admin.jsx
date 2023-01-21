@@ -4,23 +4,25 @@ import AdminProfile from "../Components/AdminComponents/Admin_Profile";
 import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
 import Search from "../Components/AdminComponents/Search";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import { Outlet } from "react-router-dom";
 
 const Admin = () => {
   return (
     <>
-      <Flex>
-        <Box width="">
+      <Flex gap={"8"}>
+        <Box border={"1px solid black"} width={"20%"}>
           <SimpleSidebar />
         </Box>
 
-        <Box width={"100%"} bgColor={"white"}>
+        <Box width={"75%"} bgColor={"white"}>
           <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Flex flexDirection={"column"}>
-            <Dashboard />
-          </Flex>
+          <Box>
+            {/* <Dashboard /> */}
+            <Outlet />
+          </Box>
         </Box>
       </Flex>
     </>

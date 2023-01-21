@@ -19,11 +19,10 @@ const StatisticsCard = ({ title, logo, statistic }) => {
         borderRadius="md"
         gap={"50px"}
         alignItems={"center"}
-        bg={useColorModeValue("gray.300", "gray.700")}
+        bg={useColorModeValue("white.700", "gray.700")}
         transition={"ease-in-out"}
-        // transitionDelay={"0.2s"}
         transitionDuration={"0.2s"}
-        _hover={{ transform: "scale(1.1)" }}
+        _hover={{ transform: "scale(1.02)" }}
         cursor="pointer"
       >
         <VStack align={"left"}>

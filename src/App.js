@@ -9,12 +9,12 @@ import Slider from "./Components/First_Column_rrb/Slider";
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <AllRoutes />
-      <GroceryRRB />
-      <Slider />
-      <JewelryRRB />
-      <Footer />
+      {/* <GroceryRRB/>
+      <Slider/>
+      <JewelryRRB/>
+      <Footer/> */}
     </div>
   );
 }

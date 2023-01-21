@@ -6,6 +6,8 @@ import Admin from "./Admin";
 import MoreDetails from "../pages/MoreDetails";
 import VoucherDetails from "../pages/VoucherDetails";
 import Home from "./Home";
+import Dashboard from "../Components/Dashboard/Dashboard";
+import Users from "../Components/AdminUsers/Users";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -13,10 +15,14 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/admin" element={<Admin />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="orders" element={<Dashboard />} />
+        <Route path="users" element={<Users />} />
+        <Route path="products" element={<Dashboard />} />
+      </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-        <Route path="/:voucher_id/:id" element={<MoreDetails />} />
     </Routes>
   );
 };
