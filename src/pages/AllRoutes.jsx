@@ -226,22 +226,6 @@ const AllRoutes = () => {
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-      {/*         
-      <Route path="products" element={<>
-            <Navbar /> <Products /> <Footer />
-          </>}>
-        <Route path="accessories" element={<Accessories />} />
-        <Route path="bags" element={<Bags />} />
-        <Route path="clothing" element={<Clothing />} />
-        <Route path="cosmetics" element={<Life />} />
-        <Route path="products" element={<Men />} />
-        <Route path="shoes" element={<NewArrival />} />
-        <Route path="sale" element={<Sale />} />
-        <Route path="earrings" element={<JewelleryFirst />} />
-        <Route path="rings" element={<JewellerySecond />} />
-        <Route path="necklace" element={<JewelleryThird />} />
-        <Route path="jewellery" element={<JewelleryFourth />} /> 
-      </Route>*/}
       <Route path="cart" element={<CartPage />} />
       <Route path="checkoutpage" element={<CheckoutPage />} />
       <Route path="successfullorder" element={<Successfullorder />} />
