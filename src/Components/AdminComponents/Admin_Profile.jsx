@@ -10,9 +10,30 @@ import {
     Box,
     Text
   } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import {  FaUserAlt } from 'react-icons/fa';
+import axios from 'axios';
+
+
   
   const AdminProfile =()=>{
+    const [admin,setAdmin] =useState({})
+    
+    const logoutButton = ()=>{
+      localStorage.setItem("adminAuth","")
+      window.location.reload()
+    }
+
+    const getCartitem = async() => {
+      let res = await axios.get(`https://indiwebmallapi.onrender.com/admin`);
+      let data = await res.data;
+      return data;
+  }
+
+  useEffect(()=>{
+    getCartitem().then((d)=>setAdmin(d))
+  },[])
+  console.log(admin);
     return<>
       <Box w="30%"  ml="2" >
 <Menu  >
@@ -25,11 +46,11 @@ import {  FaUserAlt } from 'react-icons/fa';
   </MenuButton>
   <MenuList width={350}>
     
-      <MenuItem>Ritesh</MenuItem>
-      <MenuItem>95875646356 </MenuItem>
-      <MenuItem>ritesh@gmail.com</MenuItem>
-      <MenuItem>Male</MenuItem>
-      <MenuItem><Button variant={"outline"}>Logout</Button></MenuItem>
+      <MenuItem>{admin[0]?.name}</MenuItem>
+      <MenuItem>{admin[0]?.mobile} </MenuItem>
+      <MenuItem>{admin[0]?.email}</MenuItem>
+      <MenuItem>{admin[0]?.gender}</MenuItem>
+      <MenuItem><Button variant={"outline"} onClick={logoutButton}>Logout</Button></MenuItem>
   </MenuList>
 </Menu>
 </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import img from "../../Assets/indiwebmall_logo.png";
 import styles from "./navbar.module.css";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
@@ -7,12 +7,13 @@ import { useContext } from "react";
 import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import axios from 'axios';
 
 const Navbar = () => {
-  const { name, isAuth, logoutUser } = useContext(AuthContext);
-  console.log("auth", isAuth);
-  let authentication = localStorage.getItem('auth')
-  console.log(authentication);
+  const { logoutUser } = useContext(AuthContext);
+  // console.log("auth", isAuth);
+  let authentication = localStorage.getItem("auth");
+  // console.log(authentication);
 
   const Show_Login_Page = () => {
     document.querySelector(".popup").classList.add("active");
@@ -20,6 +21,10 @@ const Navbar = () => {
 
   const Hide_Login_Page = () => {
     document.querySelector(".popup").classList.remove("active");
+  };
+
+  const getCartitem = () => {
+    return axios.get(`http://localhost:8080/cart`);
   };
 
   // navbar Login start
@@ -33,6 +38,11 @@ const Navbar = () => {
   const [display1, setDisplay1] = useState("displayNone1");
   const [display2, setDisplay2] = useState("displayNone2");
   const [display3, setDisplay3] = useState("displayNone3");
+  const [cartLength,setCartLength] = useState(0)
+
+  useEffect(()=>{
+    getCartitem().then((d)=>setCartLength(d.data.length))
+  },[])
 
   const submitLogin = async () => {
     setload(true);
@@ -152,10 +162,10 @@ const Navbar = () => {
               alt="close"
             />
             <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
-              <a href="#">My Order</a>
+              <Link to="/cart">My Order</Link>
             </p>
             <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
-              <a href="#">The Bag</a>
+              <Link to="/cart">My Cart : {cartLength}</Link>
             </p>
             <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
               <Link onClick={manageDisplay} to="/login">
@@ -178,7 +188,6 @@ const Navbar = () => {
                 ) : (
                   "Sign up/Login"
                 )}
-               
               </Link>
             </p>
           </div>
@@ -223,14 +232,14 @@ const Navbar = () => {
             Products
           </h3>
           <p style={{ marginLeft: "10px" }}>
-            <Link to="#">Fashion</Link>
+            <Link to="/products/accessories">Accessories</Link>
           </p>
-          <p style={{ marginLeft: "10px" }}>Grocery & Home</p>
-          <p style={{ marginLeft: "10px" }}>Jewellery</p>
-          <p style={{ marginLeft: "10px" }}>Furniture & Electronix</p>
-          <p style={{ marginLeft: "10px" }}>Entertainment</p>
-          <p style={{ marginLeft: "10px" }}>Beauty & Health</p>
-          <p style={{ marginLeft: "10px" }}>Travel & Holidays</p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/bags">Bags</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/clothing">Clothes</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/cosmetics">Cosmetics</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/products">Items</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/sale">Sale</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/shoes">Shoes</Link></p>
         </div>
         {/* gift cards */}
         <div onClick={manageDisplay3} className={display3}>
@@ -251,14 +260,14 @@ const Navbar = () => {
             Gift Cards
           </h3>
           <p style={{ marginLeft: "10px" }}>
-            <Link to="#">Fashion</Link>
+            <Link to="/jockey">Jockey</Link>
           </p>
-          <p style={{ marginLeft: "10px" }}>Grocery & Home</p>
-          <p style={{ marginLeft: "10px" }}>Jewellery</p>
-          <p style={{ marginLeft: "10px" }}>Furniture & Electronix</p>
-          <p style={{ marginLeft: "10px" }}>Entertainment</p>
-          <p style={{ marginLeft: "10px" }}>Beauty & Health</p>
-          <p style={{ marginLeft: "10px" }}>Travel & Holidays</p>
+          <p style={{ marginLeft: "10px" }}><Link to="/levis">Levis</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/pantaloons">Pantaloons</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/unitedcolors">United Colors</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/biba">Biba</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/indianterrain">Indian Terrain</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/decathlon">Decathlon</Link></p>
         </div>
       </div>
 
@@ -266,7 +275,7 @@ const Navbar = () => {
       <div className={styles.cancel}>
         <div className={styles.empty}></div>
         <div>
-          <div className={styles.logoDiv}>
+          <div className={styles.logoDiv} style={{padding:'10px'}}>
             <Link to="/">
               <img src={img} alt="Logo" className={styles.logoImg} />
             </Link>
@@ -298,51 +307,51 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/accessories">
                             <span className={styles.productssmall}>
-                              Fashion
+                              Accessories
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/bags">
                             <span className={styles.productssmall}>
-                              Grocery & Home Decor
+                              Bags
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/clothing">
                             <span className={styles.productssmall}>
-                              Jewellery
+                              Clothes
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/cosmetics">
                             <span className={styles.productssmall}>
-                              Furniture & Electronics
+                              Cosmetics
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/products">
                             <span className={styles.productssmall}>
-                              Entertainment
+                              Items
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/sale">
                             <span className={styles.productssmall}>
-                              Beauty & Health
+                              Sale
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/shoes">
                             <span className={styles.productssmall}>
-                              Travel & Holidays
+                              Shoes
                             </span>
                           </a>
                         </li>
@@ -366,51 +375,51 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/jockey">
                             <span className={styles.giftcardsmall}>
-                              Fashion
+                              Jockey
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/levis">
                             <span className={styles.giftcardsmall}>
-                              Grocery & Home Decor
+                              Levis
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/pantaloons">
                             <span className={styles.giftcardsmall}>
-                              Jewellery
+                            Pantaloons
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/unitedcolors">
                             <span className={styles.giftcardsmall}>
-                              Furniture & Electronics
+                              United Colors
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/biba">
                             <span className={styles.giftcardsmall}>
-                              Entertainment
+                              Biba
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/indianterrain">
                             <span className={styles.giftcardsmall}>
-                              Beauty & Health
+                              Indian Terrain
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/decathlon">
                             <span className={styles.giftcardsmall}>
-                              Travel & Holidays
+                              Decathlon
                             </span>
                           </a>
                         </li>
@@ -435,7 +444,7 @@ const Navbar = () => {
                   width={20}
                   alt="icon"
                 />
-                <div className={styles.login}> My Orders</div>
+                <div className={styles.login}> <Link to="/cart">My Orders</Link></div>
               </div>
               <div className={styles.bag}>
                 <img
@@ -443,7 +452,7 @@ const Navbar = () => {
                   width={20}
                   alt="logo"
                 />
-                <div className={styles.login}> the Bag</div>
+                <div className={styles.login}><Link to='/cart'>My Cart : {cartLength}</Link> </div>
               </div>
               <div className={styles.login1}>
                 <img
@@ -451,6 +460,7 @@ const Navbar = () => {
                   width={20}
                   alt="icon"
                 />
+
                 {localStorage.getItem("name") ? (
                   <>
                     <div
@@ -504,6 +514,7 @@ const Navbar = () => {
           <div className="form-element">
             <label for="email">Email</label>
             <input
+            id="email"
               type="text"
               placeholder="Enter Your Email"
               value={email}
@@ -513,6 +524,7 @@ const Navbar = () => {
           <div className="form-element">
             <label for="password">Password</label>
             <input
+            id="password"
               type="password"
               placeholder="Enter Your Password"
               value={password}
@@ -520,8 +532,8 @@ const Navbar = () => {
             />
           </div>
           <div className="form-element">
-            <input type="checkbox" />
-            <label for="password">Remember me</label>
+            <input id="checkbox" type="checkbox" />
+            <label for="checkbox">Remember me</label>
           </div>
           <div className="form-element" onClick={Hide_Login_Page}>
             <button onClick={submitLogin}>Log in</button>

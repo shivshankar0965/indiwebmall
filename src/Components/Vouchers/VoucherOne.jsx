@@ -50,6 +50,7 @@ const VoucherOne = () => {
   return (
     <Container maxW={"100%"} mt={8}>
       <Carousel
+      
         responsive={responsive}
         removeArrowOnDeviceType="mobile"
         slidesToSlide={10}

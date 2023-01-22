@@ -3,12 +3,18 @@ import React from "react";
 import AdminProfile from "../Components/AdminComponents/Admin_Profile";
 import SimpleSidebar from "../Components/AdminComponents/Admin_Sidebar";
 import Search from "../Components/AdminComponents/Search";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams,useNavigate } from "react-router-dom";
 import Dashboard from "../Components/Dashboard/Dashboard";
 
 const Admin = () => {
+  // let navigate = useNavigate()
   const { params } = useParams();
   console.log(params);
+  // console.log(localStorage.getItem("adminAuth"));
+// if(!localStorage.getItem("adminAuth")){
+//   navigate('/adminlogin')
+// }
+
   return (
     <>
       <Flex gap={"8"}>
@@ -28,6 +34,7 @@ const Admin = () => {
       </Flex>
     </>
   );
+
 };
 
 export default Admin;

@@ -38,7 +38,7 @@ const AllRoutes = () => {
         path="/"
         element={
           <>
-            <Navbar /> <Home /> <Footer />
+            <Home />
           </>
         }
       >
@@ -75,9 +75,9 @@ const AllRoutes = () => {
         path="products"
         element={
           <>
-            <Navbar />
+            {/* <Navbar /> */}
             <Products />
-            <Footer />
+            {/* <Footer /> */}
           </>
         }
       >
@@ -151,13 +151,52 @@ const AllRoutes = () => {
             </>
           }
         />
+        <Route
+          path="earrings"
+          element={
+            <>
+              <Navbar />
+              <JewelleryFirst />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="rings"
+          element={
+            <>
+              <Navbar />
+              <JewellerySecond /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="necklace"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewelleryThird /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="jewellery"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewelleryFourth /> <Footer />
+            </>
+          }
+        />
       </Route>
 
       <Route
         path="cart"
         element={
           <PrivateRoute>
-            <Cart />
+            <CartPage />
           </PrivateRoute>
         }
       />
@@ -165,14 +204,21 @@ const AllRoutes = () => {
         path="loginadmin"
         element={
           <>
-            <Navbar /> <LoginAdmin /> <Footer />
+            {/* <PrivateRouteAdmin> */}
+              <Navbar /> <LoginAdmin /> <Footer />
+              {/* </PrivateRouteAdmin> */}
           </>
         }
       />
 
-      <Route path="/admin" element={<PrivateRouteAdmin>
+      <Route
+        path="/admin"
+        element={
+          <PrivateRouteAdmin>
             <Admin />
-          </PrivateRouteAdmin>}>
+          </PrivateRouteAdmin>
+        }
+      >
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="orders" element={<Dashboard />} />
         <Route path="users" element={<Users />} />
@@ -180,8 +226,10 @@ const AllRoutes = () => {
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-        
-      <Route path="products" element={<Products />}>
+      {/*         
+      <Route path="products" element={<>
+            <Navbar /> <Products /> <Footer />
+          </>}>
         <Route path="accessories" element={<Accessories />} />
         <Route path="bags" element={<Bags />} />
         <Route path="clothing" element={<Clothing />} />
@@ -192,13 +240,12 @@ const AllRoutes = () => {
         <Route path="earrings" element={<JewelleryFirst />} />
         <Route path="rings" element={<JewellerySecond />} />
         <Route path="necklace" element={<JewelleryThird />} />
-        <Route path="jewellery" element={<JewelleryFourth />} />
-      </Route>
+        <Route path="jewellery" element={<JewelleryFourth />} /> 
+      </Route>*/}
       <Route path="cart" element={<CartPage />} />
       <Route path="checkoutpage" element={<CheckoutPage />} />
       <Route path="successfullorder" element={<Successfullorder />} />
     </Routes>
-    
   );
 };
 

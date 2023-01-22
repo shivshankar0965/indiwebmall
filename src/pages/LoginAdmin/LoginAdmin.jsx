@@ -17,35 +17,35 @@ function LoginAdmin() {
   const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
-  const { adminUser } = useContext(AuthContext);
+  const { logoutUser } = useContext(AuthContext);
   
   const submitLogin = async () => {
     setload(true);
-    console.log(load);
+    // console.log(load);
     try {
       let res = await fetch(`http://localhost:8080/admin`);
       let data = await res.json();
-      console.log(data);
-      let adminAuth = false;
+      // console.log(data);
+      let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
-          adminAuth = true;
-          adminUser();
-          localStorage.setItem('adminAuth',true)
+          Auth = true;
+          localStorage.setItem('adminAuth',data[i].name)
           break;
         }
       }
-      console.log(adminAuth);
       setload(false);
-      if (adminAuth === false) {
+      if (Auth === false) {
         alert("Please enter right email or password!");
       } else {
         alert("Login Successfull!");
         navigate("/admin");
       }
-      console.log(adminAuth);
+
+      console.log(Auth);
     } catch (error) {
       setload(false);
+
       console.log(error);
     }
     setemail("");
