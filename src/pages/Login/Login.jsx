@@ -17,21 +17,24 @@ function Login() {
   const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
-  const { loginUser } = useContext(AuthContext);
-  
+  const { loginUser,isAuth } = useContext(AuthContext);
+  console.log('auth',isAuth)
+
   const submitLogin = async () => {
     setload(true);
-    console.log(load);
+    // console.log(load);
     try {
       let res = await fetch(`http://localhost:8080/users`);
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
           Auth = true;
+          localStorage.setItem('auth',true)
+          localStorage.setItem('name',data[i].name)
           loginUser(data[i].name);
-          console.log(data[i].name);
+          // console.log(data[i].name);
           break;
         }
       }

@@ -6,7 +6,7 @@ function AuthContextProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
   const [adminAuth, setAdminAuth] = useState(false);
   const [name, setName] = useState("");
-
+  
   const loginUser = (data) => {
     setIsAuth(true);
     setName(data);
@@ -19,6 +19,9 @@ function AuthContextProvider({ children }) {
   const logoutUser = () => {
     alert("User logged out Successfull!!");
     setIsAuth(false);
+    localStorage.setItem('auth',false);
+    localStorage.setItem('name','')
+    // window.location.reload()
   };
 
   return (

@@ -31,6 +31,7 @@ function LoginAdmin() {
         if (data[i].email === email && data[i].password === password) {
           adminAuth = true;
           adminUser();
+          localStorage.setItem('adminAuth',true)
           break;
         }
       }

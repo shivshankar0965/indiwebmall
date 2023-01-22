@@ -9,7 +9,7 @@ import { AuthContext } from "../Context/AuthContext";
 const PrivateRouteAdmin = ({ children }) => {
   const { adminAuth } = useContext(AuthContext);
 
-  if (!adminAuth) {
+  if (!localStorage.getItem('adminAuth')) {
     return <Navigate to="/loginadmin" />;
   }
 

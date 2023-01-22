@@ -10,6 +10,9 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 
 const Navbar = () => {
   const { name, isAuth, logoutUser } = useContext(AuthContext);
+  console.log("auth", isAuth);
+  let authentication = localStorage.getItem('auth')
+  console.log(authentication);
 
   const Show_Login_Page = () => {
     document.querySelector(".popup").classList.add("active");
@@ -26,24 +29,26 @@ const Navbar = () => {
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
-  const[display,setDisplay] = useState('displayNone')
-  const[display1,setDisplay1] = useState('displayNone1')
-  const[display2,setDisplay2] = useState('displayNone2')
-  const[display3,setDisplay3] = useState('displayNone3')
+  const [display, setDisplay] = useState("displayNone");
+  const [display1, setDisplay1] = useState("displayNone1");
+  const [display2, setDisplay2] = useState("displayNone2");
+  const [display3, setDisplay3] = useState("displayNone3");
 
   const submitLogin = async () => {
     setload(true);
-    console.log(load);
+    // console.log(load);
     try {
       let res = await fetch(`http://localhost:8080/users`);
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
           Auth = true;
+          localStorage.setItem("auth", true);
+          localStorage.setItem("name", data[i].name);
           loginUser(data[i].name);
-          console.log(data[i].name);
+          // console.log(data[i].name);
           break;
         }
       }
@@ -54,7 +59,7 @@ const Navbar = () => {
         alert("Login Successfull!");
         navigate("/");
       }
-      console.log(Auth);
+      // console.log(Auth);
     } catch (error) {
       setload(false);
 
@@ -66,41 +71,41 @@ const Navbar = () => {
 
   //navbar Login End
 
-  const manageDisplay=()=>{
+  const manageDisplay = () => {
     // setDisplay('displayNone');
-    if(display === 'display'){
-      return setDisplay('displayNone')
-    }else{
-      return setDisplay('display')
+    if (display === "display") {
+      return setDisplay("displayNone");
+    } else {
+      return setDisplay("display");
     }
-  }
+  };
 
-  const manageDisplay1=()=>{
+  const manageDisplay1 = () => {
     // setDisplay('displayNone');
-    if(display1 === 'display1'){
-      return setDisplay1('displayNone1')
-    }else{
-      return setDisplay1('display1')
+    if (display1 === "display1") {
+      return setDisplay1("displayNone1");
+    } else {
+      return setDisplay1("display1");
     }
-  }
+  };
 
-  const manageDisplay2=()=>{
+  const manageDisplay2 = () => {
     // setDisplay('displayNone');
-    if(display2 === 'display2'){
-      return setDisplay2('displayNone2')
-    }else{
-      return setDisplay2('display2')
+    if (display2 === "display2") {
+      return setDisplay2("displayNone2");
+    } else {
+      return setDisplay2("display2");
     }
-  }
+  };
 
-  const manageDisplay3=()=>{
+  const manageDisplay3 = () => {
     // setDisplay('displayNone');
-    if(display3 === 'display3'){
-      return setDisplay3('displayNone3')
-    }else{
-      return setDisplay3('display3')
+    if (display3 === "display3") {
+      return setDisplay3("displayNone3");
+    } else {
+      return setDisplay3("display3");
     }
-  }
+  };
 
   return (
     <div
@@ -139,54 +144,121 @@ const Navbar = () => {
           </div>
         </div>
         <div className={display}>
-        <div style={{border:'1px solid transparent',padding:'10px'}}>
-          <img onClick={manageDisplay} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
+          <div style={{ border: "1px solid transparent", padding: "10px" }}>
+            <img
+              onClick={manageDisplay}
+              style={{ width: "12px", marginLeft: "90%" }}
+              src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+              alt="close"
+            />
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
               <a href="#">My Order</a>
             </p>
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
               <a href="#">The Bag</a>
             </p>
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
-              <Link onClick={manageDisplay} to="/login">{isAuth?<div>😎{name}😎<span onClick={logoutUser} style={{color:'white',background:'lightgray',padding:'5px',marginLeft:'15px',borderRadius:'10px'}}>Logout</span></div>  : 'Sign up/Login'}</Link>
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
+              <Link onClick={manageDisplay} to="/login">
+                {authentication ? (
+                  <div>
+                    😎{localStorage.getItem("name")}😎
+                    <span
+                      onClick={logoutUser}
+                      style={{
+                        color: "white",
+                        background: "lightgray",
+                        padding: "5px",
+                        marginLeft: "15px",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      Logout
+                    </span>
+                  </div>
+                ) : (
+                  "Sign up/Login"
+                )}
+               
+              </Link>
             </p>
           </div>
         </div>
 
         <div className={display1}>
-        <div style={{border:'1px solid transparent',padding:'10px'}}>
-          <img onClick={manageDisplay1} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-            <p onClick={manageDisplay1} style={{cursor:'pointer'}}>
-              <span onClick={manageDisplay2}><a href="#">Products</a></span>
+          <div style={{ border: "1px solid transparent", padding: "10px" }}>
+            <img
+              onClick={manageDisplay1}
+              style={{ width: "12px", marginLeft: "90%" }}
+              src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+              alt="close"
+            />
+            <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
+              <span onClick={manageDisplay2}>
+                <a href="#">Products</a>
+              </span>
             </p>
-            <p onClick={manageDisplay1} style={{cursor:'pointer'}}>
-              <span onClick={manageDisplay3}><a href="#">Gift Cards</a></span>
+            <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
+              <span onClick={manageDisplay3}>
+                <a href="#">Gift Cards</a>
+              </span>
             </p>
           </div>
         </div>
-      {/* products */}
+        {/* products */}
         <div onClick={manageDisplay2} className={display2}>
-        <img onClick={manageDisplay2} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-          <h3 style={{textAlign:'center',fontSize:'12px',color:'rgb(251,81,0)',fontWeight:'600'}}>Products</h3>
-            <p style={{marginLeft:'10px'}}><Link to='#'>Fashion</Link></p>
-            <p style={{marginLeft:'10px'}}>Grocery & Home</p>
-            <p style={{marginLeft:'10px'}}>Jewellery</p>
-            <p style={{marginLeft:'10px'}}>Furniture & Electronix</p>
-            <p style={{marginLeft:'10px'}}>Entertainment</p>
-            <p style={{marginLeft:'10px'}}>Beauty & Health</p>
-            <p style={{marginLeft:'10px'}}>Travel & Holidays</p>
+          <img
+            onClick={manageDisplay2}
+            style={{ width: "12px", marginLeft: "90%" }}
+            src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+            alt="close"
+          />
+          <h3
+            style={{
+              textAlign: "center",
+              fontSize: "12px",
+              color: "rgb(251,81,0)",
+              fontWeight: "600",
+            }}
+          >
+            Products
+          </h3>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="#">Fashion</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>Grocery & Home</p>
+          <p style={{ marginLeft: "10px" }}>Jewellery</p>
+          <p style={{ marginLeft: "10px" }}>Furniture & Electronix</p>
+          <p style={{ marginLeft: "10px" }}>Entertainment</p>
+          <p style={{ marginLeft: "10px" }}>Beauty & Health</p>
+          <p style={{ marginLeft: "10px" }}>Travel & Holidays</p>
         </div>
         {/* gift cards */}
         <div onClick={manageDisplay3} className={display3}>
-        <img onClick={manageDisplay3} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-          <h3 style={{textAlign:'center',fontSize:'12px',color:'rgb(251,81,0)',fontWeight:'600'}}>Gift Cards</h3>
-            <p style={{marginLeft:'10px'}}><Link to='#'>Fashion</Link></p>
-            <p style={{marginLeft:'10px'}}>Grocery & Home</p>
-            <p style={{marginLeft:'10px'}}>Jewellery</p>
-            <p style={{marginLeft:'10px'}}>Furniture & Electronix</p>
-            <p style={{marginLeft:'10px'}}>Entertainment</p>
-            <p style={{marginLeft:'10px'}}>Beauty & Health</p>
-            <p style={{marginLeft:'10px'}}>Travel & Holidays</p>
+          <img
+            onClick={manageDisplay3}
+            style={{ width: "12px", marginLeft: "90%" }}
+            src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+            alt="close"
+          />
+          <h3
+            style={{
+              textAlign: "center",
+              fontSize: "12px",
+              color: "rgb(251,81,0)",
+              fontWeight: "600",
+            }}
+          >
+            Gift Cards
+          </h3>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="#">Fashion</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>Grocery & Home</p>
+          <p style={{ marginLeft: "10px" }}>Jewellery</p>
+          <p style={{ marginLeft: "10px" }}>Furniture & Electronix</p>
+          <p style={{ marginLeft: "10px" }}>Entertainment</p>
+          <p style={{ marginLeft: "10px" }}>Beauty & Health</p>
+          <p style={{ marginLeft: "10px" }}>Travel & Holidays</p>
         </div>
       </div>
 
@@ -379,7 +451,7 @@ const Navbar = () => {
                   width={20}
                   alt="icon"
                 />
-                {isAuth ? (
+                {localStorage.getItem("name") ? (
                   <>
                     <div
                       style={{
@@ -389,7 +461,7 @@ const Navbar = () => {
                       }}
                       className={styles.login}
                     >
-                      {name}
+                      {localStorage.getItem("name")}
                     </div>
                     <span
                       onClick={logoutUser}

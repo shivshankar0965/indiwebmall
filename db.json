@@ -6743,12 +6743,24 @@
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
       "id": 5
+    },
+    {
+      "name": "kush",
+      "email": "k@gmail.com",
+      "password": "1234",
+      "mobile": "",
+      "gender": "",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 6
     }
   ],
-  "admin": [{
-    "password": "admin",
-    "email": "indiwebmall@admin.com"
-  }],
+  "admin": [
+    {
+      "password": "admin",
+      "email": "indiwebmall@admin.com"
+    }
+  ],
   "orders": [
     {
       "status": "Done",
