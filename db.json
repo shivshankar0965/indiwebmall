@@ -4648,7 +4648,7 @@
       "price": "€ 145"
     }
   ],
-  "jewellery1":[
+  "jewellery1": [
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
       "title": "Tilly Sveaas",
@@ -6125,9 +6125,7 @@
       "offerPrice": "€ 161",
       "offf": "40% off"
     }
-    ]
-  ,
-
+  ],
   "vouchers": [
     {
       "id": "central",
@@ -7384,7 +7382,6 @@
       "mobile": "8541278911",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
-
       "address": []
     },
     {
@@ -7443,5 +7440,13 @@
       "quantity": "8"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "name": "The Row",
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/6c/P00606230.jpg",
+      "price": "€ 1,195",
+      "type": "Zipped Boot 1 suede boots",
+      "id": 1
+    }
+  ]
 }

@@ -22,7 +22,6 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
 import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
-import Successfullorder from "./Successfullorder";
 import Order from "../Components/Orders/Order";
 import Products from "./Products";
 
@@ -56,7 +55,6 @@ const AllRoutes = () => {
         </Route>
         <Route path="cart" element={<CartPage/>}/>
         <Route path="checkoutpage" element={<CheckoutPage/>}/>
-        <Route path="successfullorder" element={<Successfullorder/>}/>
     </Routes>
   );
 };

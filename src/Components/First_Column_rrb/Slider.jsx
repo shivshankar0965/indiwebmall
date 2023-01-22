@@ -83,7 +83,7 @@ const Slider = () => {
         {
             id:5,
             img:Products,
-            title: "Products",
+            title: "Items",
             navigating:"products/products",
         },
         {
