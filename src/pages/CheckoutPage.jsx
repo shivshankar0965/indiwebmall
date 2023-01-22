@@ -1,7 +1,8 @@
-import { Box, Button, Flex, HStack, Input, InputGroup, InputLeftAddon, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, PinInput, PinInputField, Stack, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Input, InputGroup, InputLeftAddon, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, PinInput, PinInputField, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react';
 import {useNavigate} from "react-router-dom";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react';
+import styles from "./CartPage.module.css";
 
 const CheckoutPage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,25 +26,26 @@ const CheckoutPage = () => {
 
   return (
     <>    
-    <Box m={"auto"} mt="50px">
-        <Stack spacing={3} width="400px" margin={"auto"} mb ="30px">
-            <Input placeholder='Card Holder Name' type="name" size='md' />
-            <Input placeholder='Card Number' type="number" size='md' />
+    <Box m={"auto"} mt="50px" w="410px" className={styles.stylebox} h="auto" borderRadius={"10px"}>
+        <Stack spacing={3} width="400px" margin={"auto"} mb ="30px" p="30px 30px">
+            <Text as='b' fontSize="25px">Payment</Text>
+            <Input placeholder='Card Holder Name' size='md' mb="5px"/>
+            <Input placeholder='Card Number' type="number" size='md' mb="5px"/>
             <Flex>
-                <Input placeholder='Expire Date' type="date" size='md' />
-                <Input ml="20px" placeholder='cvv' type="number" size='md' />
+                <Input placeholder='Expire Date' type="date" size='md' mb="5px"/>
+                <Input ml="20px" placeholder='cvv' type="number" size='md' mb="5px"/>
             </Flex>
-            <InputGroup>
-                <InputLeftAddon children='+91' />
+            <InputGroup mb="5px">
+                <InputLeftAddon children='+91' mb="5px"/>
                 <Input type='tel' placeholder='phone number'/>
             </InputGroup>
-            <Button onClick={onOpen}>Make Payment</Button>
+            <Button onClick={onOpen} mb="15px">Make Payment</Button>
         </Stack>
     </Box>
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            <ModalHeader>Enter Pin</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
                 <HStack>

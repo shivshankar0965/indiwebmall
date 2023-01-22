@@ -51,7 +51,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: hsl(0, 0%, 77%);
+    background-color: hsl(0, 12%, 92%);
 }
 .prev:hover{
     color:blue;

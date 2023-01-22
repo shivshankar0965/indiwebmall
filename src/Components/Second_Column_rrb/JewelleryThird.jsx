@@ -6,7 +6,7 @@ import { CartItem } from '../../Context/CartItem';
 import { useToast } from '@chakra-ui/react'
 
 const getJewelleryData = (page,sort,name) => {
-  return axios.get(`http://localhost:8080/jewellery3?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
+  return axios.get(`https://indiwebmallapi.onrender.com/jewellery3?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
 }
 
 const JewelleryThird = () => {
@@ -63,7 +63,7 @@ const JewelleryThird = () => {
             <Text as='s' color="red">{ `₹ ${el.originalPrice?.slice(2,el.originalPrice.length)}`}</Text>
             <Text>{`₹ ${el.offerPrice?.slice(2,el.offerPrice.length)}`}</Text>
             <Text color="red">{el.offf}</Text>
-            <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast()}}>Add To Cart</Button>
+            <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast(); window.location.reload()}}>Add To Cart</Button>
         </Box>
       ))
     }
