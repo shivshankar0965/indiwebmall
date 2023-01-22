@@ -115,7 +115,7 @@ const VoucherOne = () => {
                     src={ele.image}
                     alt={ele.title}
                   />
-                  <Text>{ele.title}</Text>
+                  <Text textAlign={"center"}>{ele.title}</Text>
               </Link>
             </Box>
           </SwiperSlide>
