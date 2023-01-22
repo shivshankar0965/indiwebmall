@@ -87,10 +87,6 @@ const Dashboard = () => {
           <BreadcrumbItem>
             <BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
           </BreadcrumbItem>
-
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href="/admin/dashboard">Dashboard</BreadcrumbLink>
-          </BreadcrumbItem>
         </Breadcrumb>
         <Grid mt="6" gridTemplateColumns={"repeat(3, 1fr)"} gap="4">
           {statistics.map((el, i) => {
