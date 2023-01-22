@@ -21,7 +21,7 @@ function AuthContextProvider({ children }) {
     setIsAuth(false);
     localStorage.setItem('auth',false);
     localStorage.setItem('name','')
-    // window.location.reload()
+    window.location.reload()
   };
 
   return (

@@ -11,6 +11,7 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+// import { useToast } from '@chakra-ui/react'
 
 function Signup() {
   const [password, setPassword] = useState("");
@@ -20,6 +21,16 @@ function Signup() {
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
+  // const toast = useToast()
+  // const getToast=()=>{
+  //   toast({
+  //     title: 'Account created.',
+  //     description: "We've created your account for you.",
+  //     status: 'success',
+  //     duration: 9000,
+  //     isClosable: true,
+  //   })
+  // }
 
   const postdata = async () => {
     setload(true);
@@ -38,6 +49,7 @@ function Signup() {
 
       if (mailAuth === true) {
         alert("Email already exist");
+        // getToast()
         setload(false);
       }
     }catch(err){

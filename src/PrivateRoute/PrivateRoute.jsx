@@ -9,7 +9,7 @@ import { AuthContext } from "../Context/AuthContext";
 const PrivateRoute = ({ children }) => {
   const { isAuth } = useContext(AuthContext);
 
-  if (!localStorage.getItem('auth')) {
+  if (!localStorage.getItem('name')) {
     return <Navigate to="/login" />;
   }
 

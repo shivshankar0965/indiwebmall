@@ -22,34 +22,160 @@ import LoginAdmin from "./LoginAdmin/LoginAdmin";
 import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import Index from "./Index";
 
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route
+        path="/"
+        element={
+          <>
+            <Navbar /> <Home /> <Footer />
+          </>
+        }
+      >
+        {" "}
+      </Route>
 
-      <Route path="/admin" element={<PrivateRouteAdmin><Admin /></PrivateRouteAdmin>}>
+      <Route
+        path="login"
+        element={
+          <>
+            <Navbar /> <Login /> <Footer />
+          </>
+        }
+      />
+      <Route
+        path="signup"
+        element={
+          <>
+            <Navbar /> <Signup /> <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/:voucher_id"
+        element={
+          <>
+            <Navbar />
+            <VoucherDetails />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="products"
+        element={
+          <>
+            <Navbar />
+            <Products />
+            <Footer />
+          </>
+        }
+      >
+        <Route
+          path="accessories"
+          element={
+            <>
+              <Navbar />
+              <Accessories />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="bags"
+          element={
+            <>
+              <Navbar />
+              <Bags />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="clothing"
+          element={
+            <>
+              <Navbar />
+              <Clothing />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="life"
+          element={
+            <>
+              <Navbar />
+              <Life />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="men"
+          element={
+            <>
+              <Navbar />
+              <Men />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="newarrival"
+          element={
+            <>
+              <Navbar />
+              <NewArrival />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="sale"
+          element={
+            <>
+              <Navbar />
+              <Sale />
+              <Footer />
+            </>
+          }
+        />
+      </Route>
+
+      <Route
+        path="cart"
+        element={
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="loginadmin"
+        element={
+          <>
+            <Navbar /> <LoginAdmin /> <Footer />
+          </>
+        }
+      />
+
+      <Route
+        path="/admin"
+        element={
+          <PrivateRouteAdmin>
+            <Admin />
+          </PrivateRouteAdmin>
+        }
+      >
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="orders" element={<Dashboard />} />
         <Route path="users" element={<Users />} />
         <Route path="products" element={<Dashboard />} />
       </Route>
-
-      <Route path="/:voucher_id" element={<VoucherDetails />} />
-        <Route path="products" element={<Products/>}>
-          <Route path="accessories" element={<Accessories/>}/>
-          <Route path="bags" element={<Bags/>}/>
-          <Route path="clothing" element={<Clothing/>}/>
-          <Route path="life" element={<Life/>}/>
-          <Route path="men" element={<Men/>}/>
-          <Route path="newarrival" element={<NewArrival/>}/>
-          <Route path="sale" element={<Sale/>}/>
-        </Route>
-
-        <Route path='/cart' element = {<PrivateRoute><Cart/></PrivateRoute> } />
-        <Route path='/loginadmin' element = {<><Navbar/> <LoginAdmin/> <Footer/></>} />
     </Routes>
   );
 };

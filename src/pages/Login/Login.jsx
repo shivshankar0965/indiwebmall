@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import styles from "./Login.module.css";
 
+
 function Login() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +20,7 @@ function Login() {
   const navigate = useNavigate();
   const { loginUser,isAuth } = useContext(AuthContext);
   console.log('auth',isAuth)
+  
 
   const submitLogin = async () => {
     setload(true);
@@ -45,6 +47,7 @@ function Login() {
         alert("Login Successfull!");
         navigate("/");
       }
+
       console.log(Auth);
     } catch (error) {
       setload(false);
