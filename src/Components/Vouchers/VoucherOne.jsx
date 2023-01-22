@@ -9,6 +9,8 @@ import { Center, Container, Flex } from "@chakra-ui/react";
 import { getVouchers } from "../../Redux/Vouchers/Voucher1/vouchers.actions";
 import { Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import Error from "../Messages/Error";
+import Loading from "../Messages/Loading";
 
 const VoucherOne = () => {
   const { loading, error, data } = useSelector((store) => store.voucher1);
@@ -21,9 +23,9 @@ const VoucherOne = () => {
     // getVouchers(dispatch);
   }, []);
 
-  if (loading) return <h3>LOADING...</h3>;
+  if (loading) return <Loading />;
 
-  if (error) return <h2>Error...</h2>;
+  if (error) return <Error />;
 
   const responsive = {
     superLargeDesktop: {
@@ -46,22 +48,25 @@ const VoucherOne = () => {
   };
 
   return (
-    <Container maxW={"100%"}>
-      <h1>Voucher 1</h1>
-      <Carousel responsive={responsive} removeArrowOnDeviceType="mobile" slidesToSlide={10}>
+    <Container maxW={"100%"} mt={8}>
+      <Carousel
+        responsive={responsive}
+        removeArrowOnDeviceType="mobile"
+        slidesToSlide={10}
+      >
         {data.slice(0, 23).map((ele) => (
           <Center key={ele.id}>
             <Flex flexDir="column">
               <Link to={`${ele.id}`}>
-              <Image
-                boxSize="90px"
-                // w={30}
-                border={"1px solid #E2E8F0"}
-                borderRadius="full"
-                src={ele.image}
-                alt={ele.title}
-              />
-              <Text>{ele.title}</Text>
+                <Image
+                  boxSize="90px"
+                  // w={30}
+                  border={"1px solid #E2E8F0"}
+                  borderRadius="full"
+                  src={ele.image}
+                  alt={ele.title}
+                />
+                <Text textAlign={"center"}>{ele.title}</Text>
               </Link>
             </Flex>
           </Center>
