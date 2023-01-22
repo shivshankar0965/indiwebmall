@@ -4624,7 +4624,6 @@
       "price": "€ 145"
     }
   ],
-
   "voucher1": [
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
@@ -6695,53 +6694,29 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Rajesh Thakur",
-      "email": "rajesh@gmail.com",
-      "password": "rajesh@123",
-      "gender": "Male",
-      "mobile": "8541278962",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": [],
-      "address": []
-    },
-    {
-      "id": 2,
-      "name": "Priya Kumari",
-      "email": "priya@gmail.com",
-      "password": "priya@123",
-      "gender": "Female",
-      "mobile": "8541278912",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
-      "orders": [],
-      "address": []
-    },
-    {
-      "id": 3,
-      "name": "Himanshu Kumar",
-      "email": "himansu@gmail.com",
-      "password": "himanshu@123",
-      "gender": "Male",
-      "mobile": "8541278911",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": [],
-      "address": []
-    },
-    {
-      "name": "Guddu Kumar",
-      "email": "guddu@gmail.com",
-      "password": "Guddu@102",
+      "name": "Kaushik Kumar Raj",
+      "email": "kaus@gmail.com",
+      "password": "kaushik@123",
       "gender": "male",
-      "mobile": "7631073551",
+      "mobile": "76585443432",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
-      "address": [],
-      "id": 4
+      "id": 8
+    },
+    {
+      "name": "Nikki kumari",
+      "email": "nikki@gmail.com",
+      "password": "nikki@1234",
+      "gender": "female",
+      "mobile": "7865543232",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u8.jpg",
+      "orders": [],
+      "id": 9
     }
   ],
   "orders": [
     {
-      "status": "Done",
+      "status": "Pending",
       "id": 1,
       "pname": "The name of brand is turtle this is unique",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",

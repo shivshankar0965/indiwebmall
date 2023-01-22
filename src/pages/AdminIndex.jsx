@@ -22,7 +22,7 @@ const Admin = () => {
             <AdminProfile />
           </Flex>
           <Box>
-            <Outlet />
+            <Dashboard />
           </Box>
         </Box>
       </Flex>

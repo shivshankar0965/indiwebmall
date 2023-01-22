@@ -26,26 +26,25 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/admin" element={<Admin />}>
-        <Route path="dashboard" element={<Dashboard />} />
+      <Route path="admin" element={<Admin />}>
+        <Route path="" element={<Dashboard />} />
         <Route path="orders" element={<Order />} />
         <Route path="users" element={<Users />} />
-        <Route path="products" element={<AdminProducts/>} />
+        <Route path="products" element={<AdminProducts />} />
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-        <Route path="products" element={<Products/>}>
-          <Route path="accessories" element={<Accessories/>}/>
-          <Route path="bags" element={<Bags/>}/>
-          <Route path="clothing" element={<Clothing/>}/>
-          <Route path="life" element={<Life/>}/>
-          <Route path="men" element={<Men/>}/>
-          <Route path="newarrival" element={<NewArrival/>}/>
-          <Route path="sale" element={<Sale/>}/>
-        </Route>
+      <Route path="products" element={<Products />}>
+        <Route path="accessories" element={<Accessories />} />
+        <Route path="bags" element={<Bags />} />
+        <Route path="clothing" element={<Clothing />} />
+        <Route path="life" element={<Life />} />
+        <Route path="men" element={<Men />} />
+        <Route path="newarrival" element={<NewArrival />} />
+        <Route path="sale" element={<Sale />} />
+      </Route>
     </Routes>
   );
 };
 
 export default AllRoutes;
-

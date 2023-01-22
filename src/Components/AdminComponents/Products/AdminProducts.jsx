@@ -1,24 +1,25 @@
-import React from 'react';
-import ProductRow from './ProductRow';
+import React from "react";
+import ProductRow from "./ProductRow";
 import { useEffect, useState } from "react";
 import {
   Table,
   Thead,
   Tbody,
-  Box,  Tr,
+  Box,
+  Tr,
   Th,
-  Heading,Flex,
+  Heading,
+  Flex,
   BreadcrumbItem,
   Breadcrumb,
   BreadcrumbLink,
   Button,
   Divider,
-  useColorModeValue 
-} from '@chakra-ui/react'
+  useColorModeValue,
+} from "@chakra-ui/react";
 
-import {ChevronRightIcon} from "@chakra-ui/icons";
-const AdminProducts=()=> {
-
+import { ChevronRightIcon } from "@chakra-ui/icons";
+const AdminProducts = () => {
   const [products, setData] = useState([]);
 
   const fetchData = () => {
@@ -40,7 +41,6 @@ const AdminProducts=()=> {
 
   return (
     <>
-
       {/* <TableContainer mt={50} border={"2px solid white"}>
            <Table variant='striped' colorScheme=''>
              <Thead>
@@ -65,7 +65,7 @@ const AdminProducts=()=> {
            </Table>
          </TableContainer> */}
       <Box>
-        <Heading my={"6"}>Users</Heading>
+        <Heading my={"6"}>Products</Heading>
         <Flex alignItems={"center"} justifyContent={"space-between"}>
           <Box>
             <Breadcrumb separator={<ChevronRightIcon color="gray.500" />}>
@@ -74,14 +74,14 @@ const AdminProducts=()=> {
               </BreadcrumbItem>
 
               <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href="/admin/users">Users</BreadcrumbLink>
+                <BreadcrumbLink href="/admin/products">Products</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
           </Box>
 
           <Box>
             <Button colorScheme="gray" variant="outline">
-              Add User
+              Add Products
             </Button>
           </Box>
         </Flex>
@@ -95,7 +95,7 @@ const AdminProducts=()=> {
           border="1px solid #999"
           width="100%"
         >
-          <Heading p="6">User Database</Heading>
+          <Heading p="6">Product Database</Heading>
           <Divider />
           <Box
             flexDirection={"column"}
@@ -125,7 +125,6 @@ const AdminProducts=()=> {
       </Box>
     </>
   );
-}
+};
 
 export default AdminProducts;
-
