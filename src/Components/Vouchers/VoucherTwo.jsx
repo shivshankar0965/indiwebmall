@@ -9,6 +9,8 @@ import { Center, Container, Flex } from "@chakra-ui/react";
 import { getVoucherTwo } from "../../Redux/Vouchers/Voucher2/voucherTwo.actions";
 import { Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import Loading from "../Messages/Loading";
+import Error from "../Messages/Error";
 
 const VoucherTwo = () => {
   const { loading, error, data } = useSelector((store) => store.voucher2);
@@ -22,9 +24,9 @@ const VoucherTwo = () => {
     // getVoucherTwo(dispatch);
   }, []);
 
-  if (loading) return <h3>LOADING...</h3>;
+  if (loading) return <Loading />;
 
-  if (error) return <h2>Error...</h2>;
+  if (error) return <Error />;
 
   const responsive = {
     superLargeDesktop: {
@@ -47,8 +49,7 @@ const VoucherTwo = () => {
   };
 
   return (
-    <Container maxW={"100%"}>
-      <h1>Vouchers 2</h1>
+    <Container maxW={"100%"} mt={8} mb={8}>
       <Carousel
         responsive={responsive}
         removeArrowOnDeviceType="mobile"
@@ -65,7 +66,7 @@ const VoucherTwo = () => {
                   src={ele.image}
                   alt={ele.title}
                 />
-                <Text>{ele.title}</Text>
+                <Text textAlign={"center"}>{ele.title}</Text>
               </Link>
             </Flex>
           </Center>
