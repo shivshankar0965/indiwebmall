@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from "axios";
 import { useEffect,useState } from 'react';
-import {Box,Text,Image,Button,Grid} from "@chakra-ui/react";
+import {Box,Text,Image,Button,Grid, useToast} from "@chakra-ui/react";
+import { CartItem } from '../../../Context/CartItem';
 
 const getMensData = (page,sort,name) => {
-  return axios.get(`http://localhost:5000/shoes?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
+  return axios.get(`http://localhost:8080/shoes?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
 }
 
 const NewArrival = () => {
@@ -12,6 +13,8 @@ const NewArrival = () => {
   const [page,setPage] = useState(1);
   const [sort,setSort] = useState("desc")
   const [name,setName] = useState("title")
+  const toast = useToast();
+  const {handleAddCart} = useContext(CartItem);
 
   useEffect(()=>{
     getMensData(page,sort,name)
@@ -31,9 +34,18 @@ const NewArrival = () => {
   const handleName = (value) => {
     setName(value)
   }
+  const handleToast = () => {
+    toast({
+      title: 'Cart Item Added.',
+      description: "We've successfully added product to cart page",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
   return (
     <Box ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
-      <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
+      <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px" mt="20px" gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
         <Button onClick={()=>handleName("title")} marginLeft="30px">Sort by Tilte</Button>
@@ -46,7 +58,8 @@ const NewArrival = () => {
           <Image src={el.image} alt={el.title}/>
           <Text>{el.name}</Text>
           <Text>{el.title}</Text>
-          <Text>{el.offerprice}</Text>
+          <Text>{`₹ ${el.offerprice.slice(2,el.offerprice.length)}`}</Text>
+          <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast()}}>Add To Cart</Button>
         </Box>
       ))
     }

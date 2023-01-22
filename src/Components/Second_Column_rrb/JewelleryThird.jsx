@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from "axios";
 import { useEffect,useState } from 'react';
 import {Box,Text,Image,Button,Grid} from "@chakra-ui/react";
+import { CartItem } from '../../Context/CartItem';
+import { useToast } from '@chakra-ui/react'
 
 const getJewelleryData = (page,sort,name) => {
-  return axios.get(`http://localhost:5000/jewellery3?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
+  return axios.get(`http://localhost:8080/jewellery3?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
 }
 
 const JewelleryThird = () => {
@@ -12,6 +14,8 @@ const JewelleryThird = () => {
   const [page,setPage] = useState(1);
   const [sort,setSort] = useState("desc")
   const [name,setName] = useState("name")
+  const toast = useToast();
+  const {handleAddCart} = useContext(CartItem);
 
   useEffect(()=>{
     getJewelleryData(page,sort,name)
@@ -32,9 +36,18 @@ const JewelleryThird = () => {
   const handleName = (value) => {
     setName(value)
   }
+  const handleToast = () => {
+    toast({
+      title: 'Cart Item Added.',
+      description: "We've successfully added product to cart page",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
   return (
     <Box style={{textAlign:"center"}} ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
-      <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
+      <Grid marginBottom="20px" marginLeft="10px" mt="20px"  marginRight="20px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
         <Button onClick={()=>handleName("title")} marginLeft="30px">Sort by Tilte</Button>
@@ -47,9 +60,10 @@ const JewelleryThird = () => {
             <Image src={el.image} alt={el.title}/>
             <Text>{el.name}</Text>
             <Text>{el.title}</Text>
-            <Text as='s' color="red">{el.originalPrice}</Text>
-            <Text>{el.offerPrice}</Text>
+            <Text as='s' color="red">{ `₹ ${el.originalPrice?.slice(2,el.originalPrice.length)}`}</Text>
+            <Text>{`₹ ${el.offerPrice?.slice(2,el.offerPrice.length)}`}</Text>
             <Text color="red">{el.offf}</Text>
+            <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast()}}>Add To Cart</Button>
         </Box>
       ))
     }

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from "axios";
 import { useEffect,useState } from 'react';
 import {Box,Text,Image,Button,Grid} from "@chakra-ui/react";
+import { CartItem } from '../../Context/CartItem';
+import { useToast } from '@chakra-ui/react'
 
 const getJewelleryData = (page,sort,name) => {
-  return axios.get(`http://localhost:5000/jewellery1?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
+  return axios.get(`http://localhost:8080/jewellery1?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
 }
 
 const JewelleryFirst = () => {
@@ -12,6 +14,8 @@ const JewelleryFirst = () => {
   const [page,setPage] = useState(1);
   const [sort,setSort] = useState("desc")
   const [name,setName] = useState("name")
+  const toast = useToast();
+  const {handleAddCart} = useContext(CartItem);
 
   useEffect(()=>{
     getJewelleryData(page,sort,name)
@@ -32,9 +36,18 @@ const JewelleryFirst = () => {
   const handleName = (value) => {
     setName(value)
   }
+  const handleToast = () => {
+    toast({
+      title: 'Cart Item Added.',
+      description: "We've successfully added product to cart page",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
   return (
     <Box style={{textAlign:"center"}} ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
-      <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
+      <Grid marginBottom="20px" marginLeft="10px"  marginRight="20px" mt="20px" gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
         <Button onClick={()=>handleName("title")} marginLeft="30px">Sort by Tilte</Button>
@@ -47,8 +60,8 @@ const JewelleryFirst = () => {
           <Image src={el.image} alt={el.title}/>
           <Text>{el.title}</Text>
           <Text>{el.name}</Text>
-          <Text>{el.price}</Text>
-          {/* <Button colorScheme='teal' size='xs'marginBottom="8px">Add To Cart</Button> */}
+          <Text>{`₹ ${el.price?.slice(1,el.price.length)}`}</Text>
+          <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast()}}>Add To Cart</Button>
         </Box>
       ))
     }

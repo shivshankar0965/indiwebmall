@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from "axios";
 import { useEffect,useState } from 'react';
-import {Box,Text,Image,Button,Grid, useDisclosure} from "@chakra-ui/react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react'
+import {Box,Text,Image,Button,Grid} from "@chakra-ui/react";
+import { CartItem } from '../../../Context/CartItem';
+import { useToast } from '@chakra-ui/react'
 
 const getMensData = (page,sort,name) => {
-  return axios.get(`http://localhost:5000/accessories?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
+  return axios.get(`http://localhost:8080/accessories?_page=${page}&_limit=12&_sort=${name}&_order=${sort}`);
 }
-
 
 const Accessories = () => {
   const [data, setData] = useState([]);
   const [page,setPage] = useState(1);
   const [sort,setSort] = useState("asc")
   const [name,setName] = useState("name")
-  const [single,setSingle] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast();
+  const {handleAddCart} = useContext(CartItem);
 
   useEffect(()=>{
     getMensData(page,sort,name)
@@ -45,12 +37,21 @@ const Accessories = () => {
     setName(value)
   }
   const getData = (el) => {
-    setSingle(el);
+    // setSingle(el);
     console.log(el);
+  }
+  const handleToast = () => {
+    toast({
+      title: 'Cart Item Added.',
+      description: "We've successfully added product to cart page",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
   }
   return (
     <Box style={{textAlign:"center"}} ml={["0.5rem","0.5rem","1rem","2rem","4rem"]}>
-      <Grid marginBottom="20px" marginLeft="10px"  marginRight="10px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
+      <Grid marginBottom="20px" marginLeft="10px" mt="20px"  marginRight="20px"  gap={6} templateColumns={["repeat(2,1fr)","repeat(2,1fr)","repeat(4,1fr)"]} justifyContent="center" alignItems="center">
         <Button onClick={()=>handleSort("asc")}>Sort in ASC</Button>
         <Button onClick={()=>handleSort("desc")} marginLeft="30px">Sort in Desc</Button>
         <Button onClick={()=>handleName("type")} marginLeft="30px">Sort by Type</Button>
@@ -59,13 +60,14 @@ const Accessories = () => {
       <Grid templateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(3,1fr)"]} gap={6} mx="auto" textAlign={"center"}>
       {
         data?.map((el)=>(
-          <Box key={Math.random()} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' onClick={onOpen}>
+          <Box key={Math.random()} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
             <Image src={el.image} alt={el.title} onClick={()=>getData(el)}/>
             <Text>{el.name}</Text>
             <Text>{el.type}</Text>
-            <Text as='s' color="red">{el.originalprice}</Text>
-            <Text>{el.offerprice}</Text>
+            <Text as='s' color="red">{ `₹ ${el.originalprice.slice(2,el.originalprice.length)}`}</Text>
+            <Text>{`₹ ${el.offerprice.slice(2,el.offerprice.length)}`}</Text>
             <Text color="red">{el.off}</Text>
+            <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{handleAddCart(el); handleToast()}}>Add To Cart</Button>
           </Box>
         ))
       }

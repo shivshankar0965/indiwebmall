@@ -20,6 +20,9 @@ import JewelleryFourth from "../Components/Second_Column_rrb/JewelleryFourth";
 
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
+import CartPage from "./CartPage";
+import CheckoutPage from "./CheckoutPage";
+import Successfullorder from "./Successfullorder";
 
 const AllRoutes = () => {
   return (
@@ -49,6 +52,9 @@ const AllRoutes = () => {
           <Route path="necklace" element={<JewelleryThird/>}/>
           <Route path="jewellery" element={<JewelleryFourth/>}/>
         </Route>
+        <Route path="cart" element={<CartPage/>}/>
+        <Route path="checkoutpage" element={<CheckoutPage/>}/>
+        <Route path="successfullorder" element={<Successfullorder/>}/>
     </Routes>
   );
 };
