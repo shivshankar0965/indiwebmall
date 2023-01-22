@@ -28,7 +28,7 @@ const SingleVoucherOne = () => {
   // console.log("image:", cartItem.image);
 
   const getData = async (voucher_id) => {
-    let data = axios.get(`http://localhost:8080/vouchers/${voucher_id}`);
+    let data = axios.get(`https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`);
     let res = await data;
     // setData(res.data);
     setCount(res.data);

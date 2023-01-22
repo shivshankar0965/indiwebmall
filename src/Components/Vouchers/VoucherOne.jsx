@@ -100,7 +100,7 @@ const VoucherOne = () => {
           });
         }}
       >
-        {data.slice(0, 23).map(( ele ) => (
+        {data?.slice(0, 23).map(( ele ) => (
           <SwiperSlide >
             <Box
               className={styles.box}
