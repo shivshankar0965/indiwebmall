@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getVouchersAPI = async () => {
-  let response = await axios.get("http://localhost:8080/vouchers");
+  let response = await axios.get("https://indiwebmallapi.onrender.com/vouchers");
   return response.data;
 };
 
