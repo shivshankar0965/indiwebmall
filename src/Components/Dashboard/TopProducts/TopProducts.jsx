@@ -24,7 +24,7 @@ const TopProducts = () => {
       setTopProducts(d);
     });
   }, []);
-  console.log(topProducts);
+
   return (
     <>
       <Box

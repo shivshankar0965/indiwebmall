@@ -12,17 +12,17 @@ const Admin = () => {
   return (
     <>
       <Flex gap={"8"}>
-        <Box  width={"20%"}>
+        <Box border={"1px solid black"} width={"20%"}>
           <SimpleSidebar />
         </Box>
 
-        <Box  width={"75%"}  bgColor={"white"}>
-          <Flex bg={"white"} zIndex={"1000"} overflow={"contain"} width="73%" justifyContent="space-between"  pos="fixed">
+        <Box width={"75%"} bgColor={"white"}>
+          <Flex>
             <Search />
             <AdminProfile />
           </Flex>
-          <Box mt={"5rem"}>
-            <Outlet />
+          <Box>
+            <Dashboard />
           </Box>
         </Box>
       </Flex>

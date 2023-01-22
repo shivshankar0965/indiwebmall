@@ -1,75 +1,62 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import axios from "axios";
+import React from "react";
+import ProductRow from "./ProductRow";
+import { useEffect, useState } from "react";
 import {
+  Table,
+  Thead,
+  Tbody,
   Box,
-  Breadcrumb,
+  Tr,
+  Th,
+  Heading,
+  Flex,
   BreadcrumbItem,
+  Breadcrumb,
   BreadcrumbLink,
   Button,
   Divider,
-  Flex,
-  Heading,
-  Table,
-  Tbody,
-  Th,
-  Thead,
-  Tr,
   useColorModeValue,
-  Modal,
-  ModalBody,
-  ModalOverlay,
-  ModalHeader,
-  ModalContent,
-  ModalCloseButton,
-  ModalFooter,
+  useToast,
   useDisclosure,
-  FormControl,
-  FormLabel,
-  Input,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
   Grid,
   GridItem,
-  Select,
-  useToast,
+  FormControl,
+  FormLabel,
+  ModalFooter,
+  Input,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
-import React, { useEffect, useState } from "react";
-import UserRow from "./UserRow";
-const getTopProducts = async () => {
-  let res = await axios.get("http://localhost:8080/users");
-  let data = await res.data;
-  return data;
-};
-const Users = () => {
-  const toast = useToast();
+const AdminProducts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [users, setUsers] = useState([]);
 
-  const [userDetails, setUserDetails] = useState({
+  const [products, setData] = useState([]);
+  const [ProductDetails, setProductDetails] = useState({
     name: "",
-    email: "",
-    password: "",
-    gender: "",
-    mobile: "",
-    profile: "",
-    orders: [],
-    address: [],
+    title: "",
+    price: "",
+    image: "",
   });
+  const toast = useToast();
   const changeHandler = (e) => {
     let { name, value } = e.target;
-    setUserDetails({ ...userDetails, [name]: value });
+    setProductDetails({ ...ProductDetails, [name]: value });
   };
   const handleSubmit = () => {
     try {
-      axios.post("http://localhost:8080/users", userDetails);
-      setUserDetails({
+      axios.post("http://localhost:8080/products2", ProductDetails);
+      setProductDetails({
         name: "",
-        email: "",
-        password: "",
-        gender: "",
-        mobile: "",
-        profile: "",
-        orders: [],
-        address: [],
+        title: "",
+        price: "",
+        image: "",
       });
       toast({
         title: "User Account created.",
@@ -83,18 +70,57 @@ const Users = () => {
       console.log("posting failed");
     }
   };
-  const { name, email, password, gender, mobile, profile, orders, address } =
-    userDetails;
+  const { name, title, price, image } = ProductDetails;
+  const fetchData = () => {
+    fetch("http://localhost:8080/products2")
+      .then((response) => response.json())
+      .then((products) => {
+        // console.log(products);
+        setData(products);
+        // console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   useEffect(() => {
-    getTopProducts().then((d) => {
-      setUsers(d);
-    });
+    fetchData();
   }, []);
+
+  console.log(products);
   return (
     <>
+      {/* <TableContainer mt={50} border={"2px solid white"}>
+           <Table variant='striped' colorScheme=''>
+             <Thead>
+               <Tr>
+                 <Th><Text fontSize={17} color={"#F16E15"}>Image</Text></Th>
+                 <Th><Text fontSize={17} color={"#F16E15"} >Name</Text></Th>
+                 <Th isNumeric><Text fontSize={17} mr={20} color={"#F16E15"}>Price</Text></Th>
+                 <Th><Text fontSize={17} color={"#F16E15"}>Title</Text></Th>
+               </Tr>
+             </Thead>
+             <Tbody>
+             {data.map((item, index) => (
+               <Tr key={index}>
+                 <Td padding={-10}> <img src={item.image} alt="img"  width={35} height={35} /></Td>
+                 <Td>{item.name}</Td>
+                 < Td>{item.price}</Td>
+                 <Td>{item.title}</Td>
+               </Tr>
+               
+             ))}
+              </Tbody>
+           </Table>
+         </TableContainer> */}
       <Box>
-        <Heading my={"6"}>Users</Heading>
-        <Flex alignItems={"center"} justifyContent={"space-between"}>
+        <Heading my={"6"}>Products</Heading>
+        <Flex
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          color={"black"}
+        >
           <Box>
             <Breadcrumb separator={<ChevronRightIcon color="gray.500" />}>
               <BreadcrumbItem>
@@ -102,7 +128,7 @@ const Users = () => {
               </BreadcrumbItem>
 
               <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href="/admin/users">Users</BreadcrumbLink>
+                <BreadcrumbLink href="/admin/products">Products</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
           </Box>
@@ -113,7 +139,6 @@ const Users = () => {
             </Button>
           </Box>
         </Flex>
-        {/* Form modals */}
 
         <Box
           mt={"6"}
@@ -124,7 +149,7 @@ const Users = () => {
           border="1px solid #999"
           width="100%"
         >
-          <Heading p="6">User Database</Heading>
+          <Heading p="6">Product Database</Heading>
           <Divider />
           <Box
             flexDirection={"column"}
@@ -136,85 +161,66 @@ const Users = () => {
             <Table>
               <Thead>
                 <Tr>
-                  <Th>id</Th>
                   <Th>Profile Images</Th>
                   <Th>Name</Th>
-                  <Th>Email</Th>
-                  <Th>Mobile No.</Th>
-                  <Th>Password</Th>
-                  <Th>gender</Th>
-                  <Th>Orders</Th>
+                  <Th>Price</Th>
+                  <Th>Title</Th>
                   <Th>Actions</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                {users?.map((user, i) => (
-                  <UserRow key={i} {...user} />
+                {products?.map((products, i) => (
+                  <ProductRow key={i} {...products} />
                 ))}
               </Tbody>
             </Table>
           </Box>
         </Box>
       </Box>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent maxW="800px">
           <ModalHeader
-            color={useColorModeValue("gray.600", "gray.700")}
-            borderBottom={"1px solid #999"}
+            // color={useColorModeValue("gray.600", "gray.700")}
+            // borderBottom={"1px solid #999"}
             pb={"6"}
           >
-            Add New User
+            Add New Product
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody p={6} pb={6}>
             <Grid gap={"6"} gridTemplateColumns={"repeat(2, 1fr)"}>
               <GridItem>
                 <FormControl>
-                  <FormLabel>Full Name</FormLabel>
+                  <FormLabel>Product Name</FormLabel>
                   <Input
                     onChange={changeHandler}
                     value={name}
                     name="name"
-                    placeholder="Full name"
+                    placeholder="Product name"
                   />
                 </FormControl>
               </GridItem>
               <GridItem>
                 <FormControl>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Title</FormLabel>
                   <Input
                     onChange={changeHandler}
-                    value={email}
-                    name="email"
-                    placeholder="Enter Email"
+                    value={title}
+                    name="title"
+                    placeholder="Enter title"
                   />
                 </FormControl>
               </GridItem>
               <GridItem>
                 <FormControl>
-                  <FormLabel>Gender</FormLabel>
-                  <Select
-                    onChange={changeHandler}
-                    value={gender}
-                    name="gender"
-                    placeholder="Select Gender"
-                  >
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
-                  </Select>
-                </FormControl>
-              </GridItem>
-              <GridItem>
-                <FormControl>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Price</FormLabel>
                   <Input
                     onChange={changeHandler}
-                    value={password}
-                    name="password"
-                    type="password"
-                    placeholder="Password"
+                    value={price}
+                    name="price"
+                    placeholder="Enter Price"
                   />
                 </FormControl>
               </GridItem>
@@ -223,20 +229,9 @@ const Users = () => {
                   <FormLabel>Image URL</FormLabel>
                   <Input
                     onChange={changeHandler}
-                    value={profile}
-                    name="profile"
-                    placeholder="Profile Picture"
-                  />
-                </FormControl>
-              </GridItem>
-              <GridItem>
-                <FormControl>
-                  <FormLabel>Mobile</FormLabel>
-                  <Input
-                    onChange={changeHandler}
-                    value={mobile}
-                    name="mobile"
-                    placeholder="Mobile Number"
+                    value={image}
+                    name="image"
+                    placeholder="Product Picture"
                   />
                 </FormControl>
               </GridItem>
@@ -245,7 +240,7 @@ const Users = () => {
 
           <ModalFooter>
             <Button onClick={handleSubmit} colorScheme="blue" mr={3}>
-              Add User
+              Add Product
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
@@ -255,4 +250,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default AdminProducts;
