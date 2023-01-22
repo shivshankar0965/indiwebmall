@@ -38,7 +38,7 @@ const sliderSettings = {
       spaceBetween: 10,
     },
     1100: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 15,
       },
     1400: {
