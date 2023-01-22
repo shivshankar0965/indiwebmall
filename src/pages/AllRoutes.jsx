@@ -111,7 +111,7 @@ const AllRoutes = () => {
           }
         />
         <Route
-          path="life"
+          path="cosmetics"
           element={
             <>
               <Navbar />
@@ -121,7 +121,7 @@ const AllRoutes = () => {
           }
         />
         <Route
-          path="men"
+          path="products"
           element={
             <>
               <Navbar />
