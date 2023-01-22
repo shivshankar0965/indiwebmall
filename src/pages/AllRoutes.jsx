@@ -30,6 +30,7 @@ import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
 import Order from "../Components/Orders/Order";
 import Products from "./Products";
+import AdminIndex from "./AdminIndex";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -204,8 +205,8 @@ const AllRoutes = () => {
         element={
           <>
             {/* <PrivateRouteAdmin> */}
-              <Navbar /> <LoginAdmin /> <Footer />
-              {/* </PrivateRouteAdmin> */}
+            <Navbar /> <LoginAdmin /> <Footer />
+            {/* </PrivateRouteAdmin> */}
           </>
         }
       />
@@ -219,7 +220,7 @@ const AllRoutes = () => {
         }
       >
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="orders" element={<Dashboard />} />
+        <Route path="orders" element={<Order />} />
         <Route path="users" element={<Users />} />
         <Route path="products" element={<AdminProducts />} />
       </Route>
@@ -229,7 +230,6 @@ const AllRoutes = () => {
       <Route path="checkoutpage" element={<CheckoutPage />} />
     </Routes>
   );
-
 };
 
 export default AllRoutes;

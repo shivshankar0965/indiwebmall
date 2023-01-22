@@ -6,7 +6,7 @@ import Search from "../Components/AdminComponents/Search";
 import { Outlet, useParams } from "react-router-dom";
 import Dashboard from "../Components/Dashboard/Dashboard";
 
-const Admin = () => {
+const AdminIndex = () => {
   const { params } = useParams();
   console.log(params);
   return (
@@ -30,4 +30,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminIndex;

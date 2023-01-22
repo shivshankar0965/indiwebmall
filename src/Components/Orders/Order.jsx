@@ -26,20 +26,11 @@ const Order = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleStatus = (
-    val,
-    id,
-    pname,
-    img,
-    cname,
-    cid,
-    quan,
-    price,
-  ) => {
+  const handleStatus = (val, id, pname, img, cname, cid, quan, price) => {
     axios
       .put(`http://localhost:8080/orders/${id}`, {
         status: val,
-        id:id,
+        id: id,
         pname: pname,
         image: img,
         cname: cname,
@@ -49,7 +40,7 @@ const Order = () => {
       })
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-      window.location.reload()
+    window.location.reload();
   };
 
   return (
@@ -122,7 +113,7 @@ const Order = () => {
                           prod.cname,
                           prod.cid,
                           prod.quantity,
-                          prod.offerprice,
+                          prod.offerprice
                         )
                       }
                     >

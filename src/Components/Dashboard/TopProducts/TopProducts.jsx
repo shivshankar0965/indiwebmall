@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import ProductRow from "./ProductRow";
 const getTopProducts = async () => {
-  let res = await axios.get("http://localhost:8080/topproducts");
+  let res = await axios.get("https://indiwebmallapi.onrender.com/topproducts");
   let data = await res.data;
   return data;
 };

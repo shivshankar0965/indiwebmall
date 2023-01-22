@@ -18,7 +18,7 @@ function LoginAdmin() {
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   const { logoutUser } = useContext(AuthContext);
-  
+
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
@@ -30,7 +30,7 @@ function LoginAdmin() {
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
           Auth = true;
-          localStorage.setItem('adminAuth',data[i].name)
+          localStorage.setItem("adminAuth", data[i].name);
           break;
         }
       }
@@ -39,7 +39,7 @@ function LoginAdmin() {
         alert("Please enter right email or password!");
       } else {
         alert("Login Successfull!");
-        navigate("/admin");
+        navigate("/admin/dashboard");
       }
 
       console.log(Auth);

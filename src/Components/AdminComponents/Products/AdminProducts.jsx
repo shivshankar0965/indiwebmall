@@ -72,7 +72,7 @@ const AdminProducts = () => {
   };
   const { name, title, price, image } = ProductDetails;
   const fetchData = () => {
-    fetch("http://localhost:8080/products2")
+    fetch("https://indiwebmallapi.onrender.com/products2")
       .then((response) => response.json())
       .then((products) => {
         // console.log(products);
