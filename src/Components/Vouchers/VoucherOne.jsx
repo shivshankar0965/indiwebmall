@@ -75,14 +75,7 @@ const VoucherOne = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <Container maxW={"100%"} mt={8}>
-      <Carousel
-      
-        responsive={responsive}
-        removeArrowOnDeviceType="mobile"
-        slidesToSlide={10}
-=======
+
     <Box
       className={styles.container}
       // height={{ base: "100%", md: "50%", xl: "50g %" }}
@@ -107,7 +100,7 @@ const VoucherOne = () => {
             swiper.navigation.update();
           });
         }}
->>>>>>> main
+
       >
         {data?.slice(0, 23).map(( ele ) => (
           <SwiperSlide >
