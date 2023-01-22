@@ -4648,7 +4648,369 @@
       "price": "€ 145"
     }
   ],
-  "jewellery1": [
+  "jewellery1":[
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Gold-plated charm bracelet",
+      "price": "€ 365"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Isabel Marant",
+      "name": "Triangle earrings",
+      "price": "€ 185"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Jacquemus",
+      "name": "Le Collier Pate à Modeler necklace",
+      "price": "€ 685"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Jacquemus",
+      "name": "La Creole Linu linen earrings",
+      "price": "€ 325"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/d0/P00634698.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Small 18kt gold-plated chainlink choker",
+      "price": "€ 299"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/f9/P00713323.jpg",
+      "title": "Area",
+      "name": "Crystal-embellished bow earrings",
+      "price": "€ 225"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/83/P00706677.jpg",
+      "title": "Versace",
+      "name": "Medusa and Greca choker",
+      "price": "€ 695"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/85/P00705071.jpg",
+      "title": "Magda Butrym",
+      "name": "Gold-plated embellished earrings",
+      "price": "€ 335"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00484647.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Sterling silver-plated watch chain necklace",
+      "price": "€ 315"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "Pearl bracelet with gold and diamond",
+      "price": "€ 879"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "18kt gold bracelet with turquoise and diamond",
+      "price": "€ 725"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "Danaé 18kt yellow gold necklace with diamonds",
+      "price": "€ 1,205"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Christopher Esber",
+      "name": "Crystal-embellished earrings",
+      "price": "€ 355"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Magda Butrym",
+      "name": "Pearl and crystal-embellished earrings",
+      "price": "€ 335"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Magda Butrym",
+      "name": "24kt gold-plated necklace with Baroque pearl",
+      "price": "€ 1,185"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Chloé",
+      "name": "Jemma sodalite earrings",
+      "price": "€ 405"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Acne Studios",
+      "name": "Embellished charm bracelet",
+      "price": "€ 305"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Magda Butrym",
+      "name": "Crystal-embellished earrings",
+      "price": "€ 299"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Large Oval 18kt gold-plated link bracelet",
+      "price": "€ 329"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Tilly Sveaas",
+      "name": "18kt gold-plated chain bracelet",
+      "price": "€ 319"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Aliita",
+      "name": "Tambor 9kt gold necklace",
+      "price": "€ 219"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Persée",
+      "name": "18kt yellow lapis and diamonds single earring",
+      "price": "€ 649"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Christopher Esber",
+      "name": "Chandelier crystal drop earrings",
+      "price": "€ 555"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00641721.jpg",
+      "title": "Christopher Esber",
+      "name": "Dual Stone Hoop earrings",
+      "price": "€ 319"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Tilly Sveaas",
+      "name": "18kt gold-plated chain bracelet",
+      "price": "€ 375"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "Danae 18kt yellow gold and diamond ring",
+      "price": "€ 1,055"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "18kt gold ring with diamonds",
+      "price": "€ 855"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Persée",
+      "name": "18kt gold single earring with diamonds and rose quartz",
+      "price": "€ 825"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Jil Sander",
+      "name": "Sterling silver choker",
+      "price": "€ 585"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Jacquemus",
+      "name": "Le Bracelet Pate à Modeler bracelet",
+      "price": "€ 519"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Courrèges",
+      "name": "Crystal-embellished hoop earrings",
+      "price": "€ 499"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Aliita",
+      "name": "Corazon 9kt yellow gold necklace",
+      "price": "€ 219"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Dolce&Gabbana",
+      "name": "Crystal-embellished choker",
+      "price": "€ 1,325"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Magda Butrym",
+      "name": "Set of 2 embellished ear cuffs",
+      "price": "€ 419"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Area",
+      "name": "Crystal-embellished bow choker",
+      "price": "€ 375"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Curb Chain Lariat sterling silver bracelet",
+      "price": "€ 215"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Chloé",
+      "name": "Larry shell-embellished crêpe de chine necklace",
+      "price": "€ 1,555"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Maison Margiela",
+      "name": "Chain sterling silver ring",
+      "price": "€ 295"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Versace",
+      "name": "Medusa and logo necklace",
+      "price": "€ 229"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Isabel Marant",
+      "name": "Embellished earrings",
+      "price": "€ 165"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Valentino",
+      "name": "Embellished VLogo chain bracelet",
+      "price": "€ 215"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Valentino",
+      "name": "Rockstud embellished earrings",
+      "price": "€ 355"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Versace",
+      "name": "Medusa chain bracelet",
+      "price": "€ 295"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Valentino",
+      "name": "VLogo embellished earrings",
+      "price": "€ 379"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Isabel Marant",
+      "name": "Embellished earrings",
+      "price": "€ 329"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Valentino",
+      "name": "VLogo crystal-embellished earrings",
+      "price": "€ 415"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Isabel Marant",
+      "name": "Moving Ball crystal-embellished choker",
+      "price": "€ 465"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Versace",
+      "name": "Medusa embellished earrings",
+      "price": "€ 269"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Versace",
+      "name": "Logo earrings",
+      "price": "€ 215"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Jacquemus",
+      "name": "Les Créoles Plâtre hoop earrings",
+      "price": "€ 245"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
+      "title": "Versace",
+      "name": "Tribute Medusa logo ring",
+      "price": "€ 165"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Sterling silver-plated chain bracelet",
+      "price": "€ 215"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Persée",
+      "name": "18kt gold single hoop earring",
+      "price": "€ 235"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Isabel Marant",
+      "name": "Plastron crystal-embellished fringe necklace",
+      "price": "€ 499"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Persée",
+      "name": "18kt gold ring",
+      "price": "€ 409"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Tilly Sveaas",
+      "name": "Medium sterling silver-pleated demi-hoop earrings",
+      "price": "€ 99"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Off-White",
+      "name": "Arrows crystal-embellished bracelet",
+      "price": "€ 239"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Versace",
+      "name": "Medusa crystal-embellished necklace",
+      "price": "€ 415"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/48/P00704878.jpg",
+      "title": "Balmain",
+      "name": "Logo ring",
+      "price": "€ 215"
+    },
+    {
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
+      "title": "Simone Rocha",
+      "name": "Trapped Pearl earrings",
+      "price": "€ 365"
+    }
+  ],
+  "voucher1": [
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
       "title": "Tilly Sveaas",
@@ -5763,79 +6125,15 @@
       "offerPrice": "€ 161",
       "offf": "40% off"
     }
-  ],
-  "cart": [
-    {
-      "name": "Balenciaga",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/9f/P00646501.jpg",
-      "type": "Unity Snowboard logo cap",
-      "originalprice": "€ 295",
-      "id": 2
-    },
-    {
-      "name": "Balmain",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/08/P00708871.jpg",
-      "type": "Wonder Boy sunglasses",
-      "originalprice": "€ 909",
-      "id": 3
-    },
-    {
-      "name": "Alanui",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/ca/P00697722.jpg",
-      "type": "Under the Northern Sky wool-blend scarf",
-      "originalprice": "€ 325",
-      "id": 4
-    },
-    {
-      "name": "Alanui",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/d3/P00697783.jpg",
-      "type": "Northern Vibes crochet bucket hat",
-      "originalprice": "€ 379",
-      "id": 5
-    },
-    {
-      "name": "Proenza Schouler",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/4e/P00688473.jpg",
-      "price": "€ 1,095",
-      "type": "White Label wool-blend coat",
-      "id": 7
-    },
-    {
-      "name": "POLSPOTTEN",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/90/P00723726.jpg",
-      "price": "€ 59",
-      "type": "Afresh set of 4 salad bowls",
-      "id": 8
-    },
-    {
-      "name": "Rick Owens",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/56/P00709335.jpg",
-      "originalprice": "€ 145",
-      "id": 9
-    },
-    {
-      "name": "Balmain",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/4e/P00688473.jpg",
-      "originalprice": "€ 1,255",
-      "id": 10
-    },
-    {
-      "name": "VLogo embellished earrings",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/66/P00704957.jpg",
-      "price": "€ 379",
-      "id": 11
-    },
-    {
-      "name": "Versace",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/a5/P00641871.jpg",
-      "id": 12
-    }
-  ],
+    ]
+  ,
+
   "vouchers": [
     {
       "id": "central",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710342/1620736738312.jpg?imwidth=140&impolicy=hq",
       "title": "Central",
+      "tagline": "Pick Your Perfect Weekend plans",
       "central": [
         {
           "id": 1,
@@ -5857,6 +6155,7 @@
       "id": "pantaloons",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAVOUCHER-WORTPANT66355366FA5F7F/4.png?imwidth=282&impolicy=hq",
       "title": "Pantaloons",
+      "tagline": "Pantaloons offers value for money with quality apparel in India",
       "pantaloons": [
         {
           "id": 1,
@@ -5927,6 +6226,7 @@
       "id": "uspolo",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498091/1620736830834.png?imwidth=140&impolicy=hq",
       "title": "U.S.Polo",
+      "tagline": "American Optimism is our attitude.",
       "uspolo": [
         {
           "id": 1,
@@ -5938,10 +6238,11 @@
       ]
     },
     {
-      "id": "Brand_factory",
+      "id": "brand_factory",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAQC-VOUCHERSQWIK861793AA13D290/0.png?imwidth=282&impolicy=hq",
       "title": "Brand factory",
-      "brandfactory": [
+      "tagline": "Making a world of food accessible to everyone.",
+      "brand_factory": [
         {
           "id": 1,
           "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAQC-VOUCHERSQWIK861793AA13D290/0.png?imwidth=282&impolicy=hq",
@@ -5952,9 +6253,10 @@
       ]
     },
     {
-      "id": "Levis",
+      "id": "levis",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498086/1610536486321.jpg?imwidth=140&impolicy=hq",
       "title": "Levis",
+      "tagline": "You wear other jeans, but you live in Levi's.",
       "levis": [
         {
           "id": 1,
@@ -5969,6 +6271,7 @@
       "id": "only",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498239/1620736478260.jpg?imwidth=140&impolicy=hq",
       "title": "Only",
+      "tagline": "Welcome to the world of ONLY, where we embrace the magic of the possibilities within everyday life. ",
       "only": [
         {
           "id": 1,
@@ -5983,6 +6286,7 @@
       "id": "unitedcolors",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEACASHBACK-OF-VOUC5983412D07108B/12.png?imwidth=282&impolicy=hq",
       "title": "United Colors",
+      "tagline": "All the colors of the world",
       "unitedcolors": [
         {
           "id": 1,
@@ -6018,6 +6322,7 @@
       "id": "biba",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAVOUCHER-WORTVOUC5983418C9CCE41/0.png?imwidth=282&impolicy=hq",
       "title": "Biba",
+      "tagline": "Fashion at affordable prices",
       "biba": [
         {
           "id": 1,
@@ -6060,6 +6365,7 @@
       "id": "bewakoof",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994846/1643780303875.jpg?imwidth=140&impolicy=hq",
       "title": "Bewakoof",
+      "tagline": "A Bewakoof follows his Heart",
       "bewakoof": [
         {
           "id": 1,
@@ -6074,6 +6380,7 @@
       "id": "myntra",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498075/1593586492547.jpg?imwidth=140&impolicy=hq",
       "title": "Myntra",
+      "tagline": "FEARLESS FASCINATING FASHION",
       "myntra": [
         {
           "id": 1,
@@ -6088,6 +6395,7 @@
       "id": "indianterrain",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994140/1643692915157.jpg?imwidth=140&impolicy=hq",
       "title": "Indian Terrain",
+      "tagline": "We pride ourselves on our premium fabrics, superior tailoring and comfortable fits.",
       "indianterrain": [
         {
           "id": 1,
@@ -6123,6 +6431,7 @@
       "id": "vmart",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994132/1643692700179.png?imwidth=140&impolicy=hq",
       "title": "V-Mart",
+      "tagline": "The rich expertise of 17 years in delivering high-quality affordable fashion, coupled with a wide network",
       "v-mart": [
         {
           "id": 1,
@@ -6137,6 +6446,7 @@
       "id": "westside",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994133/1643692702063.jpg?imwidth=140&impolicy=hq",
       "title": "Westside",
+      "tagline": "Our Customer Promise is - First Price. Right Price.",
       "westside": [
         {
           "id": 1,
@@ -6158,6 +6468,7 @@
       "id": "jandj",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994135/1643692758763.jpg?imwidth=140&impolicy=hq",
       "title": "Jack n Jones",
+      "tagline": "It's good jeans with good vibes. This is the philosophy behind our brand.",
       "jandj": [
         {
           "id": 1,
@@ -6172,6 +6483,7 @@
       "id": "fabindia",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994137/1643692795789.jpg?imwidth=140&impolicy=hq",
       "title": "Fabindia",
+      "tagline": "We at Fabindia have always stood for celebration of India with its myriad traditions in all hues.",
       "fabindia": [
         {
           "id": 1,
@@ -6186,6 +6498,7 @@
       "id": "allen_solly",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994138/1643692870440.jpg?imwidth=140&impolicy=hq",
       "title": "Allen Solly",
+      "tagline": "My World, My Way",
       "allen_solly": [
         {
           "id": 1,
@@ -6200,6 +6513,7 @@
       "id": "fbb",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994847/1643780584196.png?imwidth=140&impolicy=hq",
       "title": "fbb",
+      "tagline": "Is se sasta aur accha kahin nahin",
       "fbb": [
         {
           "id": 1,
@@ -6214,6 +6528,7 @@
       "id": "trends",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994848/1643780625232.png?imwidth=140&impolicy=hq",
       "title": "Relance Trends",
+      "tagline": "Trends bantey nahin, banaye jaaatey hain",
       "trends": [
         {
           "id": 1,
@@ -6228,6 +6543,7 @@
       "id": "decathlon",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994849/1643780709215.jpg?imwidth=140&impolicy=hq",
       "title": "Decathlon",
+      "tagline": "Sport for All. All for Sport.",
       "decathlon": [
         {
           "id": 1,
@@ -6256,6 +6572,7 @@
       "id": "jockey",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAVOUCHER-WORTQWIK8617936D6D4DF4/0.png?imwidth=282&impolicy=hq",
       "title": "Jockey",
+      "tagline": "The next best thing to being naked",
       "jockey": [
         {
           "id": 1,
@@ -6290,7 +6607,8 @@
     {
       "id": "pretty_secrets",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994153/1643696199128.jpg?imwidth=140&impolicy=hq",
-      "title": "Pretty Secrets Gift Card",
+      "title": "Pretty Secrets",
+      "tagline": "We love it when you Tag us! ",
       "pretty_secrets": [
         {
           "id": 1,
@@ -6305,6 +6623,7 @@
       "id": "the_collective",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994154/1643696257591.jpg?imwidth=140&impolicy=hq",
       "title": "The Collective",
+      "tagline": "“If there ever comes a day when we can't be together, keep me in your heart.",
       "the_collective": [
         {
           "id": 1,
@@ -6354,6 +6673,7 @@
       "id": "w",
       "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAVOUCHAGRAMVOUC59834139228074/0.png?imwidth=282&impolicy=hq",
       "title": "W",
+      "tagline": "W's core mission is to provide complete wardrobe solution to the modern Indian woman.",
       "w": [
         {
           "id": 1,
@@ -6389,6 +6709,7 @@
       "id": "iconic",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498530/1610537092744.png?imwidth=140&impolicy=hq",
       "title": "Iconic",
+      "tagline": "We have a growing portfolio of domestic and International brands through dedicated retail outlets at premium locations across India.",
       "iconic": [
         {
           "id": 1,
@@ -6403,6 +6724,7 @@
       "id": "raymonds",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498114/1610537113386.jpg?imwidth=140&impolicy=hq",
       "title": "Raymonds",
+      "tagline": "The complete man",
       "raymonds": [
         {
           "id": 1,
@@ -6417,6 +6739,7 @@
       "id": "jockey",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498115/1610537339349.jpg?imwidth=140&impolicy=hq",
       "title": "Jockey",
+      "tagline": "The next best thing to being naked",
       "jockey": [
         {
           "id": 1,
@@ -6431,6 +6754,7 @@
       "id": "vero_moda",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498256/1620736733672.jpg?imwidth=140&impolicy=hq",
       "title": "Vero Moda",
+      "tagline": "At VERO MODA we live and breathe trends.",
       "vero_moda": [
         {
           "id": 1,
@@ -6445,6 +6769,7 @@
       "id": "beverlyh_ills",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498129/1613028463583.png?imwidth=140&impolicy=hq",
       "title": "Beverly Hills",
+      "tagline": "In Beverly Hills it's who you know, and I know everyone",
       "beverlyh_ills": [
         {
           "id": 1,
@@ -6459,6 +6784,7 @@
       "id": "madame",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498127/1610537689405.png?imwidth=140&impolicy=hq",
       "title": "Madame",
+      "tagline": "Celebrating the fearless pursuit of the feminine spirit and the individuality of all women, we create sustainable, handcrafted womenswear + accessories that empower you to do you.",
       "madame": [
         {
           "id": 1,
@@ -6473,6 +6799,7 @@
       "id": "peter_england",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710419/1610542731323.jpg?imwidth=140&impolicy=hq",
       "title": "Peter England",
+      "tagline": "Easy On You",
       "peter_england": [
         {
           "id": 1,
@@ -6487,6 +6814,7 @@
       "id": "van_heusen",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710420/1610543135214.jpg?imwidth=140&impolicy=hq",
       "title": "Van Heusen",
+      "tagline": "The Way Forward: Evolve Everyday",
       "van_heusen": [
         {
           "id": 1,
@@ -6501,6 +6829,7 @@
       "id": "louis",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498111/1610543084890.jpg?imwidth=140&impolicy=hq",
       "title": "Louis Philippe",
+      "tagline": "The Upper Crest",
       "louis": [
         {
           "id": 1,
@@ -6515,6 +6844,7 @@
       "id": "planet_fashion",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710421/1610543158966.jpg?imwidth=140&impolicy=hq",
       "title": "Planet Fashion",
+      "tagline": "A Fashion Conglomerate for International Fashion Brands.",
       "planet_fashion": [
         {
           "id": 1,
@@ -6529,6 +6859,7 @@
       "id": "109_F",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498105/1610535869042.png?imwidth=140&impolicy=hq",
       "title": "109 F",
+      "tagline": "109°F is a new age Fashion brand that brings finely crafted designs for the urban Indian Woman who is young at heart, exposed to and is aware of International Fashion Trends and is confident of making her statement in any situation.",
       "109_F": [
         {
           "id": 1,
@@ -6543,6 +6874,7 @@
       "id": "aurelia",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498118/1610535851387.png?imwidth=140&impolicy=hq",
       "title": "Aurelia",
+      "tagline": "A brand for the independent minds, the kind hearts & the nomadic souls.",
       "aurelia": [
         {
           "id": 1,
@@ -6557,6 +6889,7 @@
       "id": "eagle",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994263/1643711210390.jpg?imwidth=140&impolicy=hq",
       "title": "American Eagle",
+      "tagline": "We care about our associates: we empower them, we reward them.",
       "eagle": [
         {
           "id": 1,
@@ -6571,6 +6904,7 @@
       "id": "selected_homme",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994264/1643711069857.jpg?imwidth=140&impolicy=hq",
       "title": "Selected homme",
+      "tagline": "If simplicity is what defines your style mantra, then this slogan print tee will be an ideal addition to your new season collection of tshirts.",
       "selected_homme": [
         {
           "id": 1,
@@ -6585,6 +6919,7 @@
       "id": "manyavar",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994265/1643711263391.jpg?imwidth=140&impolicy=hq",
       "title": "Manyavar",
+      "tagline": "Manyavar - for the celebration of life.",
       "manyavar": [
         {
           "id": 1,
@@ -6599,6 +6934,7 @@
       "id": "la_senza",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994266/1643711205459.jpg?imwidth=140&impolicy=hq",
       "title": "La senza",
+      "tagline": "La Senza is the global destination for the hottest fashion lingerie at an incredible value, empowering women worldwide to feel sexy and confident every day.",
       "la_senza": [
         {
           "id": 1,
@@ -6613,6 +6949,7 @@
       "id": "major",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994267/1643711489659.jpg?imwidth=140&impolicy=hq",
       "title": "Major Brands",
+      "tagline": "Where Families Travel Better Together",
       "major": [
         {
           "id": 1,
@@ -6627,6 +6964,7 @@
       "id": "taneira",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994278/1643712435320.jpg?imwidth=140&impolicy=hq",
       "title": "Taneira",
+      "tagline": "Every Taneira saree reflects the different facets of beauty, craft, and consciousness.",
       "taneira": [
         {
           "id": 1,
@@ -6641,6 +6979,7 @@
       "id": "spykar",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994279/1643712364578.jpg?imwidth=140&impolicy=hq",
       "title": "Spykar",
+      "tagline": "Bring it on",
       "spykar": [
         {
           "id": 1,
@@ -6655,6 +6994,7 @@
       "id": "zivame",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994288/1643713188868.jpg?imwidth=140&impolicy=hq",
       "title": "Zivame",
+      "tagline": "Love Yourself Inside Out",
       "zivame": [
         {
           "id": 1,
@@ -6669,6 +7009,7 @@
       "id": "tailorman",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994298/1643713113821.jpg?imwidth=140&impolicy=hq",
       "title": "Tailorman",
+      "tagline": "ur understanding of premium quality and impeccable fit drives us to provide a revolutionary alternative to the clutter of ill-fitting and cookie-cutter styles available in the market today",
       "tailorman": [
         {
           "id": 1,
@@ -6683,6 +7024,7 @@
       "id": "disrupt",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994348/1643715968772.jpg?imwidth=140&impolicy=hq",
       "title": "Disrupt",
+      "tagline": "Ideas become inventions become innovations.",
       "disrupt": [
         {
           "id": 1,
@@ -6697,6 +7039,7 @@
       "id": "Simon_Carter",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/994350/1643716033149.jpg?imwidth=140&impolicy=hq",
       "title": "Simon Carter",
+      "tagline": "Simon Carter, the brand, became stronger and ubiquitous, with addition of menswear apparel, accessories, footwear and luggage.",
       "Simon_Carter": [
         {
           "id": 1,
@@ -6711,6 +7054,7 @@
       "id": "Bata",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995524/1643867277967.jpg?imwidth=140&impolicy=hq",
       "title": "Bata",
+      "tagline": "Bata believes in pushing boundaries, in going the extra mile.",
       "Bata": [
         {
           "id": 1,
@@ -6725,6 +7069,7 @@
       "id": "Nike",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995525/1643867496758.jpg?imwidth=140&impolicy=hq",
       "title": "Nike",
+      "tagline": "Just Do It",
       "Nike": [
         {
           "id": 1,
@@ -6739,6 +7084,7 @@
       "id": "Puma",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995526/1643867362885.png?imwidth=140&impolicy=hq",
       "title": "Puma",
+      "tagline": "Forever Faster",
       "Puma": [
         {
           "id": 1,
@@ -6753,13 +7099,14 @@
       "id": "Khadim",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995527/1643867532232.jpg?imwidth=140&impolicy=hq",
       "title": "Khadim's",
+      "tagline": "",
       "Khadim": [
         {
           "id": 1,
           "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995527/1643867532232.jpg?imwidth=140&impolicy=hq",
           "name": "Tailorman Gift Card",
           "price": "₹ 2,000",
-          "desc": ""
+          "desc": "To be in every Indian step. "
         }
       ]
     },
@@ -6767,6 +7114,7 @@
       "id": "Red_Chief",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995528/1643867625370.jpg?imwidth=140&impolicy=hq",
       "title": "Red Chief",
+      "tagline": "Power of Real Leather",
       "Red_Chief": [
         {
           "id": 1,
@@ -6781,6 +7129,7 @@
       "id": "Speedo",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710655/1643866806024.jpg?imwidth=140&impolicy=hq",
       "title": "Speedo",
+      "tagline": "Speed on in your Speedos",
       "Speedo": [
         {
           "id": 1,
@@ -6795,6 +7144,7 @@
       "id": "Sports_Station",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995529/1643867506442.jpg?imwidth=140&impolicy=hq",
       "title": "Sports Station",
+      "tagline": "Sport Bar with class",
       "Sports_Station": [
         {
           "id": 1,
@@ -6809,6 +7159,7 @@
       "id": "woodland",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995530/1643867664954.jpg?imwidth=140&impolicy=hq",
       "title": "Woodland",
+      "tagline": "It is the spirit of adventure that defines Woodland.",
       "woodland": [
         {
           "id": 1,
@@ -6823,6 +7174,7 @@
       "id": "metro_shoes",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710654/1643866837835.jpg?imwidth=140&impolicy=hq",
       "title": "Metro Shoes",
+      "tagline": "Metro is a contemporary Indian fashion footwear and accessories brand offering a range of products with the latest designs and styles for all occasions.",
       "metro_shoes": [
         {
           "id": 1,
@@ -6837,6 +7189,7 @@
       "id": "Mochi",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710657/1613028563419.jpg?imwidth=140&impolicy=hq",
       "title": "Mochi",
+      "tagline": "Happiness of family reunion",
       "Mochi": [
         {
           "id": 1,
@@ -6851,6 +7204,7 @@
       "id": "lotto",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995531/1643867698366.jpg?imwidth=140&impolicy=hq",
       "title": "Lotto",
+      "tagline": "One ball could change it all",
       "lotto": [
         {
           "id": 1,
@@ -6865,6 +7219,7 @@
       "id": "rf",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995533/1643867991105.jpg?imwidth=140&impolicy=hq",
       "title": "Reliance Footwear",
+      "tagline": "Aapki Khushi Hamari Khushi",
       "rf": [
         {
           "id": 1,
@@ -6879,6 +7234,7 @@
       "id": "steve_madden",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995534/1643868084258.jpg?imwidth=140&impolicy=hq",
       "title": "Steve Madden",
+      "tagline": "It's about authenticity. It's about embracing individuality. It's Steve Madden.",
       "steve_madden": [
         {
           "id": 1,
@@ -6893,6 +7249,7 @@
       "id": "regal",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995532/1643867743019.jpg?imwidth=140&impolicy=hq",
       "title": "Regal",
+      "tagline": "A legend reborn",
       "regal": [
         {
           "id": 1,
@@ -6907,6 +7264,7 @@
       "id": "spring",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710661/1613028718597.jpg?imwidth=140&impolicy=hq",
       "title": "Call it Spring",
+      "tagline": "The shortest distance between paradise and the place you call home.",
       "spring": [
         {
           "id": 1,
@@ -6921,6 +7279,7 @@
       "id": "c_&_k",
       "image": "https://assetscdn1.paytm.com/images/catalog/view_item/710662/1613028739303.jpg?imwidth=140&impolicy=hq",
       "title": "C & K",
+      "tagline": "Brand name CALVIN KLEIN Symbol CK Slogan Between love and madness lies obsession | Course Hero.",
       "c_&_k": [
         {
           "id": 1,
@@ -6993,48 +7352,6 @@
       "off": "30% off"
     }
   ],
-  "orders": [
-    {
-      "id": 1,
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/bf/P00665632.jpg",
-      "name": "The Row",
-      "originalprice": "€ 699",
-      "offerprice": "€ 489",
-      "off": "30% off",
-      "status": "pending",
-      "userId": 2
-    },
-    {
-      "id": 2,
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/bf/P00665632.jpg",
-      "name": "The Row",
-      "originalprice": "€ 699",
-      "offerprice": "€ 489",
-      "off": "30% off",
-      "status": "pending",
-      "userId": 3
-    },
-    {
-      "id": 3,
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/bf/P00665632.jpg",
-      "name": "The Row",
-      "originalprice": "€ 699",
-      "offerprice": "€ 489",
-      "off": "30% off",
-      "status": "pending",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/bf/P00665632.jpg",
-      "name": "The Row",
-      "originalprice": "€ 699",
-      "offerprice": "€ 489",
-      "off": "30% off",
-      "status": "pending",
-      "userId": 1
-    }
-  ],
   "users": [
     {
       "id": 1,
@@ -7044,7 +7361,8 @@
       "gender": "Male",
       "mobile": "8541278962",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": []
+      "orders": [],
+      "address": []
     },
     {
       "id": 2,
@@ -7054,7 +7372,8 @@
       "gender": "Female",
       "mobile": "8541278912",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
-      "orders": []
+      "orders": [],
+      "address": []
     },
     {
       "id": 3,
@@ -7065,6 +7384,65 @@
       "mobile": "8541278911",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": []
+      "orders": [],
+
+      "address": []
+    },
+    {
+      "name": "Guddu Kumar",
+      "email": "guddu@gmail.com",
+      "password": "Guddu@102",
+      "gender": "male",
+      "mobile": "7631073551",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "address": [],
+      "id": 4
     }
-  ]
+  ],
+  "orders": [
+    {
+      "status": "Done",
+      "id": 1,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "status": "Delivered",
+      "id": 2,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "status": "In Transit",
+      "id": 3,
+      "pname": "The name of brand is turtle this is unique",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "cname": "The Customer",
+      "cid": "56",
+      "quantity": "9",
+      "offerprice": "€ 489"
+    },
+    {
+      "id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
+      "pname": "The name of brand is turtle this is unique",
+      "originalprice": "€ 699",
+      "offerprice": "€ 489",
+      "off": "30% off",
+      "status": "pending",
+      "cname": "The Customer",
+      "cid": "98",
+      "quantity": "8"
+    }
+  ],
+  "cart": []
 }

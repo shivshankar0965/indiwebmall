@@ -13,7 +13,7 @@ import {
     return<>
       <Box>
 <Menu>
-  <MenuButton as={Button} bg='#061144' width={350} ml={-0}   _hover={{ bg: '#5D68A1'}}>
+  <MenuButton as={Button} bg='#061144' width={"50vh"} ml={-0} color={"white"}   _hover={{ bg: '#5D68A1'}}>
     Profile
   </MenuButton>
   <MenuList width={350}>
