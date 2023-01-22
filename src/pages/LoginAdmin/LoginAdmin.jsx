@@ -10,33 +10,27 @@ import {
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
-import styles from "./Login.module.css";
+import styles from "./LoginAdmin.module.css";
 
-
-function Login() {
+function LoginAdmin() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
-  const { loginUser,isAuth } = useContext(AuthContext);
-  console.log('auth',isAuth)
+  const { logoutUser } = useContext(AuthContext);
   
-
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
     try {
-      let res = await fetch(`http://localhost:8080/users`);
+      let res = await fetch(`http://localhost:8080/admin`);
       let data = await res.json();
       // console.log(data);
       let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
           Auth = true;
-          localStorage.setItem('auth',true)
-          localStorage.setItem('name',data[i].name)
-          loginUser(data[i].name);
-          // console.log(data[i].name);
+          localStorage.setItem('adminAuth',data[i].name)
           break;
         }
       }
@@ -45,7 +39,7 @@ function Login() {
         alert("Please enter right email or password!");
       } else {
         alert("Login Successfull!");
-        navigate("/");
+        navigate("/admin");
       }
 
       console.log(Auth);
@@ -66,7 +60,7 @@ function Login() {
           color="rgb(255, 81, 0)"
           textAlign="center"
         >
-          Log in
+          Admin Log in
         </Heading>
         <FormControl>
           <FormLabel>Email address</FormLabel>
@@ -93,12 +87,6 @@ function Login() {
               Signup
             </Link>
           </FormHelperText>
-          <FormHelperText>
-            Go to admin panel{" "}
-            <Link color="rgb(255, 81, 0)" href="/loginadmin">
-              Login
-            </Link>
-          </FormHelperText>
           <Button
             w="20%"
             marginLeft="42%"
@@ -115,4 +103,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginAdmin;

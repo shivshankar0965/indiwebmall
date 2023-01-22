@@ -11,18 +11,55 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+// import { useToast } from '@chakra-ui/react'
 
 function Signup() {
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [load, setload] = useState(false);
+  const [mobile, setMobile] = useState("");
+  const [gender, setGender] = useState("");
   const navigate = useNavigate();
+  // const toast = useToast()
+  // const getToast=()=>{
+  //   toast({
+  //     title: 'Account created.',
+  //     description: "We've created your account for you.",
+  //     status: 'success',
+  //     duration: 9000,
+  //     isClosable: true,
+  //   })
+  // }
 
   const postdata = async () => {
     setload(true);
+    // for verify same email X
     try {
-      let res = await fetch(`https://mockserver-fhbg.onrender.com/users`, {
+      let res = await fetch(`http://localhost:8080/users`);
+      let data = await res.json();
+      console.log(data);
+      var mailAuth = false;
+      for (let i in data) {
+        if (data[i].email === email) {
+          mailAuth = true;
+          break;
+        }
+      }
+
+      if (mailAuth === true) {
+        alert("Email already exist");
+        // getToast()
+        setload(false);
+      }
+    }catch(err){
+      console.log(err);
+    }
+
+    console.log("mailAuth",mailAuth)
+    // for normal signup
+  if(!mailAuth){  try {
+      let res = await fetch(`http://localhost:8080/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +67,12 @@ function Signup() {
         body: JSON.stringify({
           name,
           email,
-          Password,
+          password,
+          mobile,
+          gender,
+          profile:
+            "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+          orders: [],
         }),
       });
       let data = await res.json();
@@ -47,11 +89,16 @@ function Signup() {
     setemail("");
     setPassword("");
   };
+}
 
   return (
     <div>
       <div className={styles.mainDiv}>
-        <Heading fontFamily='cursive' textAlign="center" color="rgb(255, 81, 0)">
+        <Heading
+          fontFamily="cursive"
+          textAlign="center"
+          color="rgb(255, 81, 0)"
+        >
           Sign up
         </Heading>
         <FormControl>
@@ -62,13 +109,22 @@ function Signup() {
             onChange={(e) => setname(e.target.value)}
             type="text"
           />
-          <FormLabel>Country</FormLabel>
-          <Select placeholder="Select country">
-            <option>India</option>
-            <option>USA</option>
+          <FormLabel>Gender</FormLabel>
+          <Select
+            placeholder="Select Your Gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="Male">Male</option>
+            <option value="female">Female</option>
           </Select>
           <FormLabel>Phone Number</FormLabel>
-          <Input placeholder="Your Phone Number" type="number" />
+          <Input
+            placeholder="Your Phone Number"
+            type="number"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />
           <FormLabel>Email address</FormLabel>
           <Input
             value={email}
@@ -79,7 +135,7 @@ function Signup() {
           <FormLabel>Password</FormLabel>
           <Input
             placeholder="Your Password"
-            value={Password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
           />
@@ -119,9 +175,8 @@ function Signup() {
               _hover={{
                 bg: "blue.500",
               }}
-              
             >
-             <span className={styles.signupButton}>Sign up</span> 
+              <span className={styles.signupButton}>Sign up</span>
             </Button>
           )}
         </FormControl>

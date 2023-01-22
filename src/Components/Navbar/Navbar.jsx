@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import img from "../../Assets/indiwebmall_logo.png";
 import styles from "./navbar.module.css";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
@@ -7,9 +7,13 @@ import { useContext } from "react";
 import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import axios from 'axios';
 
 const Navbar = () => {
-  const { name, isAuth, logoutUser } = useContext(AuthContext);
+  const { logoutUser } = useContext(AuthContext);
+  // console.log("auth", isAuth);
+  let authentication = localStorage.getItem("auth");
+  // console.log(authentication);
 
   const Show_Login_Page = () => {
     document.querySelector(".popup").classList.add("active");
@@ -19,31 +23,42 @@ const Navbar = () => {
     document.querySelector(".popup").classList.remove("active");
   };
 
+  const getCartitem = () => {
+    return axios.get(`http://localhost:8080/cart`);
+  };
+
   // navbar Login start
 
   const [email, setemail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
-  const[display,setDisplay] = useState('displayNone')
-  const[display1,setDisplay1] = useState('displayNone1')
-  const[display2,setDisplay2] = useState('displayNone2')
-  const[display3,setDisplay3] = useState('displayNone3')
+  const [display, setDisplay] = useState("displayNone");
+  const [display1, setDisplay1] = useState("displayNone1");
+  const [display2, setDisplay2] = useState("displayNone2");
+  const [display3, setDisplay3] = useState("displayNone3");
+  const [cartLength,setCartLength] = useState(0)
+
+  useEffect(()=>{
+    getCartitem().then((d)=>setCartLength(d.data.length))
+  },[])
 
   const submitLogin = async () => {
     setload(true);
-    console.log(load);
+    // console.log(load);
     try {
-      let res = await fetch(`https://mockserver-fhbg.onrender.com/users`);
+      let res = await fetch(`http://localhost:8080/users`);
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       let Auth = false;
       for (let i in data) {
-        if (data[i].email === email && data[i].Password === Password) {
+        if (data[i].email === email && data[i].password === password) {
           Auth = true;
+          localStorage.setItem("auth", true);
+          localStorage.setItem("name", data[i].name);
           loginUser(data[i].name);
-          console.log(data[i].name);
+          // console.log(data[i].name);
           break;
         }
       }
@@ -54,7 +69,7 @@ const Navbar = () => {
         alert("Login Successfull!");
         navigate("/");
       }
-      console.log(Auth);
+      // console.log(Auth);
     } catch (error) {
       setload(false);
 
@@ -66,41 +81,41 @@ const Navbar = () => {
 
   //navbar Login End
 
-  const manageDisplay=()=>{
+  const manageDisplay = () => {
     // setDisplay('displayNone');
-    if(display === 'display'){
-      return setDisplay('displayNone')
-    }else{
-      return setDisplay('display')
+    if (display === "display") {
+      return setDisplay("displayNone");
+    } else {
+      return setDisplay("display");
     }
-  }
+  };
 
-  const manageDisplay1=()=>{
+  const manageDisplay1 = () => {
     // setDisplay('displayNone');
-    if(display1 === 'display1'){
-      return setDisplay1('displayNone1')
-    }else{
-      return setDisplay1('display1')
+    if (display1 === "display1") {
+      return setDisplay1("displayNone1");
+    } else {
+      return setDisplay1("display1");
     }
-  }
+  };
 
-  const manageDisplay2=()=>{
+  const manageDisplay2 = () => {
     // setDisplay('displayNone');
-    if(display2 === 'display2'){
-      return setDisplay2('displayNone2')
-    }else{
-      return setDisplay2('display2')
+    if (display2 === "display2") {
+      return setDisplay2("displayNone2");
+    } else {
+      return setDisplay2("display2");
     }
-  }
+  };
 
-  const manageDisplay3=()=>{
+  const manageDisplay3 = () => {
     // setDisplay('displayNone');
-    if(display3 === 'display3'){
-      return setDisplay3('displayNone3')
-    }else{
-      return setDisplay3('display3')
+    if (display3 === "display3") {
+      return setDisplay3("displayNone3");
+    } else {
+      return setDisplay3("display3");
     }
-  }
+  };
 
   return (
     <div
@@ -139,54 +154,120 @@ const Navbar = () => {
           </div>
         </div>
         <div className={display}>
-        <div style={{border:'1px solid transparent',padding:'10px'}}>
-          <img onClick={manageDisplay} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
-              <a href="#">My Order</a>
+          <div style={{ border: "1px solid transparent", padding: "10px" }}>
+            <img
+              onClick={manageDisplay}
+              style={{ width: "12px", marginLeft: "90%" }}
+              src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+              alt="close"
+            />
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
+              <Link to="/cart">My Order</Link>
             </p>
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
-              <a href="#">The Bag</a>
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
+              <Link to="/cart">My Cart : {cartLength}</Link>
             </p>
-            <p onClick={manageDisplay} style={{cursor:'pointer'}}>
-              <Link onClick={manageDisplay} to="/login">{isAuth?<div>😎{name}😎<span onClick={logoutUser} style={{color:'white',background:'lightgray',padding:'5px',marginLeft:'15px',borderRadius:'10px'}}>Logout</span></div>  : 'Sign up/Login'}</Link>
+            <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
+              <Link onClick={manageDisplay} to="/login">
+                {authentication ? (
+                  <div>
+                    😎{localStorage.getItem("name")}😎
+                    <span
+                      onClick={logoutUser}
+                      style={{
+                        color: "white",
+                        background: "lightgray",
+                        padding: "5px",
+                        marginLeft: "15px",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      Logout
+                    </span>
+                  </div>
+                ) : (
+                  "Sign up/Login"
+                )}
+              </Link>
             </p>
           </div>
         </div>
 
         <div className={display1}>
-        <div style={{border:'1px solid transparent',padding:'10px'}}>
-          <img onClick={manageDisplay1} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-            <p onClick={manageDisplay1} style={{cursor:'pointer'}}>
-              <span onClick={manageDisplay2}><a href="#">Products</a></span>
+          <div style={{ border: "1px solid transparent", padding: "10px" }}>
+            <img
+              onClick={manageDisplay1}
+              style={{ width: "12px", marginLeft: "90%" }}
+              src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+              alt="close"
+            />
+            <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
+              <span onClick={manageDisplay2}>
+                <a href="#">Products</a>
+              </span>
             </p>
-            <p onClick={manageDisplay1} style={{cursor:'pointer'}}>
-              <span onClick={manageDisplay3}><a href="#">Gift Cards</a></span>
+            <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
+              <span onClick={manageDisplay3}>
+                <a href="#">Gift Cards</a>
+              </span>
             </p>
           </div>
         </div>
-      {/* products */}
+        {/* products */}
         <div onClick={manageDisplay2} className={display2}>
-        <img onClick={manageDisplay2} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-          <h3 style={{textAlign:'center',fontSize:'12px',color:'rgb(251,81,0)',fontWeight:'600'}}>Products</h3>
-            <p style={{marginLeft:'10px'}}><Link to='#'>Fashion</Link></p>
-            <p style={{marginLeft:'10px'}}>Grocery & Home</p>
-            <p style={{marginLeft:'10px'}}>Jewellery</p>
-            <p style={{marginLeft:'10px'}}>Furniture & Electronix</p>
-            <p style={{marginLeft:'10px'}}>Entertainment</p>
-            <p style={{marginLeft:'10px'}}>Beauty & Health</p>
-            <p style={{marginLeft:'10px'}}>Travel & Holidays</p>
+          <img
+            onClick={manageDisplay2}
+            style={{ width: "12px", marginLeft: "90%" }}
+            src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+            alt="close"
+          />
+          <h3
+            style={{
+              textAlign: "center",
+              fontSize: "12px",
+              color: "rgb(251,81,0)",
+              fontWeight: "600",
+            }}
+          >
+            Products
+          </h3>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/accessories">Accessories</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/bags">Bags</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/clothing">Clothes</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/cosmetics">Cosmetics</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/products">Items</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/sale">Sale</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/products/shoes">Shoes</Link></p>
         </div>
         {/* gift cards */}
         <div onClick={manageDisplay3} className={display3}>
-        <img onClick={manageDisplay3} style={{width:'12px',marginLeft:'90%'}} src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png" alt="close" />
-          <h3 style={{textAlign:'center',fontSize:'12px',color:'rgb(251,81,0)',fontWeight:'600'}}>Gift Cards</h3>
-            <p style={{marginLeft:'10px'}}><Link to='#'>Fashion</Link></p>
-            <p style={{marginLeft:'10px'}}>Grocery & Home</p>
-            <p style={{marginLeft:'10px'}}>Jewellery</p>
-            <p style={{marginLeft:'10px'}}>Furniture & Electronix</p>
-            <p style={{marginLeft:'10px'}}>Entertainment</p>
-            <p style={{marginLeft:'10px'}}>Beauty & Health</p>
-            <p style={{marginLeft:'10px'}}>Travel & Holidays</p>
+          <img
+            onClick={manageDisplay3}
+            style={{ width: "12px", marginLeft: "90%" }}
+            src="https://cdn-icons-png.flaticon.com/128/9068/9068699.png"
+            alt="close"
+          />
+          <h3
+            style={{
+              textAlign: "center",
+              fontSize: "12px",
+              color: "rgb(251,81,0)",
+              fontWeight: "600",
+            }}
+          >
+            Gift Cards
+          </h3>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/jockey">Jockey</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}><Link to="/levis">Levis</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/pantaloons">Pantaloons</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/unitedcolors">United Colors</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/biba">Biba</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/indianterrain">Indian Terrain</Link></p>
+          <p style={{ marginLeft: "10px" }}><Link to="/decathlon">Decathlon</Link></p>
         </div>
       </div>
 
@@ -194,7 +275,7 @@ const Navbar = () => {
       <div className={styles.cancel}>
         <div className={styles.empty}></div>
         <div>
-          <div className={styles.logoDiv}>
+          <div className={styles.logoDiv} style={{padding:'10px'}}>
             <Link to="/">
               <img src={img} alt="Logo" className={styles.logoImg} />
             </Link>
@@ -226,51 +307,51 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/accessories">
                             <span className={styles.productssmall}>
-                              Fashion
+                              Accessories
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/bags">
                             <span className={styles.productssmall}>
-                              Grocery & Home Decor
+                              Bags
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/clothing">
                             <span className={styles.productssmall}>
-                              Jewellery
+                              Clothes
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/cosmetics">
                             <span className={styles.productssmall}>
-                              Furniture & Electronics
+                              Cosmetics
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/products">
                             <span className={styles.productssmall}>
-                              Entertainment
+                              Items
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/sale">
                             <span className={styles.productssmall}>
-                              Beauty & Health
+                              Sale
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/products/shoes">
                             <span className={styles.productssmall}>
-                              Travel & Holidays
+                              Shoes
                             </span>
                           </a>
                         </li>
@@ -294,51 +375,51 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/jockey">
                             <span className={styles.giftcardsmall}>
-                              Fashion
+                              Jockey
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/levis">
                             <span className={styles.giftcardsmall}>
-                              Grocery & Home Decor
+                              Levis
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/pantaloons">
                             <span className={styles.giftcardsmall}>
-                              Jewellery
+                            Pantaloons
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/unitedcolors">
                             <span className={styles.giftcardsmall}>
-                              Furniture & Electronics
+                              United Colors
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/biba">
                             <span className={styles.giftcardsmall}>
-                              Entertainment
+                              Biba
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/indianterrain">
                             <span className={styles.giftcardsmall}>
-                              Beauty & Health
+                              Indian Terrain
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="/decathlon">
                             <span className={styles.giftcardsmall}>
-                              Travel & Holidays
+                              Decathlon
                             </span>
                           </a>
                         </li>
@@ -363,7 +444,7 @@ const Navbar = () => {
                   width={20}
                   alt="icon"
                 />
-                <div className={styles.login}> My Orders</div>
+                <div className={styles.login}> <Link to="/cart">My Orders</Link></div>
               </div>
               <div className={styles.bag}>
                 <img
@@ -371,7 +452,7 @@ const Navbar = () => {
                   width={20}
                   alt="logo"
                 />
-                <div className={styles.login}> the Bag</div>
+                <div className={styles.login}><Link to='/cart'>My Cart : {cartLength}</Link> </div>
               </div>
               <div className={styles.login1}>
                 <img
@@ -379,7 +460,8 @@ const Navbar = () => {
                   width={20}
                   alt="icon"
                 />
-                {isAuth ? (
+
+                {localStorage.getItem("name") ? (
                   <>
                     <div
                       style={{
@@ -389,7 +471,7 @@ const Navbar = () => {
                       }}
                       className={styles.login}
                     >
-                      {name}
+                      {localStorage.getItem("name")}
                     </div>
                     <span
                       onClick={logoutUser}
@@ -432,6 +514,7 @@ const Navbar = () => {
           <div className="form-element">
             <label for="email">Email</label>
             <input
+            id="email"
               type="text"
               placeholder="Enter Your Email"
               value={email}
@@ -441,15 +524,16 @@ const Navbar = () => {
           <div className="form-element">
             <label for="password">Password</label>
             <input
+            id="password"
               type="password"
               placeholder="Enter Your Password"
-              value={Password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-element">
-            <input type="checkbox" />
-            <label for="password">Remember me</label>
+            <input id="checkbox" type="checkbox" />
+            <label for="checkbox">Remember me</label>
           </div>
           <div className="form-element" onClick={Hide_Login_Page}>
             <button onClick={submitLogin}>Log in</button>

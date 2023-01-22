@@ -1,8 +1,9 @@
 import AllRoutes from "./pages/AllRoutes";
 
 function App() {
-  return (<div>
-      <AllRoutes/>
+  return (
+    <div>
+      <AllRoutes />
     </div>
   );
 }

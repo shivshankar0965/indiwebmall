@@ -75,6 +75,7 @@ const VoucherOne = () => {
   };
 
   return (
+
     <Box
       className={styles.container}
       // height={{ base: "100%", md: "50%", xl: "50g %" }}
@@ -99,6 +100,7 @@ const VoucherOne = () => {
             swiper.navigation.update();
           });
         }}
+
       >
         {data?.slice(0, 23).map(( ele ) => (
           <SwiperSlide >
