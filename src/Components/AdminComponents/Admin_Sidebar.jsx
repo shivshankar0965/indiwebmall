@@ -1,42 +1,79 @@
 import React from "react";
 import { Text, Box, Image, Button } from "@chakra-ui/react";
-import logo from "./assets/Project_logo2.png";
+import logo from "./assets/logo_title.png";
 import { Link } from "react-router-dom";
+import {
+  FaDelicious,
+  FaLayerGroup,
+  FaShoppingCart,
+  FaUserAlt,
+} from "react-icons/fa";
 
 const Sidebar = () => {
   return (
     <>
-      <Box bg={"#061144"} width={"40vh"} height={"100vh"}>
-        <Text>
-          <Image src={logo} width={"15vh"} height={"15vh"} ml={"10vh"}></Image>
+      <Box
+        bg="white"
+        boxShadow="lg"
+        pos="fixed"
+        w="20%"
+        h="100%"
+        border={"none"}
+      >
+        <Text pos="fixed">
+          <Image pt="4" src={logo} w="20%" ml="20"></Image>
         </Text>
-        <Box width={"20vh"} height={"5vh"} mt={35} ml={5}>
-          <Link to="/admin">
-            <Button width={"25vh"} bg={"#5D68A1"} color={"white"}>
-              Dashboard
+        <Box pos="fixed" w="11%" mt="10%" ml="4%">
+          <Link to="/admin/dashboard">
+            <Button
+              w="100%"
+              bg={"#5D68A1"}
+              color={"white"}
+              _hover={{ color: "#5D68A1", bg: "gray.300" }}
+            >
+              <FaDelicious /> <Text pl="2">Dashboard</Text>
             </Button>
           </Link>{" "}
         </Box>
-        <Box width={"20vh"} height={"5vh"} mt={10} ml={5}>
+        <Box pos="fixed" mt="15%" ml="4%" w="11%">
           <Link to="/admin/users">
-            <Button width={"25vh"} bg={"#5D68A1"} color={"white"}>
-              Users
+            {" "}
+            <Button
+              w="100%"
+              bg={"#5D68A1"}
+              color={"white"}
+              _hover={{ color: "#5D68A1", bg: "gray.300" }}
+            >
+              <FaUserAlt />
+              <Text pl="2">Users</Text>
             </Button>
           </Link>{" "}
         </Box>
-        <Box width={"20vh"} height={"5vh"} mt={10} ml={5}>
+        <Box pos="fixed" w="11%" mt="20%" ml="4%">
           {" "}
           <Link to="/admin/orders">
-            <Button width={"25vh"} bg={"#5D68A1"} color={"white"}>
-              Orders
+            <Button
+              w="100%"
+              bg={"#5D68A1"}
+              color={"white"}
+              _hover={{ color: "#5D68A1", bg: "gray.300" }}
+            >
+              <FaShoppingCart />
+              <Text pl="2">Orders</Text>
             </Button>
           </Link>
         </Box>
-        <Box width={"20vh"} height={"5vh"} mt={10} ml={5}>
+        <Box pos="fixed" w="11%" mt="25%" ml="4%">
           {" "}
           <Link to="/admin/products">
-            <Button width={"25vh"} bg={"#5D68A1"} color={"white"}>
-              Products
+            <Button
+              w="100%"
+              bg={"#5D68A1"}
+              color={"white"}
+              _hover={{ color: "#5D68A1", bg: "gray.300" }}
+            >
+              <FaLayerGroup />
+              <Text pl="2">Products</Text>
             </Button>
           </Link>
         </Box>
