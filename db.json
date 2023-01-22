@@ -4624,8 +4624,16 @@
       "price": "€ 145"
     }
   ],
-  "cart": [],
-
+  "cart": [
+    {
+      "name": "Only Gift Card",
+      "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498239/1620736478260.jpg?imwidth=140&impolicy=hq",
+      "price": "₹ 4,500",
+      "type": "Gift Card",
+      "originalprice": "",
+      "id": 1
+    }
+  ],
   "voucher1": [
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
@@ -7291,7 +7299,6 @@
       "offerprice": "€ 1,084",
       "off": "30% off"
     },
-
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/6e/P00577950.jpg",
       "name": "Versace",

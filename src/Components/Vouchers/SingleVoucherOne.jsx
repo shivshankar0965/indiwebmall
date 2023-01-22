@@ -10,37 +10,22 @@ import {
   GridItem,
   Box,
   Button,
-  Modal,
+  useToast,
 } from "@chakra-ui/react";
 import { PSlider } from "../Slider/PSlider";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { useDisclosure } from "@chakra-ui/react";
-import { FaStar } from "react-icons/fa";
-import { BsStar, BsStarHalf } from "react-icons/bs";
-
-import {
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  VStack,
-  Center,
-  Spacer,
-} from "@chakra-ui/react";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
-  console.log("voucher_id:", voucher_id);
+  // console.log("voucher_id:", voucher_id);
   // const navigate = useNavigate;
 
   const [data, setData] = useState([]);
   const [count, setCount] = useState({});
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // console.log('count:', count.title)
-  // console.log('data:', data[0].image)
+  const toast = useToast();
+  // const [cartItem, setCartItem] = useState({});
+  // console.log("image:", cartItem.image);
 
   const getData = async (voucher_id) => {
     let data = axios.get(`http://localhost:8080/vouchers/${voucher_id}`);
@@ -52,6 +37,23 @@ const SingleVoucherOne = () => {
   useEffect(() => {
     getData(voucher_id);
   }, [voucher_id]);
+
+  const addToCart = async (el) => {
+    await axios.post("http://localhost:8080/cart", {
+      name: el.name,
+      image: el.image,
+      price: el.price,
+      type: "Gift Card",
+      originalprice: "",
+    });
+    toast({
+      title: 'Gift Card Added.',
+      description: "We've added Gift Card For You In Cart.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  };
 
   return (
     <>
@@ -66,6 +68,25 @@ const SingleVoucherOne = () => {
             // bg={"grey"}
             boxShadow="base"
           >
+            <Box my={4} shadow={"base"} p={8}>
+              <Breadcrumb
+                spacing="8px"
+                separator={<ChevronRightIcon color="gray.500" />}
+              >
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    textTransform={"capitalize"}
+                    href={`/${voucher_id}`}
+                  >
+                    {voucher_id}
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </Box>
             <PSlider
               brand={count.title}
               len={data.length}
@@ -92,9 +113,9 @@ const SingleVoucherOne = () => {
             {data?.map((el) => {
               return (
                 <GridItem
-                  onClick={onOpen}
+                  // onClick={onOpen}
                   // onClick={()=>handleClick()}
-                  // onClick={(e) => console.log(e)}
+                  // onClick={() => setCartItem(el)}
                   alignItems={"center"}
                   textAlign="left"
                   key={el.id}
@@ -103,7 +124,14 @@ const SingleVoucherOne = () => {
                   <Text>{el.name}</Text>
                   <Text fontWeight={"bold"}>{el.price}</Text>
                   <Text>{el.desc}</Text>
-                  <VoucherModal el={el} modalOpen={onOpen} modalClose={onClose} ModalIsOpen={isOpen} />
+                  <Button
+                    colorScheme="blue"
+                    mr={3}
+                    onClick={() => addToCart(el)}
+                  >
+                    Add To Cart
+                  </Button>
+                  {/* <VoucherModal el={el} modalOpen={onOpen} modalClose={onClose} ModalIsOpen={isOpen} /> */}
                 </GridItem>
               );
             })}
@@ -116,81 +144,4 @@ const SingleVoucherOne = () => {
 
 export default SingleVoucherOne;
 
-export const VoucherModal = ({ el,modalOpen,modalClose,ModalIsOpen }) => {
-  const [qunty, setQuanty] = useState(1);
-  const [cartItem, setCartItem] = useState([]);
- 
-  console.log("data:", el);
 
-  // Add to cart
-
-  const addToCart = () => {
-    axios
-      .post("http://localhost:8080/cart", "hello")
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
-  };
-
-  const handleClick = () => {};
-
-  return (
-    <>
-      <Modal isOpen={ModalIsOpen} onClose={modalClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader textAlign={"center"}>Want to Add to Cart ?</ModalHeader>
-          <ModalCloseButton />
-
-          <ModalBody pb={6}>
-            <Flex gap={10}>
-              <Box bg={"red.100"}>
-                <Image src={el.image} alt={el.name} />
-              </Box>
-              <Box bg={"gray.200"} w="60%">
-                <VStack>
-                  <Box>
-                    <Text>{el.name}</Text>
-                  </Box>
-                  <Flex gap={8}>
-                    <Box>
-                      <Text>{el.price}</Text>
-                    </Box>
-                    <Spacer />
-                    <Box>
-                      <Flex gap={2}>
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <BsStarHalf />
-                        <BsStar />
-                      </Flex>
-                    </Box>
-                  </Flex>
-                  <Text>Description</Text>
-                  <Box>
-                    <Button onClick={() => setQuanty(qunty + 1)}>
-                      <AddIcon />
-                    </Button>
-                    <Button>{qunty}</Button>
-                    <Button onClick={() => setQuanty(qunty - 1)}>
-                      <MinusIcon />
-                    </Button>
-                  </Box>
-                </VStack>
-              </Box>
-            </Flex>
-          </ModalBody>
-
-          <ModalFooter>
-            <Center>
-              <Button colorScheme="blue" mr={3} onClick={() => addToCart()}>
-                Add To Cart
-              </Button>
-              <Button onClick={modalClose}>Cancel</Button>
-            </Center>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-};
