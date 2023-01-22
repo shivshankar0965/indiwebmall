@@ -190,6 +190,36 @@ const AllRoutes = () => {
             </>
           }
         />
+        <Route
+          path="shoes"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <NewArrival /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="items"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewelleryFirst /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="cosmetics"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewellerySecond /> <Footer />
+            </>
+          }
+        />
       </Route>
 
       <Route
