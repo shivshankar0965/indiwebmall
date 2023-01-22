@@ -7350,50 +7350,6 @@
       "off": "30% off"
     }
   ],
-  "users": [
-    {
-      "name": "Kaushik Kumar Raj",
-      "email": "kaus@gmail.com",
-      "password": "kaushik@123",
-      "gender": "male",
-      "mobile": "76585443432",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": [],
-      "id": 8
-    },
-    {
-      "name": "Nikki kumari",
-      "email": "nikki@gmail.com",
-      "password": "nikki@1234",
-      "gender": "female",
-      "mobile": "7865543232",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u8.jpg",
-      "orders": [],
-      "address": []
-    },
-    {
-      "id": 3,
-      "name": "Himanshu Kumar",
-      "email": "himansu@gmail.com",
-      "password": "himanshu@123",
-      "gender": "Male",
-      "mobile": "8541278911",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": [],
-      "address": []
-    },
-    {
-      "name": "Guddu Kumar",
-      "email": "guddu@gmail.com",
-      "password": "Guddu@102",
-      "gender": "male",
-      "mobile": "7631073551",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": [],
-      "address": [],
-      "id": 4
-    }
-  ],
   "products2": [
     {
       "id": 2,
@@ -7529,6 +7485,68 @@
       "price": "€ 2,105"
     }
   ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Rajesh Thakur",
+      "email": "rajesh@gmail.com",
+      "password": "rajesh@123",
+      "gender": "Male",
+      "mobile": "8541278962",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": []
+    },
+    {
+      "id": 2,
+      "name": "Priya Kumari",
+      "email": "priya@gmail.com",
+      "password": "priya@123",
+      "gender": "Female",
+      "mobile": "8541278912",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
+      "orders": []
+    },
+    {
+      "id": 3,
+      "name": "Himanshu",
+      "email": "himansu@gmail.com",
+      "password": "himanshu@123",
+      "gender": "Male",
+      "mobile": "8541278911",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": []
+    },
+    {
+      "name": "Kausik",
+      "email": "k@gmail.com",
+      "password": "1234",
+      "mobile": "7896356273",
+      "gender": "Male",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 4
+    },
+    {
+      "name": "Kausik",
+      "email": "k@gmail.com",
+      "password": "1234",
+      "mobile": "8764567234",
+      "gender": "Male",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 5
+    },
+    {
+      "name": "Kausik",
+      "email": "kk@gmail.com",
+      "password": "1234",
+      "mobile": "2432534534543",
+      "gender": "Male",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 6
+    }
+  ],
   "orders": [
     {
       "status": "Pending",
@@ -7573,12 +7591,21 @@
       "quantity": "8"
     }
   ],
+  "admin": [
+    {
+      "name": "Admin",
+      "password": "admin",
+      "email": "indiwebmall@admin.com",
+      "mobile": "7896356273",
+      "gender": "Male"
+    }
+  ],
   "cart": [
     {
-      "name": "The Row",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/6c/P00606230.jpg",
-      "price": "€ 1,195",
-      "type": "Zipped Boot 1 suede boots",
+      "name": "Proenza Schouler",
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/4e/P00688473.jpg",
+      "price": "€ 1,095",
+      "type": "White Label wool-blend coat",
       "id": 1
     }
   ]

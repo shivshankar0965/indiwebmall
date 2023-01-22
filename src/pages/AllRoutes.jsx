@@ -17,18 +17,219 @@ import JewelleryFirst from "../Components/Second_Column_rrb/JewelleryFirst";
 import JewellerySecond from "../Components/Second_Column_rrb/JewellerySecond";
 import JewelleryThird from "../Components/Second_Column_rrb/JewelleryThird";
 import JewelleryFourth from "../Components/Second_Column_rrb/JewelleryFourth";
-
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
+import Cart from "./Cart";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import LoginAdmin from "./LoginAdmin/LoginAdmin";
+import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
+import Index from "./Index";
 import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
 import Order from "../Components/Orders/Order";
 import Products from "./Products";
-
 const AllRoutes = () => {
   return (
-   <Routes></Routes>
-  )
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <Home />
+          </>
+        }
+      >
+        {" "}
+      </Route>
+
+      <Route
+        path="login"
+        element={
+          <>
+            <Navbar /> <Login /> <Footer />
+          </>
+        }
+      />
+      <Route
+        path="signup"
+        element={
+          <>
+            <Navbar /> <Signup /> <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/:voucher_id"
+        element={
+          <>
+            <Navbar />
+            <VoucherDetails />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="products"
+        element={
+          <>
+            {/* <Navbar /> */}
+            <Products />
+            {/* <Footer /> */}
+          </>
+        }
+      >
+        <Route
+          path="accessories"
+          element={
+            <>
+              <Navbar />
+              <Accessories />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="bags"
+          element={
+            <>
+              <Navbar />
+              <Bags />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="clothing"
+          element={
+            <>
+              <Navbar />
+              <Clothing />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="life"
+          element={
+            <>
+              <Navbar />
+              <Life />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="men"
+          element={
+            <>
+              <Navbar />
+              <Men />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="newarrival"
+          element={
+            <>
+              <Navbar />
+              <NewArrival />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="sale"
+          element={
+            <>
+              <Navbar />
+              <Sale />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="earrings"
+          element={
+            <>
+              <Navbar />
+              <JewelleryFirst />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="rings"
+          element={
+            <>
+              <Navbar />
+              <JewellerySecond /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="necklace"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewelleryThird /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="jewellery"
+          element={
+            <>
+              {" "}
+              <Navbar />
+              <JewelleryFourth /> <Footer />
+            </>
+          }
+        />
+      </Route>
+
+      <Route
+        path="cart"
+        element={
+          <PrivateRoute>
+            <CartPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="loginadmin"
+        element={
+          <>
+            {/* <PrivateRouteAdmin> */}
+              <Navbar /> <LoginAdmin /> <Footer />
+              {/* </PrivateRouteAdmin> */}
+          </>
+        }
+      />
+
+      <Route
+        path="/admin"
+        element={
+          <PrivateRouteAdmin>
+            <Admin />
+          </PrivateRouteAdmin>
+        }
+      >
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="orders" element={<Dashboard />} />
+        <Route path="users" element={<Users />} />
+        <Route path="products" element={<AdminProducts />} />
+      </Route>
+
+      <Route path="/:voucher_id" element={<VoucherDetails />} />
+      <Route path="cart" element={<CartPage />} />
+      <Route path="checkoutpage" element={<CheckoutPage />} />
+    </Routes>
+  );
+
 };
 
 export default AllRoutes;
