@@ -9,8 +9,26 @@ import {
   Text,
   GridItem,
   Box,
+  Button,
+  Modal,
 } from "@chakra-ui/react";
 import { PSlider } from "../Slider/PSlider";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { useDisclosure } from "@chakra-ui/react";
+import { FaStar } from "react-icons/fa";
+import { BsStar, BsStarHalf } from "react-icons/bs";
+
+import {
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  VStack,
+  Center,
+  Spacer,
+} from "@chakra-ui/react";
 
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
@@ -19,6 +37,8 @@ const SingleVoucherOne = () => {
 
   const [data, setData] = useState([]);
   const [count, setCount] = useState({});
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   // console.log('count:', count.title)
   // console.log('data:', data[0].image)
 
@@ -34,61 +54,143 @@ const SingleVoucherOne = () => {
   }, [voucher_id]);
 
   return (
-    <Container maxW="full">
-      <Flex gap={5} py={5} pr={4} pl={4}>
-        <Box
-          w={"40%"}
-          h="50%"
-          p={10}
-          spacing={10}
-          alignItems="flex-start"
-          // bg={"grey"}
-          boxShadow="base"
-        >
-          <PSlider
-            brand={count.title}
-            len={data.length}
-            img={count.image}
-            slogan={count.tagline}
-          />
-        </Box>
-        <Grid
-          w="full"
-          h="full"
-          p={10}
-          spacing={10}
-          alignItems="flex-start"
-          templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(3, 1fr)",
-            "repeat(4, 1fr)",
-          ]}
-          gap={10}
-          // bg={"red"}
-          boxShadow="base"
-        >
-          {data?.map((el) => {
-            return (
-              <GridItem alignItems={"center"} textAlign="left" key={el.id}>
-                <Image src={el.image} alt={el.name} />
-                <Text>{el.name}</Text>
-                <Text fontWeight={"bold"}>{el.price}</Text>
-                <Text color="#09ac63">{el.desc}</Text>
-              </GridItem>
-            );
-          })}
-        </Grid>
-      </Flex>
-      <Box>
-        <Text boxShadow={"base"} p={2} color="gray.400">
-          Cashback would be added as Paytm Cash, which is One97 Communications
-          Ltd loyalty program. It can be used to pay for goods & services sold
-          by merchants that accept ‘Pay with Paytm’
-        </Text>
-      </Box>
-    </Container>
+    <>
+      <Container maxW="full">
+        <Flex gap={5} py={5} pr={4} pl={4}>
+          <Box
+            w={"40%"}
+            h="50%"
+            p={10}
+            spacing={10}
+            alignItems="flex-start"
+            // bg={"grey"}
+            boxShadow="base"
+          >
+            <PSlider
+              brand={count.title}
+              len={data.length}
+              img={count.image}
+              slogan={count.tagline}
+            />
+          </Box>
+          <Grid
+            w="full"
+            h="full"
+            p={10}
+            spacing={10}
+            alignItems="flex-start"
+            templateColumns={[
+              "repeat(1, 1fr)",
+              "repeat(2, 1fr)",
+              "repeat(3, 1fr)",
+              "repeat(4, 1fr)",
+            ]}
+            gap={10}
+            // bg={"red"}
+            boxShadow="base"
+          >
+            {data?.map((el) => {
+              return (
+                <GridItem
+                  onClick={onOpen}
+                  // onClick={()=>handleClick()}
+                  // onClick={(e) => console.log(e)}
+                  alignItems={"center"}
+                  textAlign="left"
+                  key={el.id}
+                >
+                  <Image src={el.image} alt={el.name} />
+                  <Text>{el.name}</Text>
+                  <Text fontWeight={"bold"}>{el.price}</Text>
+                  <Text>{el.desc}</Text>
+                  <VoucherModal el={el} modalOpen={onOpen} modalClose={onClose} ModalIsOpen={isOpen} />
+                </GridItem>
+              );
+            })}
+          </Grid>
+        </Flex>
+      </Container>
+    </>
   );
 };
 
 export default SingleVoucherOne;
+
+export const VoucherModal = ({ el,modalOpen,modalClose,ModalIsOpen }) => {
+  const [qunty, setQuanty] = useState(1);
+  const [cartItem, setCartItem] = useState([]);
+ 
+  console.log("data:", el);
+
+  // Add to cart
+
+  const addToCart = () => {
+    axios
+      .post("http://localhost:8080/cart", "hello")
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
+
+  const handleClick = () => {};
+
+  return (
+    <>
+      <Modal isOpen={ModalIsOpen} onClose={modalClose} size="4xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader textAlign={"center"}>Want to Add to Cart ?</ModalHeader>
+          <ModalCloseButton />
+
+          <ModalBody pb={6}>
+            <Flex gap={10}>
+              <Box bg={"red.100"}>
+                <Image src={el.image} alt={el.name} />
+              </Box>
+              <Box bg={"gray.200"} w="60%">
+                <VStack>
+                  <Box>
+                    <Text>{el.name}</Text>
+                  </Box>
+                  <Flex gap={8}>
+                    <Box>
+                      <Text>{el.price}</Text>
+                    </Box>
+                    <Spacer />
+                    <Box>
+                      <Flex gap={2}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <BsStarHalf />
+                        <BsStar />
+                      </Flex>
+                    </Box>
+                  </Flex>
+                  <Text>Description</Text>
+                  <Box>
+                    <Button onClick={() => setQuanty(qunty + 1)}>
+                      <AddIcon />
+                    </Button>
+                    <Button>{qunty}</Button>
+                    <Button onClick={() => setQuanty(qunty - 1)}>
+                      <MinusIcon />
+                    </Button>
+                  </Box>
+                </VStack>
+              </Box>
+            </Flex>
+          </ModalBody>
+
+          <ModalFooter>
+            <Center>
+              <Button colorScheme="blue" mr={3} onClick={() => addToCart()}>
+                Add To Cart
+              </Button>
+              <Button onClick={modalClose}>Cancel</Button>
+            </Center>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
