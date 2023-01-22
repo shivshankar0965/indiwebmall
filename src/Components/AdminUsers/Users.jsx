@@ -29,7 +29,7 @@ import {
   Grid,
   GridItem,
   Select,
-  Textarea,
+  useToast,
 } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
@@ -40,9 +40,10 @@ const getTopProducts = async () => {
   return data;
 };
 const Users = () => {
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [users, setUsers] = useState([]);
-  const [addresses, setAddress] = useState("");
+
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -70,12 +71,18 @@ const Users = () => {
         orders: [],
         address: [],
       });
+      toast({
+        title: "User Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      onClose();
     } catch (err) {
       console.log("posting failed");
     }
   };
-  console.log(addresses);
-  console.log(userDetails);
   const { name, email, password, gender, mobile, profile, orders, address } =
     userDetails;
   useEffect(() => {
@@ -137,6 +144,7 @@ const Users = () => {
                   <Th>Password</Th>
                   <Th>gender</Th>
                   <Th>Orders</Th>
+                  <Th>Actions</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -168,7 +176,7 @@ const Users = () => {
                     onChange={changeHandler}
                     value={name}
                     name="name"
-                    placeholder="First name"
+                    placeholder="Full name"
                   />
                 </FormControl>
               </GridItem>
@@ -179,7 +187,7 @@ const Users = () => {
                     onChange={changeHandler}
                     value={email}
                     name="email"
-                    placeholder="Last name"
+                    placeholder="Enter Email"
                   />
                 </FormControl>
               </GridItem>
@@ -232,17 +240,6 @@ const Users = () => {
                   />
                 </FormControl>
               </GridItem>
-              {/* <GridItem colSpan={"2"}>
-                <FormControl>
-                  <FormLabel>User Address</FormLabel>
-                  <Textarea
-                    onChange={(e) => setAddress(e.target.value)}
-                    value={addresses}
-                    name="address"
-                    placeholder="User Address"
-                  />
-                </FormControl>
-              </GridItem> */}
             </Grid>
           </ModalBody>
 

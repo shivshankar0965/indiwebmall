@@ -7352,24 +7352,22 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Rajesh Thakur",
-      "email": "rajesh@gmail.com",
-      "password": "rajesh@123",
-      "gender": "Male",
-      "mobile": "8541278962",
+      "name": "Kaushik Kumar Raj",
+      "email": "kaus@gmail.com",
+      "password": "kaushik@123",
+      "gender": "male",
+      "mobile": "76585443432",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
-      "address": []
+      "id": 8
     },
     {
-      "id": 2,
-      "name": "Priya Kumari",
-      "email": "priya@gmail.com",
-      "password": "priya@123",
-      "gender": "Female",
-      "mobile": "8541278912",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
+      "name": "Nikki kumari",
+      "email": "nikki@gmail.com",
+      "password": "nikki@1234",
+      "gender": "female",
+      "mobile": "7865543232",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u8.jpg",
       "orders": [],
       "address": []
     },
@@ -7396,9 +7394,144 @@
       "id": 4
     }
   ],
+  "products2": [
+    {
+      "id": 2,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/57/P00744004.jpg",
+      "name": "Gucci",
+      "title": "GG Marmont 2.0 shearling shoulder bag",
+      "price": "€ 2,269"
+    },
+    {
+      "id": 3,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/7d/P00760268.jpg",
+      "name": "Bottega Veneta",
+      "title": "Mostra croc-effect leather loafer pumps",
+      "price": "€ 1,009"
+    },
+    {
+      "id": 4,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/87/P00758330.jpg",
+      "name": "Bottega Veneta",
+      "title": "Ribbed-knit cotton midi skirt",
+      "price": "€ 715"
+    },
+    {
+      "id": 5,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/d8/P00738908.jpg",
+      "name": "Saint Laurent",
+      "title": "Ruched jersey gown",
+      "price": "€ 5,045"
+    },
+    {
+      "id": 6,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/ff/P00751748.jpg",
+      "name": "Valentino",
+      "title": "Rockstud bouclé minidress",
+      "price": "€ 2,439"
+    },
+    {
+      "id": 7,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/8d/P00751761.jpg",
+      "name": "Valentino",
+      "title": "Embellished tweed minidress",
+      "price": "€ 2,945"
+    },
+    {
+      "id": 8,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/26/P00761755.jpg",
+      "name": "Pomellato",
+      "title": "Iconica 18kt rose gold ring with diamonds",
+      "price": "€ 4,209"
+    },
+    {
+      "id": 9,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/de/P00736771.jpg",
+      "name": "Balmain",
+      "title": "B-Buzz 23 Mini shoulder bag",
+      "price": "€ 919"
+    },
+    {
+      "id": 10,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/b6/P00751523.jpg",
+      "name": "Dodo Bar Or",
+      "title": "Fringed metallic leather jacket",
+      "price": "€ 1,095"
+    },
+    {
+      "id": 11,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e2/P00779037.jpg",
+      "name": "Dodo Bar Or",
+      "title": "High-rise straight metallic leather pants",
+      "price": "€ 935"
+    },
+    {
+      "id": 12,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/cf/P00742901.jpg",
+      "name": "Paris Texas",
+      "title": "Embellished suede over-the-knee boots",
+      "price": "€ 839"
+    },
+    {
+      "id": 13,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Stella McCartney",
+      "title": "Falabella embellished clutch",
+      "price": "€ 925"
+    },
+    {
+      "id": 14,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "David Koma",
+      "title": "Embellished cady and satin gown",
+      "price": "€ 2,029"
+    },
+    {
+      "id": 15,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Pomellato",
+      "title": "Iconica Bold 18kt rose gold earrings with diamonds",
+      "price": "€ 11,135"
+    },
+    {
+      "id": 16,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Gianvito Rossi",
+      "title": "Leather pumps",
+      "price": "€ 749"
+    },
+    {
+      "id": 17,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Paris Texas",
+      "title": "Holly embellished denim boots",
+      "price": "€ 645"
+    },
+    {
+      "id": 18,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Rotate Birger Christensen",
+      "title": "Embellished minidress",
+      "price": "€ 289"
+    },
+    {
+      "id": 19,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Gucci",
+      "title": "Belted leather jacket",
+      "price": "€ 3,785"
+    },
+    {
+      "id": 20,
+      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/e1/P00745818.jpg",
+      "name": "Gucci",
+      "title": "Gucci Jackie 1961 Small leather shoulder bag",
+      "price": "€ 2,105"
+    }
+  ],
   "orders": [
     {
-      "status": "Done",
+      "status": "Pending",
       "id": 1,
       "pname": "The name of brand is turtle this is unique",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIUMfZUFXRAHDBKfKQfqdlN2QCB76CeP-XA&usqp=CAU",
@@ -7450,3 +7583,5 @@
     }
   ]
 }
+
+

@@ -1,31 +1,81 @@
-import React from 'react';
-import ProductRow from './ProductRow';
+import React from "react";
+import ProductRow from "./ProductRow";
 import { useEffect, useState } from "react";
 import {
   Table,
   Thead,
   Tbody,
-  Box,  Tr,
+  Box,
+  Tr,
   Th,
-  Heading,Flex,
+  Heading,
+  Flex,
   BreadcrumbItem,
   Breadcrumb,
   BreadcrumbLink,
   Button,
   Divider,
-  useColorModeValue 
-} from '@chakra-ui/react'
+  useColorModeValue,
+  useToast,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  Grid,
+  GridItem,
+  FormControl,
+  FormLabel,
+  ModalFooter,
+  Input,
+} from "@chakra-ui/react";
+import axios from "axios";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
-import {ChevronRightIcon} from "@chakra-ui/icons";
-const AdminProducts=()=> {
+const AdminProducts = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [products, setData] = useState([]);
-
+  const [ProductDetails, setProductDetails] = useState({
+    name: "",
+    title: "",
+    price: "",
+    image: "",
+  });
+  const toast = useToast();
+  const changeHandler = (e) => {
+    let { name, value } = e.target;
+    setProductDetails({ ...ProductDetails, [name]: value });
+  };
+  const handleSubmit = () => {
+    try {
+      axios.post("http://localhost:8080/products2", ProductDetails);
+      setProductDetails({
+        name: "",
+        title: "",
+        price: "",
+        image: "",
+      });
+      toast({
+        title: "User Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      onClose();
+    } catch (err) {
+      console.log("posting failed");
+    }
+  };
+  const { name, title, price, image } = ProductDetails;
   const fetchData = () => {
-    fetch("http://localhost:8080/products")
+    fetch("http://localhost:8080/products2")
       .then((response) => response.json())
       .then((products) => {
-        console.log(products);
+        // console.log(products);
         setData(products);
         // console.log(data);
       })
@@ -38,9 +88,9 @@ const AdminProducts=()=> {
     fetchData();
   }, []);
 
+  console.log(products);
   return (
     <>
-
       {/* <TableContainer mt={50} border={"2px solid white"}>
            <Table variant='striped' colorScheme=''>
              <Thead>
@@ -65,8 +115,12 @@ const AdminProducts=()=> {
            </Table>
          </TableContainer> */}
       <Box>
-        <Heading my={"6"}>Users</Heading>
-        <Flex alignItems={"center"} justifyContent={"space-between"}>
+        <Heading my={"6"}>Products</Heading>
+        <Flex
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          color={"black"}
+        >
           <Box>
             <Breadcrumb separator={<ChevronRightIcon color="gray.500" />}>
               <BreadcrumbItem>
@@ -74,13 +128,13 @@ const AdminProducts=()=> {
               </BreadcrumbItem>
 
               <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href="/admin/users">Users</BreadcrumbLink>
+                <BreadcrumbLink href="/admin/products">Products</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
           </Box>
 
           <Box>
-            <Button colorScheme="gray" variant="outline">
+            <Button onClick={onOpen} colorScheme="gray" variant="outline">
               Add User
             </Button>
           </Box>
@@ -95,7 +149,7 @@ const AdminProducts=()=> {
           border="1px solid #999"
           width="100%"
         >
-          <Heading p="6">User Database</Heading>
+          <Heading p="6">Product Database</Heading>
           <Divider />
           <Box
             flexDirection={"column"}
@@ -115,17 +169,85 @@ const AdminProducts=()=> {
                 </Tr>
               </Thead>
               <Tbody>
-                {products?.map((product, i) => (
-                  <ProductRow key={i} {...product} />
+                {products?.map((products, i) => (
+                  <ProductRow key={i} {...products} />
                 ))}
               </Tbody>
             </Table>
           </Box>
         </Box>
       </Box>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent maxW="800px">
+          <ModalHeader
+            // color={useColorModeValue("gray.600", "gray.700")}
+            // borderBottom={"1px solid #999"}
+            pb={"6"}
+          >
+            Add New Product
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody p={6} pb={6}>
+            <Grid gap={"6"} gridTemplateColumns={"repeat(2, 1fr)"}>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Product Name</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={name}
+                    name="name"
+                    placeholder="Product name"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Title</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={title}
+                    name="title"
+                    placeholder="Enter title"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Price</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={price}
+                    name="price"
+                    placeholder="Enter Price"
+                  />
+                </FormControl>
+              </GridItem>
+              <GridItem>
+                <FormControl>
+                  <FormLabel>Image URL</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    value={image}
+                    name="image"
+                    placeholder="Product Picture"
+                  />
+                </FormControl>
+              </GridItem>
+            </Grid>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button onClick={handleSubmit} colorScheme="blue" mr={3}>
+              Add Product
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
-}
+};
 
 export default AdminProducts;
-
