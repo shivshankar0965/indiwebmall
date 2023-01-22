@@ -4624,16 +4624,7 @@
       "price": "€ 145"
     }
   ],
-  "cart": [
-    {
-      "name": "Only Gift Card",
-      "image": "https://assetscdn1.paytm.com/images/catalog/view_item/498239/1620736478260.jpg?imwidth=140&impolicy=hq",
-      "price": "₹ 4,500",
-      "type": "Gift Card",
-      "originalprice": "",
-      "id": 1
-    }
-  ],
+
   "voucher1": [
     {
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/c4/P00634568.jpg",
@@ -7345,7 +7336,8 @@
       "gender": "Male",
       "mobile": "8541278962",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": []
+      "orders": [],
+      "address": []
     },
     {
       "id": 2,
@@ -7355,7 +7347,8 @@
       "gender": "Female",
       "mobile": "8541278912",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
-      "orders": []
+      "orders": [],
+      "address": []
     },
     {
       "id": 3,
@@ -7365,7 +7358,20 @@
       "gender": "Male",
       "mobile": "8541278911",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": []
+      "orders": [],
+
+      "address": []
+    },
+    {
+      "name": "Guddu Kumar",
+      "email": "guddu@gmail.com",
+      "password": "Guddu@102",
+      "gender": "male",
+      "mobile": "7631073551",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "address": [],
+      "id": 4
     }
   ],
   "orders": [
@@ -7411,5 +7417,6 @@
       "cid": "98",
       "quantity": "8"
     }
-  ]
+  ],
+  "cart": []
 }
