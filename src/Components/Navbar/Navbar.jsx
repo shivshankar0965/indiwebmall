@@ -8,9 +8,31 @@ import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import axios from 'axios';
+import { useToast } from '@chakra-ui/react'
 
 const Navbar = () => {
   const { logoutUser } = useContext(AuthContext);
+  const toast = useToast()
+ // all toasts are here
+ const wrongEmail=()=>{
+  toast({
+    title: 'Wrong Email or Password.',
+    description: "Please enter right email or password!!!",
+    status: 'error',
+    duration: 9000,
+    isClosable: true,
+  })
+}
+const loginSuccess=()=>{
+  toast({
+    title: 'Login Successful.',
+    description: "Thank You For Login!!!",
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  })
+}
+// all toasts are here
   // console.log("auth", isAuth);
   let authentication = localStorage.getItem("auth");
   // console.log(authentication);
@@ -64,9 +86,11 @@ const Navbar = () => {
       }
       setload(false);
       if (Auth === false) {
-        alert("Please enter right email or password!");
+        // alert("Please enter right email or password!");
+        wrongEmail()
       } else {
-        alert("Login Successfull!");
+        // alert("Login Successfull!");
+        loginSuccess()
         navigate("/");
       }
       // console.log(Auth);
@@ -546,7 +570,19 @@ const Navbar = () => {
                 style={{ color: "rgb(255, 81, 0)" }}
                 onClick={Hide_Login_Page}
               >
-                Sign up
+                Sign up!
+              </Link>
+            </p>
+          </div>
+          <div>
+            <p>
+              if you want to go Admin Sight{" "}
+              <Link
+                to="/loginadmin"
+                style={{ color: "rgb(255, 81, 0)" }}
+                onClick={Hide_Login_Page}
+              >
+                Click Here!
               </Link>
             </p>
           </div>

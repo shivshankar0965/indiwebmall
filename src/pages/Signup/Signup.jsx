@@ -11,7 +11,7 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-// import { useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 
 function Signup() {
   const [password, setPassword] = useState("");
@@ -21,17 +21,27 @@ function Signup() {
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
-  // const toast = useToast()
-  // const getToast=()=>{
-  //   toast({
-  //     title: 'Account created.',
-  //     description: "We've created your account for you.",
-  //     status: 'success',
-  //     duration: 9000,
-  //     isClosable: true,
-  //   })
-  // }
-
+  const toast = useToast()
+  // all toasts are here
+  const emailExist=()=>{
+    toast({
+      title: 'Email Already Exist.',
+      description: "Please Enter New Email.",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+  const signupSuccess=()=>{
+    toast({
+      title: 'Signup Successful.',
+      description: "Thank You!!Login Now",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+// all toasts are here
   const postdata = async () => {
     setload(true);
     // for verify same email X
@@ -48,8 +58,8 @@ function Signup() {
       }
 
       if (mailAuth === true) {
-        alert("Email already exist");
-        // getToast()
+        // alert("Email already exist");
+        emailExist()
         setload(false);
       }
     }catch(err){
@@ -78,7 +88,8 @@ function Signup() {
       let data = await res.json();
       console.log(data);
       setload(false);
-      alert("Signup Successfull!");
+      // alert("Signup Successfull!");
+      signupSuccess();
       navigate("/login");
     } catch (error) {
       setload(false);

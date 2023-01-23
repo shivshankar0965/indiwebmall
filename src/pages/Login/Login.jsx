@@ -11,6 +11,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import styles from "./Login.module.css";
+import { useToast } from '@chakra-ui/react'
 
 
 function Login() {
@@ -18,8 +19,29 @@ function Login() {
   const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
+  const toast = useToast()
   const { loginUser,isAuth } = useContext(AuthContext);
-  console.log('auth',isAuth)
+  // console.log('auth',isAuth)
+  // all toasts are here
+  const wrongEmail=()=>{
+    toast({
+      title: 'Wrong Email or Password.',
+      description: "Please enter right email or password!!!",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+  const loginSuccess=()=>{
+    toast({
+      title: 'Login Successful.',
+      description: "Thank You For Login!!!",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+// all toasts are here
   
 
   const submitLogin = async () => {
@@ -42,9 +64,11 @@ function Login() {
       }
       setload(false);
       if (Auth === false) {
-        alert("Please enter right email or password!");
+        // alert("Please enter right email or password!");
+        wrongEmail();
       } else {
-        alert("Login Successfull!");
+        // alert("Login Successfull!");
+        loginSuccess();
         navigate("/");
       }
 

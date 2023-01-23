@@ -147,6 +147,7 @@
 .products {
   font-size: 15px;
   color: rgb(255, 81, 0);
+  /* border: 1px solid; */
 }
 .productssmall {
   font-size: 14px;
