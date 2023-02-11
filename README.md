@@ -11,9 +11,9 @@
 
 - Rishi Raj (My Linkedin profile :- http://www.linkedin.com/in/rishi-raj-bhardwaj)
 
-- Deepak Kumar Fathkar (My Linkedin profile :- https://www.linkedin.com/)
+- Deepak Kumar Fathkar (My Linkedin profile :- https://www.linkedin.com/in/deepak-kumar-fathkar-b1678b13b/)
 
-- Nikita Hiralal Sonwane (My Linkedin profile :- https://www.linkedin.com/)
+- Nikita Hiralal Sonwane (My Linkedin profile :- https://www.linkedin.com/in/nikita-sonwane/)
 <br/>
 
 <h4 align="center">💻 Tech Stack</h4>
