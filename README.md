@@ -38,3 +38,66 @@
       
 </div>
 <br/>
+
+## Let's Dive into What we have made
+
+## HomePage :
+![HomePage](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/home_gift_cards.png)
+<br/>
+
+![HomePage_Products](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/Home_products.png)
+<br/>
+![HomePage_footer](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/footer_section.png?raw=true)
+<br/>
+## Signup Page: 
+![SignUp](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/signup.png?raw=true)
+<br/>
+
+## Login Page:
+
+![Login_Page](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/login.jpg?raw=true)
+<br/>
+
+## GiftCards Page:
+![GiftCards](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/gift_cards.png?raw=true)
+<br/>
+
+## Products Page:
+
+![ProductsPage](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/Products%20list.png?raw=true)
+<br/>
+
+## Admin Section:
+
+![AdminDashboard](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/admin_dashboard1.png?raw=true);
+<br/>
+
+![AdminDashboardSecond](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/admin_dashboard.png?raw=true);
+
+<br/>
+
+![AdminUsers](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/admin_users.png?raw=true)
+<br/>
+
+![AdminProducts](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/admin_products%20(2).png?raw=true)
+<br/>
+## Our Learnings
+On this journey we faced many issues, but we keep motivated each other with patience. 
+
+- We all learned how to read and understand the code of other team members.
+
+- We learned how to write more efficient and clean code.
+
+- Even though  We also learned how to plan a project and how to execute it step by step.
+
+- By this Project we have learned how to collaborate and communicate with team effectively and improving the productivity.
+
+- We also got a glimpse of using GitHub for the version control.
+
+Source Code(GitHub link):- https://github.com/vaibhav-mougha/WEFIThttps://github.com/shivshankar0965/general-protest-6773
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+### Thank you
