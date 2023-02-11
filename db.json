@@ -7352,13 +7352,6 @@
   ],
   "products2": [
     {
-      "id": 2,
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/57/P00744004.jpg",
-      "name": "Gucci",
-      "title": "GG Marmont 2.0 shearling shoulder bag",
-      "price": "€ 2,269"
-    },
-    {
       "id": 3,
       "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/7d/P00760268.jpg",
       "name": "Bottega Veneta",
@@ -7488,22 +7481,12 @@
   "users": [
     {
       "id": 1,
-      "name": "Rajesh Thakur",
+      "name": "Rajesh Kumar",
       "email": "rajesh@gmail.com",
       "password": "rajesh@123",
       "gender": "Male",
       "mobile": "8541278962",
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-      "orders": []
-    },
-    {
-      "id": 2,
-      "name": "Priya Kumari",
-      "email": "priya@gmail.com",
-      "password": "priya@123",
-      "gender": "Female",
-      "mobile": "8541278912",
-      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u5.jpg",
       "orders": []
     },
     {
@@ -7517,7 +7500,7 @@
       "orders": []
     },
     {
-      "name": "Kausik",
+      "name": "Kausik Kumar",
       "email": "k@gmail.com",
       "password": "1234",
       "mobile": "7896356273",
@@ -7545,6 +7528,16 @@
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
       "id": 6
+    },
+    {
+      "name": "kaushi",
+      "email": "kkk@gmail.com",
+      "password": "kaus",
+      "mobile": "454532498787",
+      "gender": "Male",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 7
     }
   ],
   "orders": [
@@ -7619,18 +7612,27 @@
     {
       "name": "Admin",
       "password": "admin",
-      "email": "indiwebmall@admin.com",
+      "email": "admin@indiwebmall.com",
       "mobile": "7896356273",
       "gender": "Male"
     }
   ],
   "cart": [
     {
-      "name": "Proenza Schouler",
-      "image": "https://img.mytheresa.com/560/560/33/jpeg/catalog/product/4e/P00688473.jpg",
-      "price": "€ 1,095",
-      "type": "White Label wool-blend coat",
-      "id": 1
+      "name": "BIBA Gift Card",
+      "image": "https://assetscdn1.paytm.com/images/catalog/product/D/DE/DEAVOUCHER-WORTVOUC5983418C9CCE41/0.png?imwidth=282&impolicy=hq",
+      "price": "₹ 250",
+      "type": "Gift Card",
+      "originalprice": "",
+      "id": 2
+    },
+    {
+      "name": "Puma Gift Card",
+      "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995526/1643867362885.png?imwidth=140&impolicy=hq",
+      "price": "₹ 2,000",
+      "type": "Gift Card",
+      "originalprice": "",
+      "id": 3
     }
   ]
 }
