@@ -94,7 +94,7 @@ On this journey we faced many issues, but we keep motivated each other with pati
 
 - We also got a glimpse of using GitHub for the version control.
 
-Source Code(GitHub link):- https://github.com/vaibhav-mougha/WEFIThttps://github.com/shivshankar0965/general-protest-6773
+Source Code(GitHub link):- https://github.com/shivshankar0965/general-protest-6773
 
 ## Show your support
 
