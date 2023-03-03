@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Signup.module.css";
+import axios from "axios";
 import {
   FormControl,
   FormHelperText,
@@ -11,7 +12,7 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from "@chakra-ui/react";
 
 function Signup() {
   const [password, setPassword] = useState("");
@@ -21,32 +22,32 @@ function Signup() {
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
-  const toast = useToast()
+  const toast = useToast();
   // all toasts are here
-  const emailExist=()=>{
+  const emailExist = () => {
     toast({
-      title: 'Email Already Exist.',
+      title: "Email Already Exist.",
       description: "Please Enter New Email.",
-      status: 'error',
+      status: "error",
       duration: 9000,
       isClosable: true,
-    })
-  }
-  const signupSuccess=()=>{
+    });
+  };
+  const signupSuccess = () => {
     toast({
-      title: 'Signup Successful.',
+      title: "Signup Successful.",
       description: "Thank You!!Login Now",
-      status: 'success',
+      status: "success",
       duration: 9000,
       isClosable: true,
-    })
-  }
-// all toasts are here
+    });
+  };
+  // all toasts are here
   const postdata = async () => {
     setload(true);
     // for verify same email X
     try {
-      let res = await fetch(`http://localhost:8080/users`);
+      let res = await fetch(`https://indiweb-api-json.vercel.app/users`);
       let data = await res.json();
       console.log(data);
       var mailAuth = false;
@@ -56,51 +57,64 @@ function Signup() {
           break;
         }
       }
-
       if (mailAuth === true) {
         // alert("Email already exist");
-        emailExist()
+        emailExist();
         setload(false);
       }
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
 
-    console.log("mailAuth",mailAuth)
+    console.log("mailAuth", mailAuth);
     // for normal signup
-  if(!mailAuth){  try {
-      let res = await fetch(`http://localhost:8080/users`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          mobile,
-          gender,
-          profile:
-            "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-          orders: [],
-        }),
-      });
-      let data = await res.json();
-      console.log(data);
-      setload(false);
-      // alert("Signup Successfull!");
-      signupSuccess();
-      navigate("/login");
-    } catch (error) {
-      setload(false);
-      console.log(error);
-    }
+    if (!mailAuth) {
+      try {
+        // let res = await fetch(`http://localhost:8080/users`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     name,
+        //     email,
+        //     password,
+        //     mobile,
+        //     gender,
+        //     profile:
+        //       "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+        //     orders: [],
+        //   }),
+        // });
+        // let data = await res.json();
+        // console.log(data);
+        let res;
+        setTimeout(async () => {
+          res = await axios.post(`https://indiweb-api-json.vercel.app/users`, {
+            name,
+            email,
+            password,
+            mobile,
+            gender,
+            profile:
+              "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+            orders: [],
+          });
+        }, 10000);
+        setload(false);
+        // alert("Signup Successfull!");
+        signupSuccess();
+        navigate("/login");
+      } catch (error) {
+        setload(false);
+        signupSuccess();
+      }
 
-    setname("");
-    setemail("");
-    setPassword("");
+      setname("");
+      setemail("");
+      setPassword("");
+    }
   };
-}
 
   return (
     <div>
