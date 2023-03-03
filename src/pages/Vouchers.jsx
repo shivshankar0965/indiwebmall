@@ -1,16 +1,18 @@
-import React from 'react'
-import VoucherOne from "../Components/Vouchers/VoucherOne"
-import VoucherTwo from "../Components/Vouchers/VoucherTwo"
-import VoucherTri from "../Components/Vouchers/VoucherTri"
+import React from "react";
+import {
+  VoucherOne,
+  VoucherTwo,
+  VoucherTri,
+} from "../Components/Vouchers/VoucherOne";
 
 const Vouchers = () => {
   return (
     <div>
-        <VoucherOne />
-        <VoucherTwo />
-        <VoucherTri />
+      <VoucherOne />
+      <VoucherTwo />
+      <VoucherTri />
     </div>
-  )
-}
+  );
+};
 
-export default Vouchers
+export default Vouchers;
