@@ -28,11 +28,17 @@ const SingleVoucherOne = () => {
   // console.log("image:", cartItem.image);
 
   const getData = async (voucher_id) => {
-    let data = axios.get(`https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`);
-    let res = await data;
-    // setData(res.data);
-    setCount(res.data);
-    setData(res.data[voucher_id]);
+    try {
+      let data = axios.get(
+        `https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`
+      );
+      let res = await data;
+      // setData(res.data);
+      setCount(res.data);
+      setData(res.data[voucher_id]);
+    } catch (error) {
+      console.log("error:", error);
+    }
   };
   useEffect(() => {
     getData(voucher_id);
@@ -47,12 +53,12 @@ const SingleVoucherOne = () => {
       originalprice: "",
     });
     toast({
-      title: 'Gift Card Added.',
+      title: "Gift Card Added.",
       description: "We've added Gift Card For You In Cart.",
-      status: 'success',
+      status: "success",
       duration: 9000,
       isClosable: true,
-    })
+    });
   };
 
   return (
@@ -68,16 +74,16 @@ const SingleVoucherOne = () => {
             // bg={"grey"}
             boxShadow="base"
           >
-            <Box my={[4,2]} shadow={"base"} p={[8,4]}>
+            <Box my={[4, 2]} shadow={"base"} p={[8, 4]}>
               <Breadcrumb
                 spacing="8px"
                 separator={<ChevronRightIcon color="gray.500" />}
               >
-                <BreadcrumbItem fontSize={[6,8,16]}>
+                <BreadcrumbItem fontSize={[6, 8, 16]}>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
-                <BreadcrumbItem fontSize={[6,8,16]}>
+                <BreadcrumbItem fontSize={[6, 8, 16]}>
                   <BreadcrumbLink
                     textTransform={"capitalize"}
                     href={`/${voucher_id}`}
@@ -143,5 +149,3 @@ const SingleVoucherOne = () => {
 };
 
 export default SingleVoucherOne;
-
-
