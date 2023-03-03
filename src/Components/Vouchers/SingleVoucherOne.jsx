@@ -68,16 +68,16 @@ const SingleVoucherOne = () => {
             // bg={"grey"}
             boxShadow="base"
           >
-            <Box my={4} shadow={"base"} p={8}>
+            <Box my={[4,2]} shadow={"base"} p={[8,4]}>
               <Breadcrumb
                 spacing="8px"
                 separator={<ChevronRightIcon color="gray.500" />}
               >
-                <BreadcrumbItem>
+                <BreadcrumbItem fontSize={[6,8,16]}>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
-                <BreadcrumbItem>
+                <BreadcrumbItem fontSize={[6,8,16]}>
                   <BreadcrumbLink
                     textTransform={"capitalize"}
                     href={`/${voucher_id}`}
@@ -102,7 +102,7 @@ const SingleVoucherOne = () => {
             alignItems="flex-start"
             templateColumns={[
               "repeat(1, 1fr)",
-              "repeat(2, 1fr)",
+              "repeat(1, 1fr)",
               "repeat(3, 1fr)",
               "repeat(4, 1fr)",
             ]}
