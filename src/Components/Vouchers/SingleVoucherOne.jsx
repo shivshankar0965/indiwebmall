@@ -31,9 +31,6 @@ const SingleVoucherOne = () => {
   console.log('sv1data:', data)
   const dispatch = useDispatch();
   
-
-  // const [data1, setData] = useState([]);
-  // const [count, setCount] = useState({});
   const toast = useToast();
 
   useEffect(() => {
