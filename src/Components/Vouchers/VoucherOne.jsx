@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Center, Container, Flex } from "@chakra-ui/react";
+// import { Center, Container, Flex } from "@chakra-ui/react";
 
 import { getVouchers } from "../../Redux/Vouchers/Voucher1/vouchers.actions";
 import { getVoucherTwo } from "../../Redux/Vouchers/Voucher2/voucherTwo.actions";
@@ -25,6 +25,7 @@ import styles from "./VoucherOne.module.css";
 
 export const VoucherOne = () => {
   const { loading, error, data } = useSelector((store) => store.voucher1);
+  console.log('Vdata:', data)
   const dispatch = useDispatch();
 
   const navigationPrevRef = React.useRef(null);
@@ -104,7 +105,7 @@ export const VoucherOne = () => {
         }}
 
       >
-        {data?.slice(0, 23).map(( ele ) => (
+        {data.length>0&&data?.slice(0, 23).map(( ele ) => (
           <SwiperSlide >
             <Box
               className={styles.box}
@@ -214,7 +215,7 @@ export const VoucherTwo = () => {
           });
         }}
       >
-        {data?.slice(23, 46).map(( ele ) => (
+        {data.length>0&&data?.slice(23, 46).map(( ele ) => (
           <SwiperSlide >
             <Box
               className={styles.box}
@@ -324,7 +325,7 @@ export const VoucherTri = () => {
           });
         }}
       >
-        {data?.slice(46, 63).map(( ele ) => (
+        {data.length>0&&data?.slice(46, 63).map(( ele ) => (
           <SwiperSlide >
             <Box
               className={styles.box}

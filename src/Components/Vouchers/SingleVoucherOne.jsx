@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {
@@ -17,33 +17,32 @@ import { PSlider } from "../Slider/PSlider";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
+import { getSingleVouchers } from "../../Redux/Vouchers/SingleVoucher/Sv.action";
+import { useDispatch, useSelector } from "react-redux";
+
+import Error from "../Messages/Error";
+import Loading from "../Messages/Loading";
+
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
   // console.log("voucher_id:", voucher_id);
   // const navigate = useNavigate;
+  const { loading, error, data } = useSelector((store) => store.singlevoucher);
+  console.log('sv1data:', data)
+  const dispatch = useDispatch();
+  
 
-  const [data, setData] = useState([]);
-  const [count, setCount] = useState({});
+  // const [data1, setData] = useState([]);
+  // const [count, setCount] = useState({});
   const toast = useToast();
-  // const [cartItem, setCartItem] = useState({});
-  // console.log("image:", cartItem.image);
 
-  const getData = async (voucher_id) => {
-    try {
-      let data = axios.get(
-        `https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`
-      );
-      let res = await data;
-      // setData(res.data);
-      setCount(res.data);
-      setData(res.data[voucher_id]);
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
   useEffect(() => {
-    getData(voucher_id);
+    dispatch(getSingleVouchers(voucher_id))
   }, [voucher_id]);
+
+  if (loading) return <Loading />;
+
+  if (error) return <Error />;
 
   const addToCart = async (el) => {
     await axios.post("http://localhost:8080/cart", {
@@ -94,10 +93,10 @@ const SingleVoucherOne = () => {
               </Breadcrumb>
             </Box>
             <PSlider
-              brand={count.title}
-              len={data.length}
-              img={count.image}
-              slogan={count.tagline}
+              brand={data?.title}
+              len={data[voucher_id]?.length}
+              img={data?.image}
+              slogan={data?.tagline}
             />
           </VStack>
         </VStack>
@@ -122,7 +121,7 @@ const SingleVoucherOne = () => {
             // bg={"red"}
             boxShadow="base"
           >
-            {data?.map((el) => {
+            {data[voucher_id]?.map((el) => {
               return (
                 <GridItem
                   // onClick={onOpen}
