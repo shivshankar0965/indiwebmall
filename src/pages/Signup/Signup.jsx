@@ -10,6 +10,7 @@ import {
   Button,
   Link,
   Select,
+  Box,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
@@ -127,45 +128,77 @@ function Signup() {
           Sign up
         </Heading>
         <FormControl>
-          <FormLabel>Name</FormLabel>
-          <Input
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setname(e.target.value)}
-            type="text"
-          />
-          <FormLabel>Gender</FormLabel>
-          <Select
-            placeholder="Select Your Gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <option value="Male">Male</option>
-            <option value="female">Female</option>
-          </Select>
-          <FormLabel>Phone Number</FormLabel>
-          <Input
-            placeholder="Your Phone Number"
-            type="number"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
-          <FormLabel>Email address</FormLabel>
-          <Input
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-            type="email"
-            placeholder="Your Email Address"
-          />
-          <FormLabel>Password</FormLabel>
-          <Input
-            placeholder="Your Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-          />
-          <FormLabel>Re-Enter Password</FormLabel>
-          <Input placeholder="Re-Enter Your Password" type="password" />
+          <Box className={styles.form_input}>
+            <FormLabel>Name</FormLabel>
+            <Input
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setname(e.target.value)}
+              type="text"
+              required
+            />
+            <span>Enter your full name</span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Gender</FormLabel>
+            <Select
+              placeholder="Select Your Gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+            >
+              <option value="Male">Male</option>
+              <option value="female">Female</option>
+            </Select>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Phone Number</FormLabel>
+            <Input
+              placeholder="Your Phone Number"
+              type="number"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              required
+              pattern={"^[0-9]{10}$"}
+            />
+            <span>Phone number must be of 10 digit & not start with 0</span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+              type="email"
+              placeholder="Your Email Address"
+              required
+            />
+            <span>should be a valid email address!</span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              placeholder="Your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Re-Enter Password</FormLabel>
+            <Input
+              placeholder="Re-Enter Your Password"
+              type="password"
+              required
+              pattern={password}
+            />
+            <span>password not matched!</span>
+          </Box>
           <FormHelperText>
             We'll never share your Email & Password.
           </FormHelperText>

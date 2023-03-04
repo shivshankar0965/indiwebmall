@@ -558,7 +558,9 @@ const Navbar = () => {
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => setemail(e.target.value)}
+              required
             />
+            <span>It should be a valid email address!</span>
           </div>
           <div className="form-element">
             <label for="password">Password</label>
@@ -568,7 +570,13 @@ const Navbar = () => {
               placeholder="Enter Your Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
             />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
           </div>
           <div className="form-element">
             <input id="checkbox" type="checkbox" />
@@ -579,7 +587,7 @@ const Navbar = () => {
           </div>
           <div>
             <p>
-              if you don't have account{" "}
+              Don't have an account ?{" "}
               <Link
                 to="/signup"
                 style={{ color: "rgb(255, 81, 0)" }}
@@ -591,7 +599,7 @@ const Navbar = () => {
           </div>
           <div>
             <p>
-              if you want to go Admin Sight{" "}
+              Are you an admin ?{" "}
               <Link
                 to="/loginadmin"
                 style={{ color: "rgb(255, 81, 0)" }}

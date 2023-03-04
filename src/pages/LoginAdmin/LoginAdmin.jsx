@@ -7,6 +7,7 @@ import {
   Button,
   Link,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,10 +17,14 @@ import styles from "./LoginAdmin.module.css";
 function LoginAdmin() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
+  const [focused, setFocused] = useState(false);
   const [load, setload] = useState(false);
+  const toast = useToast();
   const navigate = useNavigate();
   const { logoutUser } = useContext(AuthContext);
-
+  const handleFocus = (e) => {
+    setFocused(true);
+  };
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
@@ -40,7 +45,14 @@ function LoginAdmin() {
       if (Auth === false) {
         alert("Please enter right email or password!");
       } else {
-        alert("Login Successfull!");
+        toast({
+          title: "Login Successful.",
+          description:
+            "Email has been verified successfully, redirecting to admin panel",
+          status: "success",
+          duration: 4000,
+          isClosable: true,
+        });
         navigate("/admin/dashboard");
       }
     } catch (error) {
@@ -68,6 +80,8 @@ function LoginAdmin() {
               value={email}
               onChange={(e) => setemail(e.target.value)}
               type="email"
+              onBlur={handleFocus}
+              focused={focused.toString()}
               required
             />
             <span>
@@ -81,6 +95,9 @@ function LoginAdmin() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Your Password Address"
               type="password"
+              onBlur={handleFocus}
+              focused={focused.toString()}
+              onFocus={() => setFocused(true)}
               required
               pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
             />

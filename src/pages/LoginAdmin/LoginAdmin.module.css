@@ -9,7 +9,7 @@
     color: tomato;
     display: none;
 }
-.form_input > input:invalid ~ span{
+.form_input > input:invalid[focused="true"] ~ span{
     display: block;
 }
 
