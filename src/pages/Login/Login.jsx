@@ -11,52 +11,50 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import styles from "./Login.module.css";
-import { useToast } from '@chakra-ui/react'
-
+import { useToast } from "@chakra-ui/react";
 
 function Login() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
-  const toast = useToast()
-  const { loginUser,isAuth } = useContext(AuthContext);
+  const toast = useToast();
+  const { loginUser, isAuth } = useContext(AuthContext);
   // console.log('auth',isAuth)
   // all toasts are here
-  const wrongEmail=()=>{
+  const wrongEmail = () => {
     toast({
-      title: 'Wrong Email or Password.',
+      title: "Wrong Email or Password.",
       description: "Please enter right email or password!!!",
-      status: 'error',
+      status: "error",
       duration: 9000,
       isClosable: true,
-    })
-  }
-  const loginSuccess=()=>{
+    });
+  };
+  const loginSuccess = () => {
     toast({
-      title: 'Login Successful.',
+      title: "Login Successful.",
       description: "Thank You For Login!!!",
-      status: 'success',
+      status: "success",
       duration: 9000,
       isClosable: true,
-    })
-  }
-// all toasts are here
-  
+    });
+  };
+  // all toasts are here
 
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
     try {
-      let res = await fetch(`http://localhost:8080/users`);
+      let res = await fetch(`https://indiweb-api-json.vercel.app/users`);
       let data = await res.json();
       // console.log(data);
       let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
           Auth = true;
-          localStorage.setItem('auth',true)
-          localStorage.setItem('name',data[i].name)
+          localStorage.setItem("auth", true);
+          localStorage.setItem("name", data[i].name);
           loginUser(data[i].name);
           // console.log(data[i].name);
           break;
