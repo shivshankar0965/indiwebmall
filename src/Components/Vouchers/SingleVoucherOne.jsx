@@ -11,6 +11,7 @@ import {
   Box,
   Button,
   useToast,
+  VStack
 } from "@chakra-ui/react";
 import { PSlider } from "../Slider/PSlider";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
@@ -64,22 +65,22 @@ const SingleVoucherOne = () => {
   return (
     <Container maxW="full" p={0}>
       <Flex
-        h={{ base: "auto", md: "115vh" }}
+        h={{ base: "auto", md: "auto" }}
         py={0}
         direction={{ base: "column-reverse", md: "row" }}
       >
-        <VStack w="full" h="full" p={10} spacing={10} /*bg={"red.50"}*/>
+        <VStack w={{base:"20%", mid:"100%"}} h="full" p={10} spacing={10} /*bg={"red.50"}*/>
           <VStack spacing={10} alignItems="center">
             <Box my={[4, 2]} shadow={"base"} p={[8, 4]}>
               <Breadcrumb
                 spacing="8px"
                 separator={<ChevronRightIcon color="gray.500" />}
               >
-                <BreadcrumbItem fontSize={[6, 8, 16]}>
+                <BreadcrumbItem >
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
-                <BreadcrumbItem fontSize={[6, 8, 16]}>
+                <BreadcrumbItem >
                   <BreadcrumbLink
                     textTransform={"capitalize"}
                     href={`/${voucher_id}`}
@@ -97,7 +98,7 @@ const SingleVoucherOne = () => {
             />
           </VStack>
         </VStack>
-        <VStack w="full" h="full" p={10} spacing={10} bg={"gray.50"}>
+        <VStack h="full" p={10} spacing={10} bg={"gray.50"} w={{base:"80%", mid:"100%"}}>
           <Grid
             w="full"
             h="full"
