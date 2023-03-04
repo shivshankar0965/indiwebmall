@@ -67,9 +67,12 @@ const SingleVoucherOne = () => {
       <Flex
         h={{ base: "auto", md: "auto" }}
         py={0}
-        direction={{ base: "column-reverse", md: "row" }}
+        direction={{ base: "column", md: "row" }}
+        // border="1px solid red"
+        justifyContent={"center"}
+        gap={4}
       >
-        <VStack w={{base:"20%", mid:"100%"}} h="full" p={10} spacing={10} /*bg={"red.50"}*/>
+        <VStack w={{base:"100%", mid:"100%"}} h="full" p={10} spacing={10} boxShadow="base" /*bg={"red.50"}*/>
           <VStack spacing={10} alignItems="center">
             <Box my={[4, 2]} shadow={"base"} p={[8, 4]}>
               <Breadcrumb
@@ -98,19 +101,23 @@ const SingleVoucherOne = () => {
             />
           </VStack>
         </VStack>
-        <VStack h="full" p={10} spacing={10} bg={"gray.50"} w={{base:"80%", mid:"100%"}}>
+        <VStack h="full" p={10} spacing={10} bg={"gray.50"} w={{base:"100%", mid:"100%"}}>
           <Grid
             w="full"
             h="full"
             p={10}
             spacing={10}
-            alignItems="flex-start"
+            m="auto"
+            // alignItems={{base:"center",mid:"flex-start"}}
+            // justifyContent={{base:"center", mid:"auto"}}
+            // border="1px solid red"
             templateColumns={[
               "repeat(1, 1fr)",
               "repeat(1, 1fr)",
               "repeat(3, 1fr)",
               "repeat(4, 1fr)",
             ]}
+            // alignSelf={{base:"center", mid:"none"}}
             gap={10}
             // bg={"red"}
             boxShadow="base"
@@ -121,6 +128,8 @@ const SingleVoucherOne = () => {
                   // onClick={onOpen}
                   // onClick={()=>handleClick()}
                   // onClick={() => setCartItem(el)}
+                  margin={"auto"}
+
                   alignItems={"center"}
                   textAlign="left"
                   key={el.id}
