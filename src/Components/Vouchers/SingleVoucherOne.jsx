@@ -28,11 +28,17 @@ const SingleVoucherOne = () => {
   // console.log("image:", cartItem.image);
 
   const getData = async (voucher_id) => {
-    let data = axios.get(`https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`);
-    let res = await data;
-    // setData(res.data);
-    setCount(res.data);
-    setData(res.data[voucher_id]);
+    try {
+      let data = axios.get(
+        `https://indiwebmallapi.onrender.com/vouchers/${voucher_id}`
+      );
+      let res = await data;
+      // setData(res.data);
+      setCount(res.data);
+      setData(res.data[voucher_id]);
+    } catch (error) {
+      console.log("error:", error);
+    }
   };
   useEffect(() => {
     getData(voucher_id);
@@ -47,37 +53,33 @@ const SingleVoucherOne = () => {
       originalprice: "",
     });
     toast({
-      title: 'Gift Card Added.',
+      title: "Gift Card Added.",
       description: "We've added Gift Card For You In Cart.",
-      status: 'success',
+      status: "success",
       duration: 9000,
       isClosable: true,
-    })
+    });
   };
 
   return (
-    <>
-      <Container maxW="full">
-        <Flex gap={5} py={5} pr={4} pl={4}>
-          <Box
-            w={"40%"}
-            h="50%"
-            p={10}
-            spacing={10}
-            alignItems="flex-start"
-            // bg={"grey"}
-            boxShadow="base"
-          >
-            <Box my={4} shadow={"base"} p={8}>
+    <Container maxW="full" p={0}>
+      <Flex
+        h={{ base: "auto", md: "115vh" }}
+        py={0}
+        direction={{ base: "column-reverse", md: "row" }}
+      >
+        <VStack w="full" h="full" p={10} spacing={10} /*bg={"red.50"}*/>
+          <VStack spacing={10} alignItems="center">
+            <Box my={[4, 2]} shadow={"base"} p={[8, 4]}>
               <Breadcrumb
                 spacing="8px"
                 separator={<ChevronRightIcon color="gray.500" />}
               >
-                <BreadcrumbItem>
+                <BreadcrumbItem fontSize={[6, 8, 16]}>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
-                <BreadcrumbItem>
+                <BreadcrumbItem fontSize={[6, 8, 16]}>
                   <BreadcrumbLink
                     textTransform={"capitalize"}
                     href={`/${voucher_id}`}
@@ -93,7 +95,9 @@ const SingleVoucherOne = () => {
               img={count.image}
               slogan={count.tagline}
             />
-          </Box>
+          </VStack>
+        </VStack>
+        <VStack w="full" h="full" p={10} spacing={10} bg={"gray.50"}>
           <Grid
             w="full"
             h="full"
@@ -102,7 +106,7 @@ const SingleVoucherOne = () => {
             alignItems="flex-start"
             templateColumns={[
               "repeat(1, 1fr)",
-              "repeat(2, 1fr)",
+              "repeat(1, 1fr)",
               "repeat(3, 1fr)",
               "repeat(4, 1fr)",
             ]}
@@ -136,12 +140,10 @@ const SingleVoucherOne = () => {
               );
             })}
           </Grid>
-        </Flex>
-      </Container>
-    </>
+        </VStack>
+      </Flex>
+    </Container>
   );
 };
 
 export default SingleVoucherOne;
-
-
