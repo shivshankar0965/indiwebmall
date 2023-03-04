@@ -97,7 +97,7 @@ const SingleVoucherOne = () => {
             />
           </VStack>
         </VStack>
-        <VStack h="full" p={10} spacing={10} bg={"gray.50"} w={{base:"100%", mid:"100%"}}>
+        <VStack h="full" p={10} spacing={10} w={{base:"100%", mid:"100%"}}>
           <Grid
             w="full"
             h="full"
@@ -127,7 +127,7 @@ const SingleVoucherOne = () => {
                   margin={"auto"}
 
                   alignItems={"center"}
-                  textAlign="left"
+                  textAlign="center"
                   key={el.id}
                 >
                   <Image src={el.image} alt={el.name} />
