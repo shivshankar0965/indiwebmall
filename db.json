@@ -7538,6 +7538,16 @@
       "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
       "orders": [],
       "id": 7
+    },
+    {
+      "name": "Guddu Kumar",
+      "email": "rajesh1@gmail.com",
+      "password": "Rajesh",
+      "mobile": "7631073551",
+      "gender": "Male",
+      "profile": "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+      "orders": [],
+      "id": 8
     }
   ],
   "orders": [
@@ -7625,14 +7635,6 @@
       "type": "Gift Card",
       "originalprice": "",
       "id": 2
-    },
-    {
-      "name": "Puma Gift Card",
-      "image": "https://assetscdn1.paytm.com/images/catalog/view_item/995526/1643867362885.png?imwidth=140&impolicy=hq",
-      "price": "₹ 2,000",
-      "type": "Gift Card",
-      "originalprice": "",
-      "id": 3
     }
   ]
 }
