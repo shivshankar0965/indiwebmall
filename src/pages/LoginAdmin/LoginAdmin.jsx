@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   Link,
+  Box,
 } from "@chakra-ui/react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,8 @@ function LoginAdmin() {
     setload(true);
     // console.log(load);
     try {
-      let res = await fetch(`http://localhost:8080/admin`);
+      setload(true);
+      let res = await fetch(`https://indiweb-api-json.vercel.app/admin`);
       let data = await res.json();
       // console.log(data);
       let Auth = false;
@@ -41,12 +43,8 @@ function LoginAdmin() {
         alert("Login Successfull!");
         navigate("/admin/dashboard");
       }
-
-      console.log(Auth);
     } catch (error) {
       setload(false);
-
-      console.log(error);
     }
     setemail("");
     setPassword("");
@@ -62,22 +60,35 @@ function LoginAdmin() {
         >
           Admin Log in
         </Heading>
-        <FormControl>
-          <FormLabel>Email address</FormLabel>
-          <Input
-            placeholder="Your Email Address"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-            type="email"
-          />
-
-          <FormLabel>Password</FormLabel>
-          <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Your Password Address"
-            type="password"
-          />
+        <FormControl className={styles.main_form}>
+          <Box className={styles.form_input}>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              placeholder="Your Email Address"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+              type="email"
+              required
+            />
+            <span>
+              It should be a valid email address! eg. example1221@gmail.com
+            </span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your Password Address"
+              type="password"
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
+          </Box>
           <FormHelperText>
             We'll never share your Email & Password.
           </FormHelperText>
