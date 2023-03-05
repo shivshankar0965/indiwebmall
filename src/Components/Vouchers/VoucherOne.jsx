@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Center, Container, Flex } from "@chakra-ui/react";
+// import { Center, Container, Flex } from "@chakra-ui/react";
 
 import { getVouchers } from "../../Redux/Vouchers/Voucher1/vouchers.actions";
 import { getVoucherTwo } from "../../Redux/Vouchers/Voucher2/voucherTwo.actions";
@@ -12,19 +12,20 @@ import Error from "../Messages/Error";
 import Loading from "../Messages/Loading";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Navigation, Autoplay } from "swiper";
+import { /*Grid*/ Navigation /*Autoplay*/ } from "swiper";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { A11y } from 'swiper';
+import { A11y } from "swiper";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 import styles from "./VoucherOne.module.css";
 
 export const VoucherOne = () => {
   const { loading, error, data } = useSelector((store) => store.voucher1);
+  console.log("Vdata:", data);
   const dispatch = useDispatch();
 
   const navigationPrevRef = React.useRef(null);
@@ -77,7 +78,6 @@ export const VoucherOne = () => {
   };
 
   return (
-
     <Box
       className={styles.container}
       // height={{ base: "100%", md: "50%", xl: "50g %" }}
@@ -102,16 +102,16 @@ export const VoucherOne = () => {
             swiper.navigation.update();
           });
         }}
-
       >
-        {data?.slice(0, 23).map(( ele ) => (
-          <SwiperSlide >
-            <Box
-              className={styles.box}
-              // style={{ marginLeft: "30px" }}
-            >
-              <Link to={`${ele.id}`}>
-              <Image
+        {data.length > 0 &&
+          data?.slice(0, 23).map((ele) => (
+            <SwiperSlide>
+              <Box
+                className={styles.box}
+                // style={{ marginLeft: "30px" }}
+              >
+                <Link to={`${ele.id}`}>
+                  <Image
                     // boxSize="90px"
                     // w={30}
                     border={"1px solid #E2E8F0"}
@@ -120,10 +120,10 @@ export const VoucherOne = () => {
                     alt={ele.title}
                   />
                   <Text textAlign={"center"}>{ele.title}</Text>
-              </Link>
-            </Box>
-          </SwiperSlide>
-        ))}
+                </Link>
+              </Box>
+            </SwiperSlide>
+          ))}
       </Swiper>
       <Box className={styles.next} ref={navigationNextRef} variant="ghost">
         <HiChevronRight />
@@ -134,7 +134,6 @@ export const VoucherOne = () => {
     </Box>
   );
 };
-
 
 export const VoucherTwo = () => {
   const { loading, error, data } = useSelector((store) => store.voucher2);
@@ -214,14 +213,15 @@ export const VoucherTwo = () => {
           });
         }}
       >
-        {data?.slice(23, 46).map(( ele ) => (
-          <SwiperSlide >
-            <Box
-              className={styles.box}
-              // style={{ marginLeft: "30px" }}
-            >
-              <Link to={`${ele.id}`}>
-              <Image
+        {data.length > 0 &&
+          data?.slice(23, 46).map((ele) => (
+            <SwiperSlide>
+              <Box
+                className={styles.box}
+                // style={{ marginLeft: "30px" }}
+              >
+                <Link to={`${ele.id}`}>
+                  <Image
                     // boxSize="90px"
                     // w={30}
                     border={"1px solid #E2E8F0"}
@@ -230,10 +230,10 @@ export const VoucherTwo = () => {
                     alt={ele.title}
                   />
                   <Text textAlign={"center"}>{ele.title}</Text>
-              </Link>
-            </Box>
-          </SwiperSlide>
-        ))}
+                </Link>
+              </Box>
+            </SwiperSlide>
+          ))}
       </Swiper>
       <Box className={styles.next} ref={navigationNextRef} variant="ghost">
         <HiChevronRight />
@@ -324,14 +324,15 @@ export const VoucherTri = () => {
           });
         }}
       >
-        {data?.slice(46, 63).map(( ele ) => (
-          <SwiperSlide >
-            <Box
-              className={styles.box}
-              // style={{ marginLeft: "30px" }}
-            >
-              <Link to={`${ele.id}`}>
-              <Image
+        {data.length > 0 &&
+          data?.slice(46, 63).map((ele) => (
+            <SwiperSlide>
+              <Box
+                className={styles.box}
+                // style={{ marginLeft: "30px" }}
+              >
+                <Link to={`${ele.id}`}>
+                  <Image
                     // boxSize="90px"
                     // w={30}
                     border={"1px solid #E2E8F0"}
@@ -340,10 +341,10 @@ export const VoucherTri = () => {
                     alt={ele.title}
                   />
                   <Text textAlign={"center"}>{ele.title}</Text>
-              </Link>
-            </Box>
-          </SwiperSlide>
-        ))}
+                </Link>
+              </Box>
+            </SwiperSlide>
+          ))}
       </Swiper>
       <Box className={styles.next} ref={navigationNextRef} variant="ghost">
         <HiChevronRight />

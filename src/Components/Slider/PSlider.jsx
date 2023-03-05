@@ -32,9 +32,9 @@ export const PSlider = ({ brand, len, img, slogan }) => {
                 <AccordionIcon />
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={4} display="flex">
+            <AccordionPanel pb={4} display="flex" gap={2}>
               <Checkbox>{brand}</Checkbox>
-              <Spacer />
+              <Text>-</Text>
               <Text>{len}</Text>
             </AccordionPanel>
           </AccordionItem>
