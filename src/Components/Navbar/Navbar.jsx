@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import img from "../../Assets/indiwebmall_logo.png";
 import styles from "./navbar.module.css";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
@@ -7,32 +7,32 @@ import { useContext } from "react";
 import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
-import axios from 'axios';
-import { useToast } from '@chakra-ui/react'
+import axios from "axios";
+import { useToast } from "@chakra-ui/react";
 
 const Navbar = () => {
   const { logoutUser } = useContext(AuthContext);
-  const toast = useToast()
- // all toasts are here
- const wrongEmail=()=>{
-  toast({
-    title: 'Wrong Email or Password.',
-    description: "Please enter right email or password!!!",
-    status: 'error',
-    duration: 9000,
-    isClosable: true,
-  })
-}
-const loginSuccess=()=>{
-  toast({
-    title: 'Login Successful.',
-    description: "Thank You For Login!!!",
-    status: 'success',
-    duration: 9000,
-    isClosable: true,
-  })
-}
-// all toasts are here
+  const toast = useToast();
+  // all toasts are here
+  const wrongEmail = () => {
+    toast({
+      title: "Wrong Email or Password.",
+      description: "Please enter right email or password!!!",
+      status: "error",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
+  const loginSuccess = () => {
+    toast({
+      title: "Login Successful.",
+      description: "Thank You For Login!!!",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
+  // all toasts are here
   // console.log("auth", isAuth);
   let authentication = localStorage.getItem("auth");
   // console.log(authentication);
@@ -60,17 +60,17 @@ const loginSuccess=()=>{
   const [display1, setDisplay1] = useState("displayNone1");
   const [display2, setDisplay2] = useState("displayNone2");
   const [display3, setDisplay3] = useState("displayNone3");
-  const [cartLength,setCartLength] = useState(0)
+  const [cartLength, setCartLength] = useState(0);
 
-  useEffect(()=>{
-    getCartitem().then((d)=>setCartLength(d.data.length))
-  },[])
+  useEffect(() => {
+    getCartitem().then((d) => setCartLength(d.data.length));
+  }, []);
 
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
     try {
-      let res = await fetch(`http://localhost:8080/users`);
+      let res = await fetch(`https://indiweb-api-json.vercel.app/users`);
       let data = await res.json();
       // console.log(data);
       let Auth = false;
@@ -87,10 +87,10 @@ const loginSuccess=()=>{
       setload(false);
       if (Auth === false) {
         // alert("Please enter right email or password!");
-        wrongEmail()
+        wrongEmail();
       } else {
         // alert("Login Successfull!");
-        loginSuccess()
+        loginSuccess();
         navigate("/");
       }
       // console.log(Auth);
@@ -258,12 +258,24 @@ const loginSuccess=()=>{
           <p style={{ marginLeft: "10px" }}>
             <Link to="/products/accessories">Accessories</Link>
           </p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/bags">Bags</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/clothing">Clothes</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/cosmetics">Cosmetics</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/products">Items</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/sale">Sale</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/products/shoes">Shoes</Link></p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/bags">Bags</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/clothing">Clothes</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/cosmetics">Cosmetics</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/products">Items</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/sale">Sale</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/products/shoes">Shoes</Link>
+          </p>
         </div>
         {/* gift cards */}
         <div onClick={manageDisplay3} className={display3}>
@@ -286,12 +298,24 @@ const loginSuccess=()=>{
           <p style={{ marginLeft: "10px" }}>
             <Link to="/jockey">Jockey</Link>
           </p>
-          <p style={{ marginLeft: "10px" }}><Link to="/levis">Levis</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/pantaloons">Pantaloons</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/unitedcolors">United Colors</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/biba">Biba</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/indianterrain">Indian Terrain</Link></p>
-          <p style={{ marginLeft: "10px" }}><Link to="/decathlon">Decathlon</Link></p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/levis">Levis</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/pantaloons">Pantaloons</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/unitedcolors">United Colors</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/biba">Biba</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/indianterrain">Indian Terrain</Link>
+          </p>
+          <p style={{ marginLeft: "10px" }}>
+            <Link to="/decathlon">Decathlon</Link>
+          </p>
         </div>
       </div>
 
@@ -299,7 +323,7 @@ const loginSuccess=()=>{
       <div className={styles.cancel}>
         <div className={styles.empty}></div>
         <div>
-          <div className={styles.logoDiv} style={{padding:'10px'}}>
+          <div className={styles.logoDiv} style={{ padding: "10px" }}>
             <Link to="/">
               <img src={img} alt="Logo" className={styles.logoImg} />
             </Link>
@@ -339,9 +363,7 @@ const loginSuccess=()=>{
                         </li>
                         <li>
                           <a href="/products/bags">
-                            <span className={styles.productssmall}>
-                              Bags
-                            </span>
+                            <span className={styles.productssmall}>Bags</span>
                           </a>
                         </li>
                         <li>
@@ -360,23 +382,17 @@ const loginSuccess=()=>{
                         </li>
                         <li>
                           <a href="/products/products">
-                            <span className={styles.productssmall}>
-                              Items
-                            </span>
+                            <span className={styles.productssmall}>Items</span>
                           </a>
                         </li>
                         <li>
                           <a href="/products/sale">
-                            <span className={styles.productssmall}>
-                              Sale
-                            </span>
+                            <span className={styles.productssmall}>Sale</span>
                           </a>
                         </li>
                         <li>
                           <a href="/products/shoes">
-                            <span className={styles.productssmall}>
-                              Shoes
-                            </span>
+                            <span className={styles.productssmall}>Shoes</span>
                           </a>
                         </li>
                       </ul>
@@ -400,22 +416,18 @@ const loginSuccess=()=>{
                         </li>
                         <li>
                           <a href="/jockey">
-                            <span className={styles.giftcardsmall}>
-                              Jockey
-                            </span>
+                            <span className={styles.giftcardsmall}>Jockey</span>
                           </a>
                         </li>
                         <li>
                           <a href="/levis">
-                            <span className={styles.giftcardsmall}>
-                              Levis
-                            </span>
+                            <span className={styles.giftcardsmall}>Levis</span>
                           </a>
                         </li>
                         <li>
                           <a href="/pantaloons">
                             <span className={styles.giftcardsmall}>
-                            Pantaloons
+                              Pantaloons
                             </span>
                           </a>
                         </li>
@@ -428,9 +440,7 @@ const loginSuccess=()=>{
                         </li>
                         <li>
                           <a href="/biba">
-                            <span className={styles.giftcardsmall}>
-                              Biba
-                            </span>
+                            <span className={styles.giftcardsmall}>Biba</span>
                           </a>
                         </li>
                         <li>
@@ -468,7 +478,10 @@ const loginSuccess=()=>{
                   width={20}
                   alt="icon"
                 />
-                <div className={styles.login}> <Link to="/cart">My Orders</Link></div>
+                <div className={styles.login}>
+                  {" "}
+                  <Link to="/cart">My Orders</Link>
+                </div>
               </div>
               <div className={styles.bag}>
                 <img
@@ -476,7 +489,9 @@ const loginSuccess=()=>{
                   width={20}
                   alt="logo"
                 />
-                <div className={styles.login}><Link to='/cart'>My Cart : {cartLength}</Link> </div>
+                <div className={styles.login}>
+                  <Link to="/cart">My Cart : {cartLength}</Link>{" "}
+                </div>
               </div>
               <div className={styles.login1}>
                 <img
@@ -538,22 +553,30 @@ const loginSuccess=()=>{
           <div className="form-element">
             <label for="email">Email</label>
             <input
-            id="email"
+              id="email"
               type="text"
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => setemail(e.target.value)}
+              required
             />
+            <span>It should be a valid email address!</span>
           </div>
           <div className="form-element">
             <label for="password">Password</label>
             <input
-            id="password"
+              id="password"
               type="password"
               placeholder="Enter Your Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
             />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
           </div>
           <div className="form-element">
             <input id="checkbox" type="checkbox" />
@@ -564,7 +587,7 @@ const loginSuccess=()=>{
           </div>
           <div>
             <p>
-              if you don't have account{" "}
+              Don't have an account ?{" "}
               <Link
                 to="/signup"
                 style={{ color: "rgb(255, 81, 0)" }}
@@ -576,7 +599,7 @@ const loginSuccess=()=>{
           </div>
           <div>
             <p>
-              if you want to go Admin Sight{" "}
+              Are you an admin ?{" "}
               <Link
                 to="/loginadmin"
                 style={{ color: "rgb(255, 81, 0)" }}

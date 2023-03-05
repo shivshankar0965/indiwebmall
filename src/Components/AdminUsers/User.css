@@ -1,0 +1,7 @@
+.form_input > span{
+    color: red;
+    display: none;
+}
+.form_input > input:invalid ~ span{
+    display: block;
+}

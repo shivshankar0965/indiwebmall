@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   Link,
+  Box,
 } from "@chakra-ui/react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -91,21 +92,32 @@ function Login() {
           Log in
         </Heading>
         <FormControl>
-          <FormLabel>Email address</FormLabel>
-          <Input
-            placeholder="Your Email Address"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-            type="email"
-          />
-
-          <FormLabel>Password</FormLabel>
-          <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Your Password Address"
-            type="password"
-          />
+          <Box className={styles.form_input}>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              placeholder="Your Email Address"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+              type="email"
+              required
+            />
+            <span>It should be a valid email address!</span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your Password Address"
+              type="password"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+              required
+            />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
+          </Box>
           <FormHelperText>
             We'll never share your Email & Password.
           </FormHelperText>

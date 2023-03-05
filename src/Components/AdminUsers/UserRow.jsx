@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import {
-  HStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
   Box,
   Image,
   Tr,
@@ -8,8 +11,10 @@ import {
   Select,
   useToast,
   Input,
+  Button,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 const UserRow = ({
   id,
   image,
@@ -43,7 +48,6 @@ const UserRow = ({
     usermobile,
     userprofile,
   } = userDetails;
-  console.log(userDetails);
   const changeHandler2 = (e) => {
     let { name, value } = e.target;
     setUserDetails({ ...userDetails, [name]: value });
@@ -52,7 +56,7 @@ const UserRow = ({
     setEdit(false);
     setLoading(true);
     try {
-      axios.delete(`http://localhost:8080/users/${id}`);
+      axios.delete(`https://indiweb-api-json.vercel.app/users/${id}`);
       setLoading(false);
       toast({
         title: "User is being Deleted.",
@@ -61,18 +65,22 @@ const UserRow = ({
         duration: 9000,
         isClosable: true,
       });
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
     } catch (err) {
       console.log(err);
       setLoading(false);
       setErr(true);
     }
   };
+
   const editHandler = () => {
     setEdit(true);
   };
-  const saveHandler = () => {
+  const saveHandler = (id) => {
     try {
-      axios.patch(`http://localhost:8080/users/${id}`, {
+      axios.patch(`https://indiweb-api-json.vercel.app/users/${id}`, {
         name: username,
         email: useremail,
         password: userpassword,
@@ -88,6 +96,10 @@ const UserRow = ({
         duration: 9000,
         isClosable: true,
       });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
     } catch (err) {
       setErr(true);
     }
@@ -154,42 +166,46 @@ const UserRow = ({
           </Td>
           <Td>{orders.length}</Td>
           <Td p={2}>
-            <Select size={"md"} placeholder="Actions">
-              <option onClick={saveHandler} value="save">
-                Save
-              </option>
-              <option onClick={() => setEdit(false)}>Cancel</option>
-              <option onClick={deleteHandler} value="delete">
-                Delete
-              </option>
-            </Select>
+            <Menu>
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                Actions
+              </MenuButton>
+              <MenuList>
+                <MenuItem onClick={() => saveHandler(id)}>Save</MenuItem>
+                <MenuItem onClick={() => setEdit(false)}>Cancel</MenuItem>
+                <MenuItem onClick={deleteHandler}>Delete</MenuItem>
+              </MenuList>
+            </Menu>
           </Td>
         </Tr>
       ) : (
-        <Tr color={"gray.600"}>
-          <Td>{id}</Td>
-          <Td>
-            <Box textAlign={"left"} w="16">
-              <Image src={profile} alt={name} />
-            </Box>
-          </Td>
-          <Td>{name}</Td>
-          <Td>{email}</Td>
-          <Td>{mobile}</Td>
-          <Td>{password}</Td>
-          <Td>{gender}</Td>
-          <Td>{orders.length}</Td>
-          <Td p={2}>
-            <Select size={"md"} placeholder="Actions">
-              <option onClick={editHandler} value="edit">
-                Edit
-              </option>
-              <option onClick={deleteHandler} value="delete">
-                Delete
-              </option>
-            </Select>
-          </Td>
-        </Tr>
+        !loading && (
+          <Tr color={"gray.600"}>
+            <Td>{id}</Td>
+            <Td>
+              <Box textAlign={"left"} w="16">
+                <Image src={profile} alt={name} />
+              </Box>
+            </Td>
+            <Td>{name}</Td>
+            <Td>{email}</Td>
+            <Td>{mobile}</Td>
+            <Td>{password}</Td>
+            <Td>{gender}</Td>
+            <Td>{orders.length}</Td>
+            <Td p={2}>
+              <Menu>
+                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                  Actions
+                </MenuButton>
+                <MenuList>
+                  <MenuItem onClick={editHandler}>Edit</MenuItem>
+                  <MenuItem onClick={deleteHandler}>Delete</MenuItem>
+                </MenuList>
+              </Menu>
+            </Td>
+          </Tr>
+        )
       )}
     </>
   );

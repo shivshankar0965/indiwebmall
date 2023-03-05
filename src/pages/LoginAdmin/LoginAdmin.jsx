@@ -6,6 +6,8 @@ import {
   Input,
   Button,
   Link,
+  Box,
+  useToast,
 } from "@chakra-ui/react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -15,15 +17,20 @@ import styles from "./LoginAdmin.module.css";
 function LoginAdmin() {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
+  const [focused, setFocused] = useState(false);
   const [load, setload] = useState(false);
+  const toast = useToast();
   const navigate = useNavigate();
   const { logoutUser } = useContext(AuthContext);
-
+  const handleFocus = (e) => {
+    setFocused(true);
+  };
   const submitLogin = async () => {
     setload(true);
     // console.log(load);
     try {
-      let res = await fetch(`http://localhost:8080/admin`);
+      setload(true);
+      let res = await fetch(`https://indiweb-api-json.vercel.app/admin`);
       let data = await res.json();
       // console.log(data);
       let Auth = false;
@@ -38,15 +45,18 @@ function LoginAdmin() {
       if (Auth === false) {
         alert("Please enter right email or password!");
       } else {
-        alert("Login Successfull!");
+        toast({
+          title: "Login Successful.",
+          description:
+            "Email has been verified successfully, redirecting to admin panel",
+          status: "success",
+          duration: 4000,
+          isClosable: true,
+        });
         navigate("/admin/dashboard");
       }
-
-      console.log(Auth);
     } catch (error) {
       setload(false);
-
-      console.log(error);
     }
     setemail("");
     setPassword("");
@@ -62,22 +72,40 @@ function LoginAdmin() {
         >
           Admin Log in
         </Heading>
-        <FormControl>
-          <FormLabel>Email address</FormLabel>
-          <Input
-            placeholder="Your Email Address"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-            type="email"
-          />
-
-          <FormLabel>Password</FormLabel>
-          <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Your Password Address"
-            type="password"
-          />
+        <FormControl className={styles.main_form}>
+          <Box className={styles.form_input}>
+            <FormLabel>Email address</FormLabel>
+            <Input
+              placeholder="Your Email Address"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+              type="email"
+              onBlur={handleFocus}
+              focused={focused.toString()}
+              required
+            />
+            <span>
+              It should be a valid email address! eg. example1221@gmail.com
+            </span>
+          </Box>
+          <Box className={styles.form_input}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your Password Address"
+              type="password"
+              onBlur={handleFocus}
+              focused={focused.toString()}
+              onFocus={() => setFocused(true)}
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            />
+            <span>
+              Password should be 8-15 characters and include at least 1 letter,
+              1 number and 1 special character!
+            </span>
+          </Box>
           <FormHelperText>
             We'll never share your Email & Password.
           </FormHelperText>

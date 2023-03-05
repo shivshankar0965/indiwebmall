@@ -21,7 +21,7 @@
 }
 
 .popup.active {
-  top: 250%;
+  top: 240%;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
@@ -175,4 +175,12 @@
     line-height: 18px;
     border: 1px solid rgb(255, 81, 0);
   }
+}
+
+.form-element > span{
+  color: tomato;
+  display: none;
+}
+.form-element > input:invalid ~ span{
+  display: block;
 }

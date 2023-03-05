@@ -34,8 +34,9 @@ import {
 
 import React, { useEffect, useState } from "react";
 import UserRow from "./UserRow";
+import "./User.css";
 const getTopProducts = async () => {
-  let res = await axios.get("http://localhost:8080/users");
+  let res = await axios.get("https://indiweb-api-json.vercel.app/users");
   let data = await res.data;
   return data;
 };
@@ -43,24 +44,27 @@ const Users = () => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [users, setUsers] = useState([]);
-
-  const [userDetails, setUserDetails] = useState({
+  const initState = {
     name: "",
     email: "",
     password: "",
     gender: "",
     mobile: "",
-    profile: "",
     orders: [],
     address: [],
-  });
+    profile:
+      "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
+  };
+  const [userDetails, setUserDetails] = useState(initState);
+  console.log(userDetails);
   const changeHandler = (e) => {
     let { name, value } = e.target;
     setUserDetails({ ...userDetails, [name]: value });
   };
+
   const handleSubmit = () => {
     try {
-      axios.post("http://localhost:8080/users", userDetails);
+      axios.post("https://indiweb-api-json.vercel.app/users", userDetails);
       setUserDetails({
         name: "",
         email: "",
@@ -78,6 +82,9 @@ const Users = () => {
         duration: 9000,
         isClosable: true,
       });
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
       onClose();
     } catch (err) {
       console.log("posting failed");
@@ -168,37 +175,48 @@ const Users = () => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody p={6} pb={6}>
-            <Grid gap={"6"} gridTemplateColumns={"repeat(2, 1fr)"}>
+            <Grid
+              className="form_container"
+              gap={"6"}
+              gridTemplateColumns={"repeat(2, 1fr)"}
+            >
               <GridItem>
-                <FormControl>
+                <FormControl className="form_input">
                   <FormLabel>Full Name</FormLabel>
                   <Input
                     onChange={changeHandler}
                     value={name}
                     name="name"
                     placeholder="Full name"
+                    required
                   />
+                  <span>Enter user full name!</span>
                 </FormControl>
               </GridItem>
               <GridItem>
-                <FormControl>
+                <FormControl className="form_input">
                   <FormLabel>Email</FormLabel>
                   <Input
                     onChange={changeHandler}
                     value={email}
                     name="email"
                     placeholder="Enter Email"
+                    type="email"
+                    autoComplete="no"
+                    required
                   />
+                  <span>Enter valid email address!</span>
                 </FormControl>
               </GridItem>
               <GridItem>
-                <FormControl>
+                <FormControl className="form_input">
                   <FormLabel>Gender</FormLabel>
                   <Select
                     onChange={changeHandler}
                     value={gender}
                     name="gender"
                     placeholder="Select Gender"
+                    required
                   >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -207,37 +225,37 @@ const Users = () => {
                 </FormControl>
               </GridItem>
               <GridItem>
-                <FormControl>
+                <FormControl className="form_input">
                   <FormLabel>Password</FormLabel>
                   <Input
                     onChange={changeHandler}
                     value={password}
                     name="password"
                     type="password"
+                    autoComplete="no"
                     placeholder="Password"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                   />
+                  <span>
+                    {" "}
+                    Password should be 8-15 characters and include at least 1
+                    letter, 1 number and 1 special character!
+                  </span>
                 </FormControl>
               </GridItem>
+
               <GridItem>
-                <FormControl>
-                  <FormLabel>Image URL</FormLabel>
-                  <Input
-                    onChange={changeHandler}
-                    value={profile}
-                    name="profile"
-                    placeholder="Profile Picture"
-                  />
-                </FormControl>
-              </GridItem>
-              <GridItem>
-                <FormControl>
+                <FormControl className="form_input">
                   <FormLabel>Mobile</FormLabel>
                   <Input
                     onChange={changeHandler}
                     value={mobile}
                     name="mobile"
                     placeholder="Mobile Number"
+                    pattern={"^[0-9]{10}$"}
+                    required
                   />
+                  <span>Enter 10 digit mobile number!</span>
                 </FormControl>
               </GridItem>
             </Grid>
