@@ -43,7 +43,7 @@ const SingleVoucherOne = () => {
       name: el.name,
       image: el.image,
       price: el.price,
-      id:el.id
+      id: el.id + el.name,
     };
     dispatch(addToCart(cartData));
     toast({

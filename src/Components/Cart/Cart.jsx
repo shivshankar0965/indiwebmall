@@ -27,11 +27,10 @@ export const Cart = () => {
   //   dispatch(getProducts);
   // }, []);
 
-  // const handleClear = () => {
-  //   dispatch(clearAllProducts()).then((res) => {
-  //     dispatch(getProducts);
-  //   });
-  // };
+  const handleClear = () => {
+    localStorage.removeItem('cart')
+    window.location.reload();
+  };
   if (products.length === 0) {
     return (
       <Box
@@ -139,7 +138,7 @@ export const Cart = () => {
             Shopping Cart ({products.length} items)
           </Heading>
 
-          <Button colorScheme='red'>Clear All</Button>
+          <Button colorScheme='red' onClick={handleClear}>Clear All</Button>
 
           <Stack spacing="6">
             {products.map((item) => (

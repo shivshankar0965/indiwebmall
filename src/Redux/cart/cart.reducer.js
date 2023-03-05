@@ -20,7 +20,7 @@ export const cartReducer = (state = initState, { type, payload }) => {
     case REMOVE_CART:
       return {
         ...state,
-        cart: [...payload],
+        cart: payload,
       };
     default: {
       return {

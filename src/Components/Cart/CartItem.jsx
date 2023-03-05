@@ -13,17 +13,21 @@ import { useDispatch, useSelector } from "react-redux";
 // import { deleteProduct } from "../../Redux/Cart/action";
 import { useState } from "react";
 import Quantity from "./Quantity";
+import { removeFromCart } from "../../Redux/cart/cart.actions";
 
+export const CartItem = ({ name, image, price,id }) => {
+  const [qty, setQty] = useState(1);
+  console.log("qty:", qty);
+  const products = useSelector((store) => store.cart.cart);
 
-export const CartItem = ({name,image,price}) => {
-  const [qty,setQty] = useState(1);
-  console.log('qty:', qty)
-  const  products  = useSelector((store) => store.cart.cart);
-  
-let prices = price.slice(2,price.length).split(",").join("")
-Number(prices)
+  let prices = price.slice(2, price.length).split(",").join("");
+  Number(prices);
 
-  const dispatch = useDispatch();
+const dispatch=useDispatch()
+  const deleteHandler=(id) => {
+    dispatch(removeFromCart(id))
+  }
+
   return (
     <Flex
       direction={{
@@ -49,9 +53,10 @@ Number(prices)
           md: "flex",
         }}
       >
-        <Quantity qty={qty} setQty={setQty}  />
+        <Quantity qty={qty} setQty={setQty} />
         <PriceTag price={prices} />
         <CloseButton
+          onClick={() => deleteHandler(id)}
           aria-label={`Delete ${name} from cart`}
         />
       </Flex>
@@ -74,5 +79,4 @@ Number(prices)
       </Flex>
     </Flex>
   );
-
 };
