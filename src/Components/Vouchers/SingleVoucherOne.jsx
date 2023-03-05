@@ -50,7 +50,7 @@ const SingleVoucherOne = () => {
       title: "Gift Card Added.",
       description: "We've added Gift Card For You In Cart.",
       status: "success",
-      duration: 9000,
+      duration: 5000,
       isClosable: true,
     });
   };

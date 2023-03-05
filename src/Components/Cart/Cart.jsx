@@ -5,6 +5,7 @@ import {
   Image,
   Heading,
   HStack,
+  useToast,
   Link,
   Stack,
   useColorModeValue as mode,
@@ -26,10 +27,18 @@ export const Cart = () => {
   // useEffect(() => {
   //   dispatch(getProducts);
   // }, []);
+  const toast = useToast();
 
   const handleClear = () => {
     localStorage.removeItem('cart')
     window.location.reload();
+    toast({
+      title: "All Cart Item removed.",
+      description: "We've removed All Cart Items For You.",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
   };
   if (products.length === 0) {
     return (
