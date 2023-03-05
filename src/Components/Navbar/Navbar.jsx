@@ -8,6 +8,7 @@ import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
 
 const Navbar = () => {
@@ -61,6 +62,9 @@ const Navbar = () => {
   const [display2, setDisplay2] = useState("displayNone2");
   const [display3, setDisplay3] = useState("displayNone3");
   const [cartLength, setCartLength] = useState(0);
+
+  const { cart } = useSelector((store) => store.cart);
+  console.log('cart:', cart)
 
   useEffect(() => {
     getCartitem().then((d) => setCartLength(d.data.length));
@@ -189,7 +193,7 @@ const Navbar = () => {
               <Link to="/cart">My Order</Link>
             </p>
             <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
-              <Link to="/cart">My Cart : {cartLength}</Link>
+              <Link to="/cart">My Cart : {cart.length}</Link>
             </p>
             <p onClick={manageDisplay} style={{ cursor: "pointer" }}>
               <Link onClick={manageDisplay} to="/login">
@@ -490,7 +494,7 @@ const Navbar = () => {
                   alt="logo"
                 />
                 <div className={styles.login}>
-                  <Link to="/cart">My Cart : {cartLength}</Link>{" "}
+                  <Link to="/cart">My Cart : {cart.length}</Link>{" "}
                 </div>
               </div>
               <div className={styles.login1}>

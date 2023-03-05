@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { addToCart } from "../../Redux/cart/cart.actions";
 import {
   Container,
   Flex,
@@ -11,7 +11,7 @@ import {
   Box,
   Button,
   useToast,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import { PSlider } from "../Slider/PSlider";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
@@ -22,33 +22,30 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Error from "../Messages/Error";
 import Loading from "../Messages/Loading";
+import { useState } from "react";
 
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
   // console.log("voucher_id:", voucher_id);
   // const navigate = useNavigate;
   const { loading, error, data } = useSelector((store) => store.singlevoucher);
-  console.log('sv1data:', data)
+  console.log("sv1data:", data);
   const dispatch = useDispatch();
-  
+
   const toast = useToast();
 
   useEffect(() => {
-    dispatch(getSingleVouchers(voucher_id))
+    dispatch(getSingleVouchers(voucher_id));
   }, [voucher_id]);
 
-  if (loading) return <Loading />;
-
-  if (error) return <Error />;
-
-  const addToCart = async (el) => {
-    await axios.post("http://localhost:8080/cart", {
+  const cartHandler = (el) => {
+    let cartData = {
       name: el.name,
       image: el.image,
       price: el.price,
-      type: "Gift Card",
-      originalprice: "",
-    });
+      id: el.id + el.name,
+    };
+    dispatch(addToCart(cartData));
     toast({
       title: "Gift Card Added.",
       description: "We've added Gift Card For You In Cart.",
@@ -57,6 +54,9 @@ const SingleVoucherOne = () => {
       isClosable: true,
     });
   };
+  if (loading) return <Loading />;
+
+  if (error) return <Error />;
 
   return (
     <Container maxW="full" p={0}>
@@ -68,18 +68,24 @@ const SingleVoucherOne = () => {
         justifyContent={"center"}
         gap={4}
       >
-        <VStack w={{base:"100%", mid:"100%"}} h="full" p={10} spacing={10} boxShadow="base" /*bg={"red.50"}*/>
+        <VStack
+          w={{ base: "100%", mid: "100%" }}
+          h="full"
+          p={10}
+          spacing={10}
+          boxShadow="base" /*bg={"red.50"}*/
+        >
           <VStack spacing={10} alignItems="center">
             <Box my={[4, 2]} shadow={"base"} p={[8, 4]}>
               <Breadcrumb
                 spacing="8px"
                 separator={<ChevronRightIcon color="gray.500" />}
               >
-                <BreadcrumbItem >
+                <BreadcrumbItem>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
-                <BreadcrumbItem >
+                <BreadcrumbItem>
                   <BreadcrumbLink
                     textTransform={"capitalize"}
                     href={`/${voucher_id}`}
@@ -97,7 +103,7 @@ const SingleVoucherOne = () => {
             />
           </VStack>
         </VStack>
-        <VStack h="full" p={10} spacing={10} w={{base:"100%", mid:"100%"}}>
+        <VStack h="full" p={10} spacing={10} w={{ base: "100%", mid: "100%" }}>
           <Grid
             w="full"
             h="full"
@@ -125,7 +131,6 @@ const SingleVoucherOne = () => {
                   // onClick={()=>handleClick()}
                   // onClick={() => setCartItem(el)}
                   margin={"auto"}
-
                   alignItems={"center"}
                   textAlign="center"
                   key={el.id}
@@ -137,7 +142,7 @@ const SingleVoucherOne = () => {
                   <Button
                     colorScheme="blue"
                     mr={3}
-                    onClick={() => addToCart(el)}
+                    onClick={() => cartHandler(el)}
                   >
                     Add To Cart
                   </Button>
