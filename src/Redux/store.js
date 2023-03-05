@@ -5,6 +5,7 @@ import {
   applyMiddleware,
 } from "redux";
 import thunk from "redux-thunk";
+import { cartReducer } from "./cart/cart.reducer";
 import { singlevoucherReducer } from "./Vouchers/SingleVoucher/Sv.reducer";
 
 import { voucher1Reducer } from "./Vouchers/Voucher1/vouchers.reducer";
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   voucher2: voucher2Reducer,
   voucher3: voucher3Reducer,
   singlevoucher: singlevoucherReducer,
+  cart:cartReducer
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
