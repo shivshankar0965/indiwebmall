@@ -5,6 +5,7 @@ import {
   Link,
   Select,
   useColorModeValue,
+  useToast
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
@@ -20,12 +21,21 @@ export const CartItem = ({ name, image, price,id }) => {
   console.log("qty:", qty);
   const products = useSelector((store) => store.cart.cart);
 
+  const toast = useToast();
+
   let prices = price.slice(2, price.length).split(",").join("");
   Number(prices);
 
 const dispatch=useDispatch()
   const deleteHandler=(id) => {
     dispatch(removeFromCart(id))
+     toast({
+      title: "Gift Card Removed.",
+      description: "We've removed Gift Card For You.",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
   }
 
   return (
