@@ -25,11 +25,8 @@ import LoginAdmin from "./LoginAdmin/LoginAdmin";
 import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-import Index from "./Index";
-import CheckoutPage from "./CheckoutPage";
 import Order from "../Components/Orders/Order";
 import Products from "./Products";
-import AdminIndex from "./AdminIndex";
 import Checkout from "../Components/Cart/Checkout";
 const AllRoutes = () => {
   return (
@@ -268,7 +265,6 @@ const AllRoutes = () => {
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-      <Route path="checkoutpage" element={<CheckoutPage />} />
     </Routes>
   );
 };

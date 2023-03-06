@@ -19,15 +19,6 @@ import "reactjs-popup/dist/index.css";
 import { Link, useNavigate } from "react-router-dom";
 const OrderSummaryItem = (props) => {
   const { label, value, children } = props;
-
-  const products = useSelector((store) => store.cart.cart);
-  const sum = products.reduce((accumulator, object) => {
-    let prices = object.price.slice(2, object.price.length).split(",").join("");
-
-    return accumulator + Number(prices);
-  }, 0);
-
-  // console.log('value:', value)
   return (
     <Flex justify="space-between" fontSize="sm">
       <Text fontWeight="medium" color={mode("gray.600", "gray.400")}>
@@ -47,10 +38,9 @@ export const ConfirmOrder = () => {
 
     return accumulator + Number(prices);
   }, 0);
-  console.log(sum);
+
 
   let x = localStorage.getItem("tax");
-  console.log("x:", x);
   let total = Number(x) + sum;
   function redirectHandler() {
     navigate("/");

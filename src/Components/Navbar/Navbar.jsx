@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import img from "../../Assets/indiwebmall_logo.png";
+import React, { useState } from "react";
 import styles from "./navbar.module.css";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
 import "./navbarPopup.css";
@@ -7,7 +6,6 @@ import { useContext } from "react";
 import { AuthContext } from "./../../Context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
 
@@ -34,9 +32,8 @@ const Navbar = () => {
     });
   };
   // all toasts are here
-  // console.log("auth", isAuth);
+
   let authentication = localStorage.getItem("auth");
-  // console.log(authentication);
 
   const Show_Login_Page = () => {
     document.querySelector(".popup").classList.add("active");
@@ -44,10 +41,6 @@ const Navbar = () => {
 
   const Hide_Login_Page = () => {
     document.querySelector(".popup").classList.remove("active");
-  };
-
-  const getCartitem = () => {
-    return axios.get(`http://localhost:8080/cart`);
   };
 
   // navbar Login start
@@ -61,22 +54,16 @@ const Navbar = () => {
   const [display1, setDisplay1] = useState("displayNone1");
   const [display2, setDisplay2] = useState("displayNone2");
   const [display3, setDisplay3] = useState("displayNone3");
-  const [cartLength, setCartLength] = useState(0);
 
   const { cart } = useSelector((store) => store.cart);
-  console.log("cart:", cart);
-
-  useEffect(() => {
-    getCartitem().then((d) => setCartLength(d.data.length));
-  }, []);
 
   const submitLogin = async () => {
     setload(true);
-    // console.log(load);
+
     try {
       let res = await fetch(`https://indiweb-api-json.vercel.app/users`);
       let data = await res.json();
-      // console.log(data);
+
       let Auth = false;
       for (let i in data) {
         if (data[i].email === email && data[i].password === password) {
@@ -84,7 +71,7 @@ const Navbar = () => {
           localStorage.setItem("auth", true);
           localStorage.setItem("name", data[i].name);
           loginUser(data[i].name);
-          // console.log(data[i].name);
+
           break;
         }
       }
@@ -97,7 +84,6 @@ const Navbar = () => {
         loginSuccess();
         navigate("/");
       }
-      // console.log(Auth);
     } catch (error) {
       setload(false);
 
@@ -235,12 +221,12 @@ const Navbar = () => {
             />
             <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
               <span onClick={manageDisplay2}>
-                <a href="#">Products</a>
+                <Link href="#">Products</Link>
               </span>
             </p>
             <p onClick={manageDisplay1} style={{ cursor: "pointer" }}>
               <span onClick={manageDisplay3}>
-                <a href="#">Gift Cards</a>
+                <Link href="#">Gift Cards</Link>
               </span>
             </p>
           </div>
@@ -347,12 +333,12 @@ const Navbar = () => {
               <div>
                 <HamburgerIcon className={styles.logo} w={6} h={5} />
                 <div className={styles.shopby} style={{ fontWeight: "600" }}>
-                  <a href="#">Shop by Category</a>
+                  <Link href="#">Shop by Category</Link>
                   <ul>
                     <li>
-                      <a className={styles.dropMenu} href="#">
+                      <Link className={styles.dropMenu} href="#">
                         <span className={styles.products}>Products</span>{" "}
-                      </a>
+                      </Link>
                       <ul>
                         <li>
                           <span
@@ -367,52 +353,52 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="/products/accessories">
+                          <Link href="/products/accessories">
                             <span className={styles.productssmall}>
                               Accessories
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/bags">
+                          <Link href="/products/bags">
                             <span className={styles.productssmall}>Bags</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/clothing">
+                          <Link href="/products/clothing">
                             <span className={styles.productssmall}>
                               Clothes
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/cosmetics">
+                          <Link href="/products/cosmetics">
                             <span className={styles.productssmall}>
                               Cosmetics
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/products">
+                          <Link href="/products/products">
                             <span className={styles.productssmall}>Items</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/sale">
+                          <Link href="/products/sale">
                             <span className={styles.productssmall}>Sale</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products/shoes">
+                          <Link href="/products/shoes">
                             <span className={styles.productssmall}>Shoes</span>
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a className={styles.dropMenu} href="#">
+                      <Link className={styles.dropMenu} href="#">
                         <span className={styles.giftcard}>Gift Cards</span>{" "}
-                      </a>
+                      </Link>
                       <ul>
                         <li>
                           <span
@@ -427,47 +413,47 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li>
-                          <a href="/jockey">
+                          <Link href="/jockey">
                             <span className={styles.giftcardsmall}>Jockey</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/levis">
+                          <Link href="/levis">
                             <span className={styles.giftcardsmall}>Levis</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/pantaloons">
+                          <Link href="/pantaloons">
                             <span className={styles.giftcardsmall}>
                               Pantaloons
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/unitedcolors">
+                          <Link href="/unitedcolors">
                             <span className={styles.giftcardsmall}>
                               United Colors
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/biba">
+                          <Link href="/biba">
                             <span className={styles.giftcardsmall}>Biba</span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/indianterrain">
+                          <Link href="/indianterrain">
                             <span className={styles.giftcardsmall}>
                               Indian Terrain
                             </span>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="/decathlon">
+                          <Link href="/decathlon">
                             <span className={styles.giftcardsmall}>
                               Decathlon
                             </span>
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
@@ -595,7 +581,9 @@ const Navbar = () => {
             <label for="checkbox">Remember me</label>
           </div>
           <div className="form-element" onClick={Hide_Login_Page}>
-            <button onClick={submitLogin}>Log in</button>
+            <button onClick={submitLogin}>
+              {!load ? "Log in" : "loging..."}
+            </button>
           </div>
           <div>
             <p>
@@ -622,7 +610,7 @@ const Navbar = () => {
             </p>
           </div>
           <div className="form-element">
-            <a href="#">Forget Password</a>
+            <Link href="#">Forget Password</Link>
           </div>
         </div>
       </div>
