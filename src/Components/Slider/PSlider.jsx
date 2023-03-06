@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, Spacer, Text } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import {
   Accordion,
   AccordionItem,

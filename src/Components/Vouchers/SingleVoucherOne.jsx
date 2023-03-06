@@ -107,16 +107,13 @@ const SingleVoucherOne = () => {
             p={10}
             spacing={10}
             m="auto"
-            // alignItems={{base:"center",mid:"flex-start"}}
-            // justifyContent={{base:"center", mid:"auto"}}
-            // border="1px solid red"
+
             templateColumns={[
               "repeat(1, 1fr)",
               "repeat(1, 1fr)",
               "repeat(3, 1fr)",
               "repeat(4, 1fr)",
             ]}
-            // alignSelf={{base:"center", mid:"none"}}
             gap={10}
             // bg={"red"}
             boxShadow="base"

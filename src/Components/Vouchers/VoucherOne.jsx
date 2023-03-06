@@ -25,7 +25,6 @@ import styles from "./VoucherOne.module.css";
 
 export const VoucherOne = () => {
   const { loading, error, data } = useSelector((store) => store.voucher1);
-  console.log("Vdata:", data);
   const dispatch = useDispatch();
 
   const navigationPrevRef = React.useRef(null);
@@ -36,7 +35,7 @@ export const VoucherOne = () => {
       dispatch(getVouchers());
     }
     // getVouchers(dispatch);
-  }, []);
+  }, [data.length,dispatch]);
 
   if (loading) return <Loading />;
 
@@ -105,7 +104,7 @@ export const VoucherOne = () => {
       >
         {data.length > 0 &&
           data?.slice(0, 23).map((ele) => (
-            <SwiperSlide>
+            <SwiperSlide key={ele.id}>
               <Box
                 className={styles.box}
                 // style={{ marginLeft: "30px" }}
@@ -147,7 +146,7 @@ export const VoucherTwo = () => {
       dispatch(getVoucherTwo());
     }
     // getVoucherTwo(dispatch);
-  }, []);
+  }, [data.length,dispatch]);
 
   if (loading) return <Loading />;
 
@@ -215,7 +214,7 @@ export const VoucherTwo = () => {
       >
         {data.length > 0 &&
           data?.slice(23, 46).map((ele) => (
-            <SwiperSlide>
+            <SwiperSlide key={ele.id}>
               <Box
                 className={styles.box}
                 // style={{ marginLeft: "30px" }}
@@ -257,7 +256,7 @@ export const VoucherTri = () => {
       dispatch(getVoucherTri());
     }
     // getVoucherTri(dispatch);
-  }, []);
+  }, [data.length,dispatch]);
 
   if (loading) return <Loading />;
 
@@ -326,7 +325,7 @@ export const VoucherTri = () => {
       >
         {data.length > 0 &&
           data?.slice(46, 63).map((ele) => (
-            <SwiperSlide>
+            <SwiperSlide key={ele.id}>
               <Box
                 className={styles.box}
                 // style={{ marginLeft: "30px" }}

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  // Button,
   Image,
   Modal,
   ModalBody,
@@ -11,14 +10,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  useDisclosure,
 } from "@chakra-ui/react";
-import { Navigate, useNavigate } from "react-router-dom";
-import logo from "../../Utils/logo.png";
-import { Link, Link as routerLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const OrderS = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
   const onCloseHandler = () => {
     navigate("/");
@@ -63,18 +58,7 @@ export const OrderS = () => {
                 >
                   Your Order Has Been Successfully Placed
                 </Text>
-
-                <Link to="/">Shop More</Link>
               </Stack>
-
-              {/* <Button
-                fontSize="sm"
-                textAlign="center"
-                color={useColorModeValue("gray.600", "gray.400")}
-                textDecoration="underline"
-              >
-                <routerLink to="/">Go To Home</routerLink>
-              </Button> */}
             </Stack>
           </ModalBody>
           <ModalFooter>

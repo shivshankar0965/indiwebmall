@@ -14,18 +14,12 @@ import { useNavigate } from "react-router-dom";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 import empty from "../../Utils/empty.png";
-import { useEffect } from "react";
-// import { clearAllProducts, getProducts } from "../../Redux/Cart/action";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export const Cart = () => {
   const products = useSelector((store) => store.cart.cart);
-  // console.log('products:', products)
 
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   dispatch(getProducts);
-  // }, []);
   const toast = useToast();
 
   const handleClear = () => {
