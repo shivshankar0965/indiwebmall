@@ -67,6 +67,15 @@
 ![ProductsPage](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/Products%20list.png?raw=true)
 <br/>
 
+## Cart Page:
+
+![ProductsPage](https://github.com/shivshankar0965/indiwebmall/blob/main/screenshots/indiwebmall/cart%20page.png?raw=true)
+<br/>
+
+## Shipping Page:
+
+![ProductsPage](https://github.com/shivshankar0965/indiwebmall/blob/main/screenshots/indiwebmall/shipping_cart.png?raw=true)
+<br/>
 ## Admin Section:
 
 ![AdminDashboard](https://github.com/shivshankar0965/general-protest-6773/blob/main/screenshots/indiwebmall/admin_dashboard1.png?raw=true);
