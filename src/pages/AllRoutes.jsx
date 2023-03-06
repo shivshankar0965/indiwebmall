@@ -19,7 +19,7 @@ import JewelleryThird from "../Components/Second_Column_rrb/JewelleryThird";
 import JewelleryFourth from "../Components/Second_Column_rrb/JewelleryFourth";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Users from "../Components/AdminUsers/Users";
-import {Cart} from "../Components/Cart/Cart";
+import { Cart } from "../Components/Cart/Cart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoginAdmin from "./LoginAdmin/LoginAdmin";
 import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
