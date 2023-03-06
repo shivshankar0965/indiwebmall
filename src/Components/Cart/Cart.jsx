@@ -19,8 +19,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Cart = () => {
-  const dispatch = useDispatch();
-  const  products  = useSelector((store) => store.cart.cart);
+  const products = useSelector((store) => store.cart.cart);
   // console.log('products:', products)
 
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ export const Cart = () => {
   const toast = useToast();
 
   const handleClear = () => {
-    localStorage.removeItem('cart')
+    localStorage.removeItem("cart");
     window.location.reload();
     toast({
       title: "All Cart Item removed.",
@@ -83,7 +82,12 @@ export const Cart = () => {
               Shopping Cart ({products.length} items)
             </Heading>
 
-            <Stack spacing="6" display={"flex"} justify="center" align={"center"}>
+            <Stack
+              spacing="6"
+              display={"flex"}
+              justify="center"
+              align={"center"}
+            >
               <Image margin={"auto"} w={250} src={empty} alt="emptycart" />
             </Stack>
           </Stack>
@@ -147,7 +151,9 @@ export const Cart = () => {
             Shopping Cart ({products.length} items)
           </Heading>
 
-          <Button colorScheme='red' onClick={handleClear}>Clear All</Button>
+          <Button colorScheme="red" onClick={handleClear}>
+            Clear All
+          </Button>
 
           <Stack spacing="6">
             {products.map((item) => (
@@ -165,7 +171,7 @@ export const Cart = () => {
             <p>or</p>
             <Link
               onClick={() => navigate("/")}
-              color={mode("blue.500", "blue.200")}
+              color={mode("orange.500", "orange.200")}
             >
               Continue shopping
             </Link>

@@ -64,7 +64,7 @@ const Navbar = () => {
   const [cartLength, setCartLength] = useState(0);
 
   const { cart } = useSelector((store) => store.cart);
-  console.log('cart:', cart)
+  console.log("cart:", cart);
 
   useEffect(() => {
     getCartitem().then((d) => setCartLength(d.data.length));
@@ -160,7 +160,11 @@ const Navbar = () => {
         {/* logo */}
         <div className={styles.logoDiv}>
           <Link to="/">
-            <img src={img} alt="Logo" className={styles.logoImg} />
+            <img
+              src="./iwm_logo_without_bg.png"
+              alt="Logo"
+              className={styles.logoImg}
+            />
           </Link>
         </div>
         {/* 3 section */}
@@ -329,7 +333,11 @@ const Navbar = () => {
         <div>
           <div className={styles.logoDiv} style={{ padding: "10px" }}>
             <Link to="/">
-              <img src={img} alt="Logo" className={styles.logoImg} />
+              <img
+                src={"./iwm_logo_without_bg.png"}
+                alt="Logo"
+                className={styles.logoImg}
+              />
             </Link>
           </div>
         </div>

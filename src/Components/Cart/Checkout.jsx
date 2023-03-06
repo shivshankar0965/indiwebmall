@@ -4,7 +4,6 @@ import {
   Heading,
   Flex,
   VStack,
-  Image,
   SimpleGrid,
   GridItem,
   FormControl,
@@ -14,15 +13,14 @@ import {
   useBreakpointValue,
   Stack,
 } from "@chakra-ui/react";
-import logo from "../../Utils/logo.png";
+
 import { Radio, RadioGroup } from "@chakra-ui/react";
-// import CreditCardIcon from "@mui/icons-material/CreditCard";
+
 import { ConfirmOrder } from "./ConfirmOrder";
-import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const colSpan = useBreakpointValue({ base: 2, md: 1 });
-  const navigate = useNavigate()
+
   return (
     <Container maxW="full" p={0}>
       <Flex
@@ -32,8 +30,6 @@ const Checkout = () => {
       >
         <VStack w="full" h="full" p={10} spacing={10} /*bg={"red.50"}*/>
           <VStack spacing={10} alignItems="center">
-            <Image onClick={()=>navigate("/")} src={logo} alt="mylogo" w={200} />
-
             <Heading>Shipping Information</Heading>
 
             <form style={{ width: "100%" }}>
@@ -129,17 +125,29 @@ const Checkout = () => {
                 </GridItem>
                 <GridItem colSpan={colSpan}>
                   <FormControl isRequired>
-                    <Input placeholder="Name On Card" type="text" name="cardname"></Input>
+                    <Input
+                      placeholder="Name On Card"
+                      type="text"
+                      name="cardname"
+                    ></Input>
                   </FormControl>
                 </GridItem>
                 <GridItem colSpan={2}>
                   <FormControl isRequired>
-                    <Input placeholder="Expiry date" type="month" name="date"></Input>
+                    <Input
+                      placeholder="Expiry date"
+                      type="month"
+                      name="date"
+                    ></Input>
                   </FormControl>
                 </GridItem>
                 <GridItem colSpan={2}>
                   <FormControl isRequired>
-                    <Input placeholder="CVV/CVC" type="number" name="cvv"></Input>
+                    <Input
+                      placeholder="CVV/CVC"
+                      type="number"
+                      name="cvv"
+                    ></Input>
                   </FormControl>
                 </GridItem>
               </SimpleGrid>
