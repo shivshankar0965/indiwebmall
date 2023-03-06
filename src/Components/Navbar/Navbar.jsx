@@ -161,7 +161,7 @@ const Navbar = () => {
         <div className={styles.logoDiv}>
           <Link to="/">
             <img
-              src="./iwm_logo_without_bg.png"
+              src="/iwm_logo_without_bg.png"
               alt="Logo"
               className={styles.logoImg}
             />
@@ -334,7 +334,7 @@ const Navbar = () => {
           <div className={styles.logoDiv} style={{ padding: "10px" }}>
             <Link to="/">
               <img
-                src={"./iwm_logo_without_bg.png"}
+                src={"/iwm_logo_without_bg.png"}
                 alt="Logo"
                 className={styles.logoImg}
               />
