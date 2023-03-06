@@ -1,25 +1,18 @@
 import {
   CloseButton,
   Flex,
-  Image,
   Link,
-  Select,
-  useColorModeValue,
   useToast,
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
-import { useDispatch, useSelector } from "react-redux";
-// import { getProducts } from "../../Redux/Cart/action";
-// import { deleteProduct } from "../../Redux/Cart/action";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Quantity from "./Quantity";
 import { removeFromCart } from "../../Redux/cart/cart.actions";
 
 export const CartItem = ({ name, image, price, id }) => {
   const [qty, setQty] = useState(1);
-  console.log("qty:", qty);
-  const products = useSelector((store) => store.cart.cart);
 
   const toast = useToast();
 
