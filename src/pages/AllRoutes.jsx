@@ -249,7 +249,6 @@ const AllRoutes = () => {
           </>
         }
       />
-
       <Route
         path="/admin"
         element={
@@ -263,7 +262,6 @@ const AllRoutes = () => {
         <Route path="users" element={<Users />} />
         <Route path="products" element={<AdminProducts />} />
       </Route>
-
       <Route path="/:voucher_id" element={<VoucherDetails />} />
     </Routes>
   );
