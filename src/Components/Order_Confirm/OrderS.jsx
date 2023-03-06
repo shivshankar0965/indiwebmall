@@ -1,25 +1,33 @@
 import {
   Box,
+  Button,
   // Button,
   Image,
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
   ModalOverlay,
   Stack,
   Text,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-
+import { Navigate, useNavigate } from "react-router-dom";
 import logo from "../../Utils/logo.png";
-import { Link as routerLink } from "react-router-dom";
+import { Link, Link as routerLink } from "react-router-dom";
 
 export const OrderS = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+  const onCloseHandler = () => {
+    navigate("/");
+  };
   return (
     <Box height="100vh">
       <Modal
         isOpen={true}
-        onClose={() => void 0}
+        onClose={onCloseHandler}
         size="2xl"
         // `trapFocus` and `blockScrollOnMount` are only switched off so that the preview works properly.
         blockScrollOnMount={false}
@@ -40,11 +48,11 @@ export const OrderS = () => {
                 md: "10",
               }}
             >
-              <Image src={logo} alt="logo" />
+              <Image src={"./iwm_logo_without_bg.png"} alt="logo" />
               <Stack spacing="3" textAlign="center">
                 <Text fontSize="lg">Thank You For Shopping</Text>
                 <Text
-                  color={useColorModeValue("blue.500", "blue.200")}
+                  color={useColorModeValue("orange.400", "orange.200")}
                   fontWeight="bold"
                   fontSize={{
                     base: "1xl",
@@ -55,6 +63,8 @@ export const OrderS = () => {
                 >
                   Your Order Has Been Successfully Placed
                 </Text>
+
+                <Link to="/">Shop More</Link>
               </Stack>
 
               {/* <Button
@@ -67,6 +77,11 @@ export const OrderS = () => {
               </Button> */}
             </Stack>
           </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={() => navigate("/")}>
+              Close
+            </Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </Box>

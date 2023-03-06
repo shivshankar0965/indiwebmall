@@ -32,7 +32,6 @@ export const CartOrderSummary = () => {
 
     return accumulator + Number(prices);
   }, 0);
-  console.log(sum);
 
   let tax;
   products.length === 0
@@ -65,7 +64,7 @@ export const CartOrderSummary = () => {
         </Flex>
       </Stack>
       <Button
-        colorScheme="blue"
+        colorScheme="orange"
         size="lg"
         fontSize="md"
         rightIcon={<FaArrowRight />}

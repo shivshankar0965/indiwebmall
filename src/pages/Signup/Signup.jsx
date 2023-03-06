@@ -71,27 +71,8 @@ function Signup() {
     // for normal signup
     if (!mailAuth) {
       try {
-        // let res = await fetch(`http://localhost:8080/users`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     name,
-        //     email,
-        //     password,
-        //     mobile,
-        //     gender,
-        //     profile:
-        //       "https://loopinfosol.in/themeforest/ekka-html-v33/ekka-admin/assets/img/vendor/u1.jpg",
-        //     orders: [],
-        //   }),
-        // });
-        // let data = await res.json();
-        // console.log(data);
-        let res;
         setTimeout(async () => {
-          res = await axios.post(`https://indiweb-api-json.vercel.app/users`, {
+          await axios.post(`https://indiweb-api-json.vercel.app/users`, {
             name,
             email,
             password,

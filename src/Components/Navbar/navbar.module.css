@@ -3,7 +3,7 @@
 }
 
 .logoImg {
-  width: 6%;
+  width: 18%;
   margin: auto;
 }
 
@@ -183,6 +183,8 @@
 @media screen and (max-width: 820px) {
   .mobileOnly {
     display: none;
+    /* display: initial;
+    background: rgb(245, 243, 241); */
   }
   .productssmall {
     font-size: 10px;
@@ -255,5 +257,8 @@
     width: 100%;
     font-size: 8px;
     border-radius: 2px;
+  }
+  .logoImg{
+    width: 30%;
   }
 }

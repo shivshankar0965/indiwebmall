@@ -1,6 +1,8 @@
 import {
+  Box,
   Button,
   Flex,
+  HStack,
   Heading,
   Stack,
   Text,
@@ -14,9 +16,17 @@ import { useSelector } from "react-redux";
 import { OrderS } from "../Order_Confirm/OrderS";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-
+import { Link, useNavigate } from "react-router-dom";
 const OrderSummaryItem = (props) => {
   const { label, value, children } = props;
+
+  const products = useSelector((store) => store.cart.cart);
+  const sum = products.reduce((accumulator, object) => {
+    let prices = object.price.slice(2, object.price.length).split(",").join("");
+
+    return accumulator + Number(prices);
+  }, 0);
+
   // console.log('value:', value)
   return (
     <Flex justify="space-between" fontSize="sm">
@@ -29,19 +39,22 @@ const OrderSummaryItem = (props) => {
 };
 
 export const ConfirmOrder = () => {
-  const  products  = useSelector((store) => store.cart.cart);
-  console.log("products:", products);
+  const products = useSelector((store) => store.cart.cart);
 
+  const navigate = useNavigate();
   const sum = products.reduce((accumulator, object) => {
-    return accumulator + Number(object.discounted_price);
+    let prices = object.price.slice(2, object.price.length).split(",").join("");
+
+    return accumulator + Number(prices);
   }, 0);
   console.log(sum);
-  
 
   let x = localStorage.getItem("tax");
-  console.log('x:', x)
+  console.log("x:", x);
   let total = Number(x) + sum;
- 
+  function redirectHandler() {
+    navigate("/");
+  }
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -51,9 +64,7 @@ export const ConfirmOrder = () => {
         <OrderSummaryItem label="Shipping + Tax">
           <Text>{x}</Text>
         </OrderSummaryItem>
-        <OrderSummaryItem label="Coupon Code">
-          <Text fontWeight={"bold"}>LAPDEN2023</Text>
-        </OrderSummaryItem>
+
         <Flex justify="space-between">
           <Text fontSize="lg" fontWeight="semibold">
             Total
@@ -66,7 +77,8 @@ export const ConfirmOrder = () => {
       <Popup
         trigger={
           <Button
-            colorScheme="blue"
+            onClick={redirectHandler}
+            colorScheme="orange"
             size="lg"
             fontSize="md"
             rightIcon={<FaArrowRight />}
@@ -77,6 +89,18 @@ export const ConfirmOrder = () => {
       >
         <OrderS />
       </Popup>
+      <HStack
+        d="flex"
+        justifyContent={"center"}
+        mx="auto"
+        mt="6"
+        fontWeight="semibold"
+      >
+        <p>or</p>
+        <Box _hover={{ textDecor: "underline" }} color={"orange.500"}>
+          <Link to="/">Continue shopping</Link>
+        </Box>
+      </HStack>
     </Stack>
   );
 };

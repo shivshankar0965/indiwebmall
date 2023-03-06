@@ -16,13 +16,10 @@ import {
 import { PSlider } from "../Slider/PSlider";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-
 import { getSingleVouchers } from "../../Redux/Vouchers/SingleVoucher/Sv.action";
 import { useDispatch, useSelector } from "react-redux";
-
 import Error from "../Messages/Error";
 import Loading from "../Messages/Loading";
-import { useState } from "react";
 
 const SingleVoucherOne = () => {
   let { voucher_id } = useParams();
@@ -36,7 +33,7 @@ const SingleVoucherOne = () => {
 
   useEffect(() => {
     dispatch(getSingleVouchers(voucher_id));
-  }, [voucher_id]);
+  }, [voucher_id, dispatch]);
 
   const cartHandler = (el) => {
     let cartData = {

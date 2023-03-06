@@ -5,7 +5,7 @@ import {
   Link,
   Select,
   useColorModeValue,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
@@ -16,7 +16,7 @@ import { useState } from "react";
 import Quantity from "./Quantity";
 import { removeFromCart } from "../../Redux/cart/cart.actions";
 
-export const CartItem = ({ name, image, price,id }) => {
+export const CartItem = ({ name, image, price, id }) => {
   const [qty, setQty] = useState(1);
   console.log("qty:", qty);
   const products = useSelector((store) => store.cart.cart);
@@ -26,17 +26,17 @@ export const CartItem = ({ name, image, price,id }) => {
   let prices = price.slice(2, price.length).split(",").join("");
   Number(prices);
 
-const dispatch=useDispatch()
-  const deleteHandler=(id) => {
-    dispatch(removeFromCart(id))
-     toast({
-      title: "Gift Card Removed.",
-      description: "We've removed Gift Card For You.",
+  const dispatch = useDispatch();
+  const deleteHandler = (id) => {
+    dispatch(removeFromCart(id));
+    toast({
+      title: "Item has been Removed",
+      description: "We've removed your item successfully...",
       status: "error",
       duration: 5000,
       isClosable: true,
     });
-  }
+  };
 
   return (
     <Flex
