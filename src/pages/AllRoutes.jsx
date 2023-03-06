@@ -26,7 +26,7 @@ import PrivateRouteAdmin from "../PrivateRoute/PrivateRouteAdmin";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Index from "./Index";
-import CartPage from "./CartPage";
+
 import CheckoutPage from "./CheckoutPage";
 import Order from "../Components/Orders/Order";
 import Products from "./Products";
@@ -269,7 +269,6 @@ const AllRoutes = () => {
       </Route>
 
       <Route path="/:voucher_id" element={<VoucherDetails />} />
-      <Route path="cart" element={<CartPage />} />
       <Route path="checkoutpage" element={<CheckoutPage />} />
     </Routes>
   );
