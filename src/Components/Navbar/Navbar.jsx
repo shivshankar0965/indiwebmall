@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
+import { gifSLinks, prodLinks } from "./navlinks";
 
 const Navbar = () => {
   const { logoutUser } = useContext(AuthContext);
@@ -249,27 +250,15 @@ const Navbar = () => {
           >
             Products
           </h3>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/accessories">Accessories</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/bags">Bags</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/clothing">Clothes</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/cosmetics">Cosmetics</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/products">Items</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/sale">Sale</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/products/shoes">Shoes</Link>
-          </p>
+          {/** products links mapping for smaller screen */}
+          {prodLinks.map((item) => (
+            <p
+              key={item}
+              style={{ marginLeft: "10px", textTransform: "capitalize" }}
+            >
+              <Link to={`/products/${item}`}>{item}</Link>
+            </p>
+          ))}
         </div>
         {/* gift cards */}
         <div onClick={manageDisplay3} className={display3}>
@@ -289,27 +278,16 @@ const Navbar = () => {
           >
             Gift Cards
           </h3>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/jockey">Jockey</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/levis">Levis</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/pantaloons">Pantaloons</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/unitedcolors">United Colors</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/biba">Biba</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/indianterrain">Indian Terrain</Link>
-          </p>
-          <p style={{ marginLeft: "10px" }}>
-            <Link to="/decathlon">Decathlon</Link>
-          </p>
+          {/** Gifts cards links mapping for smaller screen */}
+          {gifSLinks.map((item) => (
+            <p
+              kye={item.link}
+              onClick={() => navigate(`/${item.link}`)}
+              style={{ marginLeft: "10px" }}
+            >
+              {item.title}
+            </p>
+          ))}
         </div>
       </div>
 
@@ -352,47 +330,19 @@ const Navbar = () => {
                             Products
                           </span>
                         </li>
-                        <li>
-                          <Link href="/products/accessories">
-                            <span className={styles.productssmall}>
-                              Accessories
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/bags">
-                            <span className={styles.productssmall}>Bags</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/clothing">
-                            <span className={styles.productssmall}>
-                              Clothes
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/cosmetics">
-                            <span className={styles.productssmall}>
-                              Cosmetics
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/products">
-                            <span className={styles.productssmall}>Items</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/sale">
-                            <span className={styles.productssmall}>Sale</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/products/shoes">
-                            <span className={styles.productssmall}>Shoes</span>
-                          </Link>
-                        </li>
+                        {/* products links maping for bigger screen */}
+                        {prodLinks.map((item) => (
+                          <li key={item}>
+                            <Link to={`/products/${item}`}>
+                              <span
+                                style={{ textTransform: "capitalize" }}
+                                className={styles.productssmall}
+                              >
+                                {item}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     </li>
                     <li>
@@ -412,49 +362,16 @@ const Navbar = () => {
                             Gift Cards
                           </span>
                         </li>
-                        <li>
-                          <Link href="/jockey">
-                            <span className={styles.giftcardsmall}>Jockey</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/levis">
-                            <span className={styles.giftcardsmall}>Levis</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/pantaloons">
-                            <span className={styles.giftcardsmall}>
-                              Pantaloons
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/unitedcolors">
-                            <span className={styles.giftcardsmall}>
-                              United Colors
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/biba">
-                            <span className={styles.giftcardsmall}>Biba</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/indianterrain">
-                            <span className={styles.giftcardsmall}>
-                              Indian Terrain
-                            </span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/decathlon">
-                            <span className={styles.giftcardsmall}>
-                              Decathlon
-                            </span>
-                          </Link>
-                        </li>
+                        {/** Gift cards mapping for bigger screen */}
+                        {gifSLinks.map((item) => (
+                          <li>
+                            <Link to={`/${item.link}`}>
+                              <span className={styles.giftcardsmall}>
+                                {item.title}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     </li>
                   </ul>
