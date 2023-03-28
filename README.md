@@ -7,7 +7,7 @@
 
 - Shiv Shankar (My Linkedin profile :- https://www.linkedin.com/in/shivshankar0965/)
 
-- Kausik Bhaumik (My Linkedin profile :- https://www.linkedin.com/)
+- Kausik Bhaumik (My Linkedin profile :- https://www.linkedin.com/in/kausik-bhaumik-617179229/)
 
 - Rishi Raj (My Linkedin profile :- http://www.linkedin.com/in/rishi-raj-bhardwaj)
 
